@@ -1,9 +1,4 @@
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useState,
-} from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
 
 import { useToast } from "@chakra-ui/react";
 
@@ -47,7 +42,9 @@ interface AuthContextData {
   SignUp: ({ name, email, password, interest }: SignUpData) => void;
 }
 
-const AuthContext = createContext<AuthContextData>({} as AuthContextData);
+export const AuthContext = createContext<AuthContextData>(
+  {} as AuthContextData
+);
 
 function useAuth() {
   const context = useContext(AuthContext);
