@@ -78,7 +78,7 @@ function AuthProvider({ children }: AuthProviderProps) {
     api
       .post("/login", { email, password })
       .then((res) => {
-        history.push("/dasboard");
+        history.push("/dashboard");
         toast({
           title: "Login realizado com sucesso.",
           status: "success",
