@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { api } from "../../services/index";
-
+import { useAuth } from "../AuthContext";
 interface UserPlantsProviderProps {
   children: ReactNode;
 }
@@ -17,7 +17,12 @@ interface plant {
   userId?: number;
   id?: number;
 }
-
+interface User {
+  id: number;
+  email: string;
+  name: string;
+  interest: string;
+}
 interface UserPlantsContextData {
   getUserPlants: (userId: number, token: string) => void;
   addNewPlant: (plant: plant, token: string) => void;
@@ -29,18 +34,19 @@ const UserPlantsContext = createContext<UserPlantsContextData>(
   {} as UserPlantsContextData
 );
 
-export function useUserPlants() {
+function useUserPlants() {
   const context = useContext(UserPlantsContext);
   return context;
 }
 function UserPlantsProvider({ children }: UserPlantsProviderProps) {
   const [userPlants, setUserPlants] = useState<plant[]>([]);
+  const { user, accessToken } = useAuth();
 
-  function getUserPlants(userId: number, token: string) {
+  function getUserPlants(userId: number) {
     api
       .get(`/userPlants/?userId=${userId}`, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${accessToken}`,
         },
       })
       .then((response) => {
@@ -59,21 +65,21 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
       })
       .then((_) => {
         console.log("adicionando ao carrinho");
-        // getUserPlants(accessToken, userId)
+        getUserPlants(user.id);
       })
       .catch((error) => console.log(error));
   }
 
-  function changeUserPlant(plant: plant, token: string) {
+  function changeUserPlant(plant: plant) {
     api
-      .patch(`/userPlants/:${plant.id}`, plant, {
+      .patch(`/userPlants/${plant.id}`, plant, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${accessToken}`,
         },
       })
       .then((_) => {
         console.log("adicionando ao carrinho");
-        // getUserPlants(accessToken, userId)
+        getUserPlants(user.id);
       })
       .catch((error) => console.log(error));
   }
@@ -87,7 +93,7 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
       })
       .then((_) => {
         console.log("adicionando ao carrinho");
-        // getUserPlants(accessToken, userId)
+        getUserPlants(user.id);
       })
       .catch((error) => console.log(error));
   }
@@ -100,4 +106,4 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
   );
 }
 
-export default UserPlantsProvider;
+export { UserPlantsProvider, useUserPlants };
