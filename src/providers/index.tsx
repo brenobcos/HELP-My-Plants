@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { ChakraProvider } from "@chakra-ui/provider";
 import { theme } from "../styles/theme";
 import { PlantsProvider } from "./plantsProvider";
+import { AuthProvider } from "./AuthContext";
 
 interface ProvidersProps {
   children: ReactNode;
@@ -10,7 +11,9 @@ interface ProvidersProps {
 export function Providers({ children }: ProvidersProps) {
   return (
     <ChakraProvider theme={theme}>
-      <PlantsProvider>{children}</PlantsProvider>
+      <AuthProvider>
+        <PlantsProvider>{children}</PlantsProvider>
+      </AuthProvider>
     </ChakraProvider>
   );
 }
