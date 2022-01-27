@@ -41,6 +41,7 @@ function LogInForm() {
   });
 
   const { signIn } = useAuth();
+  const history = useHistory();
 
   function handleSignIn(data: SignInData) {
     signIn(data);
@@ -151,7 +152,8 @@ function LogInForm() {
             )}
           </InputGroup>
           <Text fontSize={12} textShadow={"0px 4px 4px rgba(0, 0, 0, 0.25)"}>
-            Não tem uma conta ainda? Clique <b>aqui.</b>
+            Não tem uma conta ainda? Clique{" "}
+            <b onClick={() => history.push("/signup")}>aqui.</b>
           </Text>
           <Button
             sx={{
