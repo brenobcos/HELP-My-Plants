@@ -1,21 +1,16 @@
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
-import { api } from "../../services";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useAuth } from "../../providers/AuthContext";
 import {
   Box,
   Button,
-  Flex,
   FormControl,
   FormErrorMessage,
-  FormHelperText,
-  FormLabel,
   Icon,
   Input,
   InputGroup,
-  InputRightAddon,
   InputRightElement,
   Stack,
   Text,
@@ -72,6 +67,7 @@ function LogInForm() {
         sx={{ alignItems: "center", justifyContent: "center", gap: "15px" }}
       >
         <FormControl
+          as="form"
           isInvalid={!!errors}
           sx={{
             width: "80%",
@@ -85,6 +81,7 @@ function LogInForm() {
         >
           <InputGroup sx={{ display: "flex", flexDirection: "column" }}>
             <Input
+              id="email"
               focusBorderColor="green.400"
               placeholder="E-mail"
               sx={{
@@ -106,7 +103,7 @@ function LogInForm() {
                 />
               }
             />
-            {console.log(errors.email?.message)}
+
             {!!errors.email?.message && (
               <FormErrorMessage
                 color="red.400"
@@ -119,6 +116,7 @@ function LogInForm() {
           </InputGroup>
           <InputGroup sx={{ display: "flex", flexDirection: "column" }}>
             <Input
+              id="password"
               focusBorderColor="green.400"
               placeholder="Senha"
               sx={{
