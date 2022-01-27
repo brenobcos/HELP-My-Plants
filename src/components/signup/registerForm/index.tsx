@@ -3,18 +3,18 @@ import { Button, Flex, Heading, Input, Text, VStack } from "@chakra-ui/react";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-// import { AuthContext } from "../../../providers/AuthContext";
+import { AuthContext } from "../../../providers/AuthContext";
 
 interface SignUpData {
   email: string;
   name: string;
   interest: string;
   password: string;
-  confirm_password: string;
+  confirm_password?: string;
 }
 
 export function RegisterForm() {
-  //   const { Signup } = useContext(AuthContext);
+  const { SignUp } = useContext(AuthContext);
 
   const registerSchema = yup.object().shape({
     name: yup
@@ -40,16 +40,15 @@ export function RegisterForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: yupResolver(registerSchema) });
+  } = useForm<SignUpData>({ resolver: yupResolver(registerSchema) });
 
-  function onSubmitFunction(signupData: SignUpData) {
-    console.log("oi");
-    // Signup(signupData);
+  function onSubmitFunction(signup: SignUpData) {
+    SignUp(signup);
   }
 
   return (
     <Flex
-      //   onSubmit={handleSubmit(onSubmitFunction)}
+      onSubmit={handleSubmit(onSubmitFunction)}
       as="form"
       flexDirection="column"
       maxW="500px"
@@ -81,8 +80,8 @@ export function RegisterForm() {
           type="password"
         />
         <Input
-          {...register("password_confirm")}
-          error={errors.password_confirm}
+          {...register("confirm_password")}
+          error={errors.confirm_password}
           placeholder="Confirmação de senha"
           type="password"
         />
