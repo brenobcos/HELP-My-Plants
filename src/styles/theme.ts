@@ -18,6 +18,7 @@ export const theme = extendTheme({
       700: "#E60000",
     },
     lighting: {
+      1: "#b0ff00",
       2: "#FAFF00",
       4: "#FFE600",
       6: "#FFCC00",
