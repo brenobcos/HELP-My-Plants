@@ -17,12 +17,6 @@ interface plant {
   userId?: number;
   id?: number;
 }
-interface User {
-  id: number;
-  email: string;
-  name: string;
-  interest: string;
-}
 interface UserPlantsContextData {
   getUserPlants: (userId: number, token: string) => void;
   addNewPlant: (plant: plant, token: string) => void;
