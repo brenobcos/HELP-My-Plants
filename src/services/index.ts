@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "link do heroku =D",
+  baseURL: "http://localhost:3001",
 });
