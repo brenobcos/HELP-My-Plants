@@ -1,22 +1,32 @@
 import {
   createContext,
   ReactNode,
-  useCallback,
   useContext,
   useState,
 } from "react";
 
+import { useToast } from "@chakra-ui/react";
+
 import { api } from "../services/index";
+import { useHistory } from "react-router-dom";
 
 interface AuthProviderProps {
   children: ReactNode;
+}
+
+interface SignUpData {
+  email: string;
+  name: string;
+  interest: string;
+  password: string;
+  confirm_password: string;
 }
 
 interface User {
   id: number;
   email: string;
   name: string;
-  interest:string;
+  interest: string;
 }
 
 interface AuthState {
@@ -34,11 +44,12 @@ interface AuthContextData {
   accessToken: string;
   signIn: (credentials: SignInCredentials) => Promise<void>;
   signOut: () => void;
+  SignUp: ({ name, email, password, interest }: SignUpData) => void;
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
-const useAuth = () => {
+function useAuth() {
   const context = useContext(AuthContext);
 
   if (!context) {
@@ -46,9 +57,12 @@ const useAuth = () => {
   }
 
   return context;
-};
+}
 
-const AuthProvider = ({ children }: AuthProviderProps) => {
+function AuthProvider({ children }: AuthProviderProps) {
+  const history = useHistory();
+  const toast = useToast();
+
   const [data, setData] = useState<AuthState>(() => {
     const accessToken = localStorage.getItem("@HelpMyPlants:accessToken");
     const user = localStorage.getItem("@HelpMyPlants:user");
@@ -60,23 +74,65 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     return {} as AuthState;
   });
 
-  const signIn = useCallback(async ({ email, password }: SignInCredentials) => {
-    const response = await api.post("/login", { email, password });
+  async function signIn({ email, password }: SignInCredentials) {
+    api
+      .post("/login", { email, password })
+      .then((res) => {
+        history.push("/dasboard");
+        toast({
+          title: "Login realizado com sucesso.",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
 
-    const { accessToken, user } = response.data;
+        const { accessToken, user } = res.data;
 
-    localStorage.setItem("@HelpMyPlants:accessToken", accessToken);
-    localStorage.setItem("@HelpMyPlants:user", JSON.stringify(user));
+        localStorage.setItem("@HelpMyPlants:accessToken", accessToken);
+        localStorage.setItem("@HelpMyPlants:user", JSON.stringify(user));
 
-    setData({ accessToken, user });
-  }, []);
+        setData({ accessToken, user });
+      })
+      .catch((err) => {
+        toast({
+          title: "Senha ou email incorreto.",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      });
+  }
 
-  const signOut = useCallback(() => {
+  async function SignUp({ name, email, password, interest }: SignUpData) {
+    api
+      .post("/users", { name, email, password, interest })
+      .then((res) => {
+        history.push("/");
+        toast({
+          title: "Conta criada.",
+          description: "Cadastro realizado com sucesso",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+      })
+      .catch((err) => {
+        toast({
+          title: "Email já cadastrado.",
+          description: "Tente outro Email",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      });
+  }
+
+  function signOut() {
     localStorage.removeItem("@HelpMyPlants:accessToken");
     localStorage.removeItem("@HelpMyPlants:user");
 
     setData({} as AuthState);
-  }, []);
+  }
 
   return (
     <AuthContext.Provider
@@ -85,11 +141,12 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
         user: data.user,
         signIn,
         signOut,
+        SignUp,
       }}
     >
       {children}
     </AuthContext.Provider>
   );
-};
+}
 
 export { AuthProvider, useAuth };
