@@ -49,17 +49,17 @@ function LogInForm() {
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
-        width: ["100vw", "500px", "600px"],
+        width: ["100vw", "400px", "500px"],
       }}
     >
       <Text
-        fontSize={[28, 36, 48]}
+        fontSize={["3xl", "4xl", "5xl"]}
         textShadow={"0px 4px 4px rgba(0, 0, 0, 0.5)"}
       >
         Entrar
       </Text>
       <Text
-        fontSize={[14, 20, 26]}
+        fontSize={["md", "lg", "xl"]}
         textShadow={"0px 4px 4px rgba(0, 0, 0, 0.5)"}
         sx={{ paddingBottom: "15px" }}
       >
@@ -99,10 +99,15 @@ function LogInForm() {
                 minHeight: "45px",
                 border: "none",
               }}
+              _autofill={{
+                transition: "background-color 5000s ease-in-out 0s",
+                color: "white",
+                webkitTextFillColor: "#ffffff",
+              }}
               _placeholder={{
                 color: "green.100",
                 fontWeight: "medium",
-                fontSize: ["14px", "18px", "24px"],
+                fontSize: ["md", "lg", "xl"],
               }}
               isInvalid={!!errors.email}
               {...register("email")}
@@ -145,7 +150,15 @@ function LogInForm() {
                 minHeight: "45px",
                 border: "none",
               }}
-              _placeholder={{ color: "green.100", fontWeight: "medium" }}
+              _autofill={{
+                transition: "background-color 5000s ease-in-out 0s",
+                color: "green.100",
+              }}
+              _placeholder={{
+                color: "green.100",
+                fontWeight: "medium",
+                fontSize: ["md", "lg", "xl"],
+              }}
               type="password"
               isInvalid={!!errors.password}
               {...register("password")}
@@ -174,7 +187,7 @@ function LogInForm() {
             )}
           </InputGroup>
           <Text
-            fontSize={[12, 15, 20]}
+            fontSize={["xs", "sm", "md"]}
             textShadow={"0px 4px 4px rgba(0, 0, 0, 0.25)"}
           >
             Não tem uma conta ainda? Clique{" "}

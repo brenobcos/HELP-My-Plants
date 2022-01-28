@@ -37,13 +37,13 @@ function SignIn() {
             "@media screen and (min-width: 1024px)": {
               justifyContent: "flex-start",
               paddingLeft: "2vw",
-              paddingTop: "30vh",
+              paddingTop: "20vh",
             },
             "@media screen and (min-width: 1280px)": {
               paddingLeft: "10vw",
             },
             "@media screen and (min-width: 1480px)": {
-              paddingLeft: "20vw",
+              paddingLeft: "15vw",
             },
           }}
         >
@@ -64,19 +64,19 @@ function SignIn() {
               filter: "drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.4))",
               "@media screen and (min-width: 1024px)": {
                 opacity: "1",
-                width: "40vw",
-                height: "40vw",
+                width: "30vw",
+                height: "30vw",
                 minWidth: "100px",
                 minHeight: "100px",
-                maxWidth: "800px",
-                maxHeight: "800px",
+                maxWidth: "580px",
+                maxHeight: "580px",
                 bottom: "0",
                 right: "5vw",
                 top: "15vh",
               },
               "@media screen and (min-width: 1280px)": {
-                width: "50vw",
-                height: "50vw",
+                width: "35vw",
+                height: "35vw",
               },
             }}
           />
