@@ -2,7 +2,7 @@ import { createContext, ReactNode, useContext, useState } from "react";
 
 import { useToast } from "@chakra-ui/react";
 
-import { api } from "../services/index";
+import { api } from "../../services/index";
 import { useHistory } from "react-router-dom";
 
 interface AuthProviderProps {

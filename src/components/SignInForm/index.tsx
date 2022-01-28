@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useAuth } from "../../providers/AuthContext";
+import { useAuth } from "../../providers/auth";
 import {
   Box,
   Button,

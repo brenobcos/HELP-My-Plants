@@ -3,7 +3,7 @@ import { Button, Flex, Heading, Input, Text, VStack } from "@chakra-ui/react";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { AuthContext } from "../../../providers/AuthContext";
+import { AuthContext } from "../../../providers/auth";
 
 interface SignUpData {
   email: string;
