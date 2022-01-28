@@ -14,8 +14,8 @@ function Routes() {
       <Route exact path="/" component={LandingPage} />
       <Route exact path="/signin" component={SignIn} />
       <Route exact path="/signup" component={SignUp} />
-      <Route exact path="/dashboard" component={Dashboard} />
-      <Route exact path="/plants" component={Plants} />
+      <Route exact path="/dashboard" component={Dashboard} isPrivate />
+      <Route exact path="/plants" component={Plants} isPrivate />
       <Route exact path="/curiosity" component={Curiosity} />
       <Route exact path="/aboutus" component={AboutUs} />
     </Switch>

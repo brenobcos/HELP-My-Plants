@@ -6,32 +6,33 @@ import {
   InputRightElement,
   Icon,
 } from "@chakra-ui/react";
+import { forwardRef, ForwardRefRenderFunction } from "react";
 import { FieldError } from "react-hook-form";
-import { IconBaseProps } from "react-icons";
+import { IconType } from "react-icons/lib";
 
 interface InputComponentProps extends InputProps {
   placeholder: string;
-  error: FieldError | null;
-  icon: React.ComponentType<IconBaseProps>;
+  error: FieldError | null | undefined;
+  type?: string;
+  icon: IconType;
 }
 
-export function InputComponent({
-  error,
-  placeholder,
-  icon,
-  ...rest
-}: InputComponentProps) {
+const InputBase: ForwardRefRenderFunction<
+  HTMLInputElement,
+  InputComponentProps
+> = ({ error = null, placeholder, icon, type, ...rest }, ref) => {
   return (
     <InputGroup display="flex" flexDirection="column">
       <Input
+        {...rest}
         placeholder={placeholder}
-        focusBorderColor="green.400"
+        _placeholder={{ color: "green.100", fontWeight: "medium" }}
         backgroundColor="green.800"
+        border="none"
         color="green.100"
         filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
+        focusBorderColor="green.400"
         height="45px"
-        border="none"
-        _placeholder={{ color: "green.100", fontWeight: "medium" }}
       />
       <InputRightElement>
         <Icon as={icon} color="green.100" height="24px" width="24px" />
@@ -41,4 +42,6 @@ export function InputComponent({
       </Text>
     </InputGroup>
   );
-}
+};
+
+export const InputComponent = forwardRef(InputBase);
