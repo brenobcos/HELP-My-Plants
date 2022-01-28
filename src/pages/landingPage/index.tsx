@@ -1,8 +1,9 @@
 import { Flex, Button, Text, Heading, Image, Center } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
-// import img from "./assets/landingpagelarge.png";
-const img = require("../../assets/landingpagelarge.png");
+
+const img = require("../../assets/Plant Image.png");
 const imgFooter = require("../../assets/landingpagesmall.png");
+
 function LandingPage() {
   const history = useHistory();
   return (
@@ -11,22 +12,25 @@ function LandingPage() {
         SUBSTITUA PELO HEADER AQUI :D
       </Center>
       <Flex
-        justifyContent="flex-start"
-        mt="1%"
-        ml={["0", "0", "0", "8%"]}
+        justifyContent={[
+          "space-around",
+          "space-around",
+          "space-around",
+          "space-evenly",
+        ]}
+        mr={["0", "0", "0", "8%"]}
         flexDirection={["column", "column", "column", "row"]}
         alignItems="center"
+        height={["85%", "100%", "100%", "auto"]}
       >
         <Flex
           mr={["0", "0", "0", "2.5%"]}
           flexDirection="column"
           w={["90%", "90%", "90%", "40%"]}
+          h={["50%", "50%", "50%", "80%"]}
+          justifyContent="space-evenly"
         >
-          <Heading
-            marginBottom="5%"
-            fontSize={["2xl", "4xl", "5xl", "6xl"]}
-            fontWeight="bold"
-          >
+          <Heading fontSize={["2xl", "4xl", "5xl", "6xl"]} fontWeight="800">
             MANTENHA SUAS PLANTAS SAÚDAVEIS
           </Heading>
           <Text fontSize={["sm", "md", "lg", "2xl"]}>
@@ -35,35 +39,28 @@ function LandingPage() {
           </Text>
           <Button
             onClick={() => history.push("/signup")}
-            w="190px"
-            h="70px"
+            w={["179px", "183px", "185px", "190px"]}
+            h={["46px", "52px", "62px", "70px"]}
             fontSize="22px"
             borderRadius="10px"
             color="gray.0"
             background="green.1000"
             backgroundColor="green.800"
-            mt="2.5%"
             _hover={{ border: "2px solid", borderColor: "green.500" }}
           >
-            Cadastrar
+            Cadastre-se
           </Button>
         </Flex>
-        <Center
-          width={["200px", "300px", "400px", "550px"]}
-          height={["200px", "300px", "400px", "550px"]}
-          borderRadius="50%"
-          bg="green.400"
-          position="relative"
-          ml={["0", "0", "0", "5%"]}
-        >
-          <Image
-            width={["150px", "220px", "320px", "400px"]}
-            height={["150px", "220px", "320px", "400px"]}
-            src={img}
-          />
-        </Center>
+
+        <Image
+          width={["220px", "300px", "300px", "500px"]}
+          height={["220px", "300px", "300px", "500px"]}
+          opacity={["0.5", "0.5", "0.5", "1"]}
+          src={img}
+        />
       </Flex>
       <Center
+        borderRadius="15px 0 0 0"
         bg="green.1000"
         w="70%"
         h="119px"
@@ -72,7 +69,7 @@ function LandingPage() {
         color="gray.0"
         display={["none", "none", "none", "inherit"]}
       >
-        <Center bg="green.100" w="200px" h="100%">
+        <Center bg="green.100" w="200px" h="100%" borderRadius="15px 0 0 0">
           <Image src={imgFooter} />
         </Center>
         <Text ml="3%">
