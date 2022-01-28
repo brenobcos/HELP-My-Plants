@@ -4,6 +4,8 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../providers/AuthContext";
+import { InputComponent } from "../../../components/input";
+import { FaCaretDown, FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 
 interface SignUpData {
   email: string;
@@ -52,7 +54,7 @@ export function RegisterForm() {
       as="form"
       flexDirection="column"
       maxW="500px"
-      w={["90vw", "60vw", "50vw", "30vw"]}
+      w={["80vw", "60vw", "50vw", "30vw"]}
     >
       <Heading as="h3" fontSize="2xl" fontWeight="regular" textAlign="center">
         Cadastro
@@ -61,38 +63,56 @@ export function RegisterForm() {
         Faça o cadastro para cuidar das suas plantas
       </Text>
       <VStack mt="6" spacing="4">
-        <Input {...register("name")} error={errors.name} placeholder="Nome" />
-        <Input
+        <InputComponent
+          {...register("name")}
+          error={errors.name}
+          icon={FaUser}
+          placeholder="Nome"
+        />
+        <InputComponent
           {...register("email")}
           error={errors.email}
+          icon={FaEnvelope}
           placeholder="Email"
         />
-        <Input
+        <InputComponent
           {...register("interest")}
           error={errors.interest}
+          icon={FaCaretDown}
           placeholder="Interesse"
           type="select"
         />
-        <Input
+        <InputComponent
           {...register("password")}
           error={errors.password}
+          icon={FaLock}
           placeholder="Senha"
           type="password"
         />
-        <Input
+        <InputComponent
           {...register("confirm_password")}
           error={errors.confirm_password}
+          icon={FaLock}
           placeholder="Confirmação de senha"
           type="password"
         />
       </VStack>
       <Button
         type="submit"
-        _hover={{ bg: "green.400" }}
-        bg="green.100"
+        _active={{
+          bg: "green.400",
+          transform: "scale(0.98)",
+          borderColor: "green.800",
+        }}
+        _focus={{
+          boxShadow: "0 0 1px 2px #184A2C, 0 1px 1px rgba(0, 0, 0, .15)",
+        }}
+        _hover={{ bg: "green.400", transform: "scale(1.01)" }}
+        backgroundColor="green.400"
         color="green.800"
-        fontSize="md"
-        mt="12"
+        filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
+        mt="8"
+        width="100%"
       >
         Cadastrar
       </Button>
