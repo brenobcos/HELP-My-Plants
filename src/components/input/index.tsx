@@ -6,21 +6,20 @@ import {
   InputRightElement,
   Icon,
 } from "@chakra-ui/react";
+import { forwardRef, ForwardRefRenderFunction } from "react";
 import { FieldError } from "react-hook-form";
 import { IconBaseProps } from "react-icons";
 
 interface InputComponentProps extends InputProps {
   placeholder: string;
-  error: FieldError | null;
+  error: FieldError | undefined | null;
   icon: React.ComponentType<IconBaseProps>;
 }
-
-export function InputComponent({
-  error,
-  placeholder,
-  icon,
-  ...rest
-}: InputComponentProps) {
+// NÃO CONSEGUI USAR FORWARDREF SEM SER COM ARROW FUNCTION
+const InputBase: ForwardRefRenderFunction<
+  HTMLInputElement,
+  InputComponentProps
+> = ({ error = null, placeholder, icon, ...rest }, ref) => {
   return (
     <InputGroup display="flex" flexDirection="column">
       <Input
@@ -41,4 +40,6 @@ export function InputComponent({
       </Text>
     </InputGroup>
   );
-}
+};
+
+export const InputComponent = forwardRef(InputBase);
