@@ -45,32 +45,38 @@ function LogInForm() {
   return (
     <Box
       sx={{
-        width: "100vw",
-        height: "100vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
+        width: ["100vw", "400px", "500px"],
       }}
     >
-      <Text fontSize={28} textShadow={"0px 4px 4px rgba(0, 0, 0, 0.25)"}>
+      <Text
+        fontSize={["3xl", "4xl", "5xl"]}
+        textShadow={"0px 4px 4px rgba(0, 0, 0, 0.5)"}
+      >
         Entrar
       </Text>
       <Text
-        fontSize={14}
-        textShadow={"0px 4px 4px rgba(0, 0, 0, 0.25)"}
+        fontSize={["md", "lg", "xl"]}
+        textShadow={"0px 4px 4px rgba(0, 0, 0, 0.5)"}
         sx={{ paddingBottom: "15px" }}
       >
         Faça login para cuidar das suas plantas
       </Text>
       <Stack
-        sx={{ alignItems: "center", justifyContent: "center", gap: "15px" }}
+        sx={{
+          alignItems: "center",
+          justifyContent: "center",
+          width: "100%",
+        }}
       >
         <FormControl
           as="form"
           isInvalid={!!errors}
           sx={{
-            width: "80%",
+            width: "90%",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -88,18 +94,34 @@ function LogInForm() {
                 backgroundColor: "green.800",
                 color: "green.100",
                 filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
-                height: "45px",
+                height: "3vw",
+                maxHeight: "70px",
+                minHeight: "45px",
                 border: "none",
               }}
-              _placeholder={{ color: "green.100", fontWeight: "medium" }}
+              _autofill={{
+                transition: "background-color 5000s ease-in-out 0s",
+                color: "white",
+                webkitTextFillColor: "#ffffff",
+              }}
+              _placeholder={{
+                color: "green.100",
+                fontWeight: "medium",
+                fontSize: ["md", "lg", "xl"],
+              }}
               isInvalid={!!errors.email}
               {...register("email")}
             />
             <InputRightElement
+              sx={{ height: "100%", paddingRight: "3%" }}
               children={
                 <Icon
                   as={HiMail}
-                  sx={{ color: "green.100", height: "24px", width: "24px" }}
+                  sx={{
+                    color: "green.100",
+                    height: "70%",
+                    width: "auto",
+                  }}
                 />
               }
             />
@@ -123,19 +145,34 @@ function LogInForm() {
                 backgroundColor: "green.800",
                 color: "green.100",
                 filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
-                height: "45px",
+                height: "3vw",
+                maxHeight: "70px",
+                minHeight: "45px",
                 border: "none",
               }}
-              _placeholder={{ color: "green.100", fontWeight: "medium" }}
+              _autofill={{
+                transition: "background-color 5000s ease-in-out 0s",
+                color: "green.100",
+              }}
+              _placeholder={{
+                color: "green.100",
+                fontWeight: "medium",
+                fontSize: ["md", "lg", "xl"],
+              }}
               type="password"
               isInvalid={!!errors.password}
               {...register("password")}
             />
             <InputRightElement
+              sx={{ height: "100%", paddingRight: "3%" }}
               children={
                 <Icon
                   as={FaLock}
-                  sx={{ color: "green.100", height: "24px", width: "24px" }}
+                  sx={{
+                    color: "green.100",
+                    height: "70%",
+                    width: "auto",
+                  }}
                 />
               }
             />
@@ -149,7 +186,10 @@ function LogInForm() {
               </FormErrorMessage>
             )}
           </InputGroup>
-          <Text fontSize={12} textShadow={"0px 4px 4px rgba(0, 0, 0, 0.25)"}>
+          <Text
+            fontSize={["xs", "sm", "md"]}
+            textShadow={"0px 4px 4px rgba(0, 0, 0, 0.25)"}
+          >
             Não tem uma conta ainda? Clique{" "}
             <b onClick={() => history.push("/signup")}>aqui.</b>
           </Text>
@@ -158,7 +198,12 @@ function LogInForm() {
               backgroundColor: "green.400",
               color: "green.800",
               width: "100%",
+              height: "3vw",
+              maxHeight: "70px",
+              minHeight: "45px",
               filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
+
+              fontSize: [12, 18, 26],
             }}
             _hover={{ bg: "green.400", transform: "scale(1.01)" }}
             _active={{
