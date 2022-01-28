@@ -22,6 +22,7 @@ interface UserPlantsContextData {
   addNewPlant: (plant: plant, token: string) => void;
   changeUserPlant: (plant: plant, token: string) => void;
   deleteUserPlant: (plantId: number, token: string) => void;
+  userPlants: plant[];
 }
 
 const UserPlantsContext = createContext<UserPlantsContextData>(
@@ -93,7 +94,13 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
   }
   return (
     <UserPlantsContext.Provider
-      value={{ getUserPlants, addNewPlant, changeUserPlant, deleteUserPlant }}
+      value={{
+        getUserPlants,
+        addNewPlant,
+        changeUserPlant,
+        deleteUserPlant,
+        userPlants,
+      }}
     >
       {children}
     </UserPlantsContext.Provider>
