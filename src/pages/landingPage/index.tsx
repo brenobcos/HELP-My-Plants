@@ -15,16 +15,21 @@ function LandingPage() {
         mt="1%"
         ml={["0", "0", "0", "8%"]}
         flexDirection={["column", "column", "column", "row"]}
+        alignItems="center"
       >
         <Flex
           mr={["0", "0", "0", "2.5%"]}
           flexDirection="column"
-          w={["100%", "100%", "100%", "40%"]}
+          w={["90%", "90%", "90%", "40%"]}
         >
-          <Heading marginBottom="5%" fontSize="62px" fontWeight="bold">
+          <Heading
+            marginBottom="5%"
+            fontSize={["2xl", "4xl", "5xl", "6xl"]}
+            fontWeight="bold"
+          >
             MANTENHA SUAS PLANTAS SAÚDAVEIS
           </Heading>
-          <Text fontSize="22px">
+          <Text fontSize={["sm", "md", "lg", "2xl"]}>
             Plantas reduzem o nível de stress e melhoram seu humor - O que as
             tornam perfeitas para sua casa e escritório.
           </Text>
