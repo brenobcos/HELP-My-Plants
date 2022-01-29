@@ -1,4 +1,6 @@
-import { Box, Flex, Image } from "@chakra-ui/react";
+import { Flex, Image } from "@chakra-ui/react";
+import { FaUserPlus } from "react-icons/fa";
+import Header from "../../components/header";
 import LogInForm from "../../components/SignInForm";
 
 const img = require("../../assets/loginpage.png");
@@ -17,16 +19,15 @@ function SignIn() {
           height: "100vh",
         }}
       >
-        <Box
-          sx={{
-            backgroundColor: "red.400",
-            color: "green.100",
-            width: "100%",
-            height: "100px",
-          }}
-        >
-          Substituir pelo header
-        </Box>
+        <Header
+          firstLink="/aboutus"
+          firstText="Conheça nossa equipe"
+          secondLink="/curiosity"
+          secondText="Como cuidar de sua planta"
+          firstIcon={FaUserPlus}
+          firstLabel="Cadastrar"
+          iconLink="/signup"
+        />
         <Flex
           sx={{
             paddingTop: "10vh",
@@ -37,7 +38,7 @@ function SignIn() {
             "@media screen and (min-width: 1024px)": {
               justifyContent: "flex-start",
               paddingLeft: "2vw",
-              paddingTop: "20vh",
+              paddingTop: "10vh",
             },
             "@media screen and (min-width: 1280px)": {
               paddingLeft: "10vw",
