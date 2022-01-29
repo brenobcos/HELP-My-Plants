@@ -61,7 +61,7 @@ function LogInForm() {
       <Text
         fontSize={["md", "lg", "xl"]}
         textShadow={"0px 4px 4px rgba(0, 0, 0, 0.5)"}
-        sx={{ paddingBottom: "15px" }}
+        sx={{ paddingBottom: ["15px", "20px", "30px"] }}
       >
         Faça login para cuidar das suas plantas
       </Text>
@@ -76,11 +76,11 @@ function LogInForm() {
           as="form"
           isInvalid={!!errors}
           sx={{
-            width: "90%",
+            width: ["90%", "80%", "70%"],
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            gap: "15px",
+            gap: "30px",
             flexDirection: "column",
           }}
           onSubmit={handleSubmit(handleSignIn)}
