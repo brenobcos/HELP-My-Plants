@@ -9,8 +9,29 @@ import {
 import { api } from "../../services";
 import { useToast } from "@chakra-ui/react";
 import { useAuth } from "../auth";
+
+interface plantMinMax {
+  min: number;
+  max: number;
+}
+interface plant {
+  name: string;
+  cientific_name: string;
+  water: number;
+  lighting: plantMinMax;
+  temperature: plantMinMax;
+  height: plantMinMax;
+  info: string;
+  image: string;
+  surname?: string;
+  last_watering?: string;
+  details?: string;
+  userId?: number;
+  id?: number;
+}
 interface PlantsProviderData {
-  plants: Array<object>;
+  plants: Array<plant>;
+  renderPlants: () => void;
 }
 
 interface PlantsProps {
@@ -52,12 +73,8 @@ export function PlantsProvider({ children }: PlantsProps) {
       });
   }
 
-  useEffect(() => {
-    renderPlants();
-  }, []);
-
   return (
-    <PlantsContext.Provider value={{ plants }}>
+    <PlantsContext.Provider value={{ plants, renderPlants }}>
       {children}
     </PlantsContext.Provider>
   );
