@@ -49,9 +49,9 @@ export const theme = extendTheme({
     },
     gradient: {
       background:
-        "linear-gradient(135deg, rgba(235,253,242,0.25) 0%, rgba(24,74,44,0.25) 50%, rgba(235,253,242,0.25) 100%);",
+        "linear-gradient(135deg, rgba(235,253,242,0.25) 0%, rgba(24,74,44,0.25) 50%, rgba(235,253,242,0.25) 100%)",
       border:
-        "linear-gradient(50deg, rgba(191,223,215,0) 0%, rgba(24,74,44,1) 50%, rgba(191,223,215,0) 100%);",
+        "linear-gradient(50deg, rgba(191,223,215,0) 0%, rgba(24,74,44,1) 50%, rgba(191,223,215,0) 100%)",
     },
   },
   fonts: {
