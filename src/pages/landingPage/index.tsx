@@ -1,5 +1,7 @@
 import { Flex, Button, Text, Heading, Image, Center } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
+import Header from "../../components/header";
+import { FaRegUser } from "react-icons/fa";
 
 const img = require("../../assets/Plant Image.png");
 const imgFooter = require("../../assets/landingpagesmall.png");
@@ -8,8 +10,16 @@ function LandingPage() {
   const history = useHistory();
   return (
     <Flex maxW="100vw" h="100vh" flexDirection="column">
-      <Center w="100%" h="15%" bg="red">
-        SUBSTITUA PELO HEADER AQUI :D
+      <Center w="100%" h="15%">
+        <Header
+          firstLink="aboutus"
+          secondLink="curiosity"
+          firstText="Conheça nosso time"
+          secondText="Como cuidar da sua planta"
+          firstIcon={FaRegUser}
+          firstLabel="Login"
+          iconLink="/signin"
+        />
       </Center>
       <Flex
         justifyContent={[

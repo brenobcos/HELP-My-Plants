@@ -1,5 +1,7 @@
+import Header from "../../components/header";
+
 function AboutUs() {
-  return <div>AboutUs</div>;
+  return <Header firstLink="curiosity" firstText="Como cuidar da sua planta" />;
 }
 
 export default AboutUs;
