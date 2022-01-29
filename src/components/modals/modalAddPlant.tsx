@@ -4,6 +4,8 @@ import {
   ModalOverlay,
   Heading,
   Flex,
+  Text,
+  Button,
 } from "@chakra-ui/react";
 
 import { useForm } from "react-hook-form";
@@ -45,32 +47,65 @@ function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
   const { user } = useAuth();
   const { addNewPlant } = useUserPlants();
   const { register, handleSubmit } = useForm<NewPlantData>();
-  console.log(plant);
 
   function handleAddPlant(data: NewPlantData) {
     plant.surname = data.surname;
     plant.last_watering = data.last_watering;
     plant.details = data.details;
+    plant.userId = user.id;
+    addNewPlant(plant);
   }
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
-      <ModalContent>
-        <Heading>{plant.name}</Heading>
+      <ModalContent borderRadius={"50px 0 50px 0"}>
+        <Heading w="100%" textAlign="center">
+          {plant.name}
+        </Heading>
         <Flex
           as="form"
           flexDirection="column"
           onSubmit={handleSubmit(handleAddPlant)}
+          ml={8}
         >
+          <Text fontWeight="bold" mt="10px">
+            Apelido
+          </Text>
           <input type="text" placeholder="apelido" {...register("surname")} />
+          <Text mt="10px" fontWeight="bold">
+            Lembrete
+          </Text>
+
           <input type="text" placeholder="lembrete" {...register("reminder")} />
+          <Text mt="10px" fontWeight="bold">
+            detalhes
+          </Text>
+
           <input type="text" placeholder="detalhes" {...register("details")} />
+          <Text mt="10px" fontWeight="bold">
+            Ultima rega
+          </Text>
+
           <input
             type="text"
             placeholder="ultima rega"
             {...register("last_watering")}
           />
-          <button type="submit">adicionar</button>
+          <Button
+            _hover={{ bg: "green.800" }}
+            _active={{ borderColor: "none" }}
+            _focus={{ borderColor: "none" }}
+            color="white"
+            bg="green.400"
+            mr={3}
+            mb={3}
+            borderRadius={"50px 0 50px 0"}
+            type="submit"
+            marginLeft="auto"
+            w="30%"
+          >
+            adicionar
+          </Button>
         </Flex>
       </ModalContent>
     </Modal>
