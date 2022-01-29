@@ -5,15 +5,22 @@ interface UserPlantsProviderProps {
   children: ReactNode;
 }
 
+interface plantMinMax {
+  min: number;
+  max: number;
+}
 interface plant {
   name: string;
   cientific_name: string;
   water: number;
-  lighting: {};
-  temperature: {};
-  height: {};
+  lighting: plantMinMax;
+  temperature: plantMinMax;
+  height: plantMinMax;
   info: string;
   image: string;
+  surname?: string;
+  last_watering?: string;
+  details?: string;
   userId?: number;
   id?: number;
 }
