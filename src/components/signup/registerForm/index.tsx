@@ -2,7 +2,7 @@ import { Button, Flex, Heading, Select, Text, VStack } from "@chakra-ui/react";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { useAuth } from "../../../providers/AuthContext";
+import { useAuth } from "../../../providers/auth/index";
 import { InputComponent } from "../../../components/input";
 import { FaCaretDown, FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import { useHistory } from "react-router-dom";

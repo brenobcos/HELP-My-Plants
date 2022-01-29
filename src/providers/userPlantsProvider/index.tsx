@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { api } from "../../services/index";
-import { useAuth } from "../AuthContext";
+import { useAuth } from "../auth";
 interface UserPlantsProviderProps {
   children: ReactNode;
 }

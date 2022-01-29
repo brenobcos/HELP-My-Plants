@@ -1,11 +1,16 @@
-import { createContext, useState, ReactNode } from "react";
+import {
+  createContext,
+  useState,
+  ReactNode,
+  useContext,
+  useEffect,
+} from "react";
 
 import { api } from "../../services";
 import { useToast } from "@chakra-ui/react";
-
+import { useAuth } from "../auth";
 interface PlantsProviderData {
   plants: Array<object>;
-  renderPlants: () => void;
 }
 
 interface PlantsProps {
@@ -16,14 +21,23 @@ export const PlantsContext = createContext<PlantsProviderData>(
   {} as PlantsProviderData
 );
 
+export function usePlants() {
+  const context = useContext(PlantsContext);
+  return context;
+}
 export function PlantsProvider({ children }: PlantsProps) {
   const toast = useToast();
 
   const [plants, setPlants] = useState([]);
 
+  const { accessToken } = useAuth();
   function renderPlants() {
     api
-      .get("/plants")
+      .get("/plants", {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      })
       .then((response) => {
         setPlants(response.data);
       })
@@ -38,8 +52,12 @@ export function PlantsProvider({ children }: PlantsProps) {
       });
   }
 
+  useEffect(() => {
+    renderPlants();
+  }, []);
+
   return (
-    <PlantsContext.Provider value={{ plants, renderPlants }}>
+    <PlantsContext.Provider value={{ plants }}>
       {children}
     </PlantsContext.Provider>
   );

@@ -1,5 +1,5 @@
 function Plants() {
-  return <div>Plants</div>;
+  return <div>plants</div>;
 }
 
 export default Plants;
