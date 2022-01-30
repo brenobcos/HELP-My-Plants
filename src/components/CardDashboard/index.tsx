@@ -52,16 +52,10 @@ export function CardDashboard({
     return Math.ceil((min + max)/4)
   }
 
-  console.log(media(temperature.min, temperature.max))
-
   return (
     <Flex
       color="green.800"
       flexDirection="column"
-      // borderColor="red"
-      mt="55px"
-
-      //retirar isso
       w="17rem"
       h="28rem"
       borderRadius="50px 8px 50px 0px "
