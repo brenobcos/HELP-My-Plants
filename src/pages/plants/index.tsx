@@ -1,7 +1,10 @@
 import { useDisclosure } from "@chakra-ui/react";
+import ModalEditPlant from "../../components/modals/modalEditPlant";
 import ModalNewPlant from "../../components/modals/modalAddPlant";
-import { usePlants } from "../../providers/plantsProvider";
+import { useUserPlants } from "../../providers/userPlantsProvider";
+import { useAuth } from "../../providers/auth";
 import { useState, useEffect } from "react";
+import { usePlants } from "../../providers/plantsProvider";
 interface plantMinMax {
   min: number;
   max: number;
@@ -23,9 +26,12 @@ interface plant {
 }
 
 function Plants() {
+  const { getUserPlants, userPlants } = useUserPlants();
   const { plants, renderPlants } = usePlants();
+  const { user, accessToken } = useAuth();
 
   useEffect(() => {
+    getUserPlants(user.id, accessToken);
     renderPlants();
   }, []);
 
@@ -45,16 +51,16 @@ function Plants() {
   }
   return (
     <div>
-      <ModalNewPlant
+      <ModalEditPlant
         isOpen={isModalAddPlantOpen}
         onClose={onModalAddClose}
         plant={plantState}
       />
       ;
-      {plants.map((plant: plant) => {
+      {userPlants.map((plant: plant) => {
         return (
           <div key={plant.name}>
-            <button onClick={() => onClickButton(plant)}>+</button>
+            <button onClick={() => onClickButton(plant)}>edit</button>
           </div>
         );
       })}
