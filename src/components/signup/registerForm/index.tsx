@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { useAuth } from "../../../providers/auth/index";
 import { InputComponent } from "../../../components/input";
 import { FaCaretDown, FaEnvelope, FaLock, FaUser } from "react-icons/fa";
-import { useHistory } from "react-router-dom";
+//import { useHistory } from "react-router-dom";
 
 interface SignUpData {
   email: string;
@@ -18,7 +18,7 @@ interface SignUpData {
 export function RegisterForm() {
   const { SignUp } = useAuth();
 
-  const history = useHistory();
+  //const history = useHistory();
 
   const registerSchema = yup.object().shape({
     name: yup
@@ -55,29 +55,32 @@ export function RegisterForm() {
   return (
     <Flex
       onSubmit={handleSubmit(onSignUp)}
+      alignItems="center"
       as="form"
       flexDirection="column"
       maxW="500px"
+      paddingRight={[0, 0, 0, "5vw"]}
       width={["100vw", "400px", "500px"]}
     >
       <Heading
         as="h3"
-        fontSize={["3xl", "4xl", "5xl"]}
+        fontSize={["3xl", "3xl", "4xl"]}
         fontWeight="regular"
         textAlign="center"
-        textShadow={"0px 4px 4px rgba(0, 0, 0, 0.5)"}
+        //textShadow={"0px 4px 4px rgba(0, 0, 0, 0.5)"}
       >
         Cadastro
       </Heading>
       <Text
-        fontSize={["md", "lg", "xl"]}
-        mt={["4", "4", "6", "6"]}
+        fontSize={["md", "lg", "lg"]}
+        mt="3"
         textAlign="center"
-        textShadow={"0px 4px 4px rgba(0, 0, 0, 0.5)"}
+        //textShadow={"0px 4px 4px rgba(0, 0, 0, 0.5)"}
+        w={["89%", "83%", "59%", "70%"]}
       >
         Faça o cadastro para cuidar das suas plantas
       </Text>
-      <VStack mt="6" spacing="4">
+      <VStack mt="4" spacing="2">
         <InputComponent
           {...register("name")}
           error={errors.name}
@@ -90,7 +93,7 @@ export function RegisterForm() {
           icon={FaEnvelope}
           placeholder="Email"
         />
-        <Flex flexDirection="column">
+        <Flex flexDirection="column" w={["90%", "90%", "80%", "80%"]}>
           <Select
             {...register("interest")}
             icon={<FaCaretDown />}
@@ -102,7 +105,7 @@ export function RegisterForm() {
             filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
             focusBorderColor="green.400"
             height="45px"
-            width={["100vw", "400px", "500px"]}
+            w="100%"
           >
             <option value="hobby">Hobby</option>
             <option value="professional">Profissional</option>
@@ -128,13 +131,15 @@ export function RegisterForm() {
           type="password"
         />
       </VStack>
-      <Text
+      {/* <Text
         fontSize={["xs", "sm", "md"]}
+        mt="2"
+        textAlign="center"
         textShadow={"0px 4px 4px rgba(0, 0, 0, 0.25)"}
       >
         Já tem uma conta ainda? Clique{" "}
         <b onClick={() => history.push("/signin")}>aqui.</b>
-      </Text>
+      </Text> */}
       <Button
         type="submit"
         _active={{
@@ -146,14 +151,16 @@ export function RegisterForm() {
           boxShadow: "0 0 1px 2px #184A2C, 0 1px 1px rgba(0, 0, 0, .15)",
         }}
         _hover={{ bg: "green.400", transform: "scale(1.01)" }}
-        backgroundColor="green.400"
+        backgroundColor="green.100"
         color="green.800"
         filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))"
         height="3vw"
         maxHeight="70px"
         minHeight="45px"
-        mt="8"
-        width="100%"
+        mb="8"
+        mt="4"
+        w={["89%", "83%", "59%", "68%"]}
+        maxW={["332px", "100%", "100%"]}
       >
         Cadastrar
       </Button>
