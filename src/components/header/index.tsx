@@ -41,22 +41,23 @@ function Header({
   return (
     <Flex
       w="100%"
-      alignItems="center"
+      alignItems="flex-start"
       justifyContent="space-between"
       paddingLeft={["10px", "10px", "20px"]}
     >
-      <Box marginTop={["60px", "100px"]} marginLeft="50px">
+      <Flex mt={["0px", "10px"]} ml={["10px", "20px"]} alignItems="flex-end" alignSelf="end">
         <Image
-          w={["150px", "200px", "200px", "220px"]}
+          w={["150px", "200px", "200px", "180px"]}
           h={["140px"]}
           src={Logo}
         ></Image>
-      </Box>
+      </Flex>
       <Flex
         w={["50%", "50%", "50%", "60%"]}
         alignItems="center"
         justifyContent="space-evenly"
         display={["none", "none", "flex"]}
+        mt="20px"
       >
         <Text
           fontSize={["md", "md", "0.8rem", "1rem", "1.375rem"]}
@@ -82,9 +83,8 @@ function Header({
         justifyContent="space-evenly"
         bg={theme.colors.green[800]}
         marginBottom="auto"
-        marginTop={["30px", "50px"]}
-        w={["100px", "100px", "120px"]}
-        h={["60px", "60px", "80px"]}
+        w="80px"
+        h="60px"
         borderRadius="0 0 0 8px"
       >
         <Box
