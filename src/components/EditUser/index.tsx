@@ -1,10 +1,11 @@
 import {
   Button,
+  Divider,
   Editable,
   EditableInput,
   EditablePreview,
-  FormControl,
   FormLabel,
+  HStack,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -12,13 +13,16 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  Radio,
-  RadioGroup,
+  Text,
+  useRadioGroup,
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import EditableControls from "../EditableControls.tsx/EditableControls";
+import RadioCard from "./RadioCard";
+import { useState } from "react";
+import { useAuth } from "../../providers/auth";
+import EditableControls from "../EditableControls/EditableControls";
 
 interface editUserProps {
   isOpen: boolean;
@@ -28,10 +32,11 @@ interface editUserProps {
 interface UserProps {
   name: string;
   email: string;
-  interest: string;
 }
 
 function EditUser({ isOpen, onClose }: editUserProps) {
+  const { user } = useAuth();
+  const [interest, setInterest] = useState(user.interest);
   const registerSchema = yup.object().shape({
     name: yup
       .string()
@@ -41,83 +46,105 @@ function EditUser({ isOpen, onClose }: editUserProps) {
         "Seu nome deve ter somente letras"
       ),
     email: yup.string().required("Email obrigatório").email("Email inválido"),
-    interest: yup.string().required("Interesse obrigatório"),
   });
-  const { register, handleSubmit } = useForm<UserProps>({
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<UserProps>({
     resolver: yupResolver(registerSchema),
   });
 
   function handleEditUser(data: UserProps) {
-    //função de patch no usuário
-    console.log(data);
+    const newUser = {
+      name: data.name,
+      email: data.email,
+      interest: interest,
+    };
+    //chamar função patchUser
+    // patchUser(newUser);
+    onClose();
   }
+
+  const options = ["Hobby", "Profissional", "Estudante"];
+  const { getRootProps, getRadioProps } = useRadioGroup({
+    name: "interest",
+    defaultValue: user.interest,
+    onChange: (event) => setInterest(event),
+  });
+  const group = getRootProps();
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent
-        borderRadius="50px 0 50px 0"
-        bg="#fff"
-        border="3px solid green.400"
+        as="form"
+        onSubmit={handleSubmit(handleEditUser)}
+        width={["280px", "400px"]}
+        borderRadius="50px 8px 50px 0px "
+        border="3px solid transparent"
+        bg="linear-gradient(#FFFFFF, #FFFFFF) padding-box,linear-gradient(50deg, #FFFFFF 25%, #46FF42 50%,#FFFFFF 75%) border-box"
       >
         <ModalHeader textAlign="center">Editar Usuário</ModalHeader>
         <ModalCloseButton />
         <ModalBody pb={6}>
-          <FormControl as="form" onSubmit={handleSubmit(handleEditUser)}>
-            <FormLabel>Nome</FormLabel>
-            <Editable
-              textAlign="left"
-              defaultValue="Ransegan"
-              fontSize="md"
-              fontWeight="light"
-            >
-              <EditablePreview />
-              <EditableInput {...register("name")} />
-            </Editable>
-            <FormLabel>Email</FormLabel>
-            <Editable
-              textAlign="left"
-              defaultValue="Email"
-              fontSize="md"
-              fontWeight="light"
-            >
-              <EditablePreview />
-              <EditableInput {...register("email")} />
-              <EditableControls />
-            </Editable>
-            <FormLabel>Interesse</FormLabel>
-            <RadioGroup
-              display="flex"
-              alignItems="center"
-              justifyContent="space-between"
-              defaultValue="1"
-              name="form-name"
-            >
-              <Radio value="1" {...register("interest")}>
-                Radio1
-              </Radio>
-              <Radio value="2" {...register("interest")}>
-                Radio2
-              </Radio>
-              <Radio value="3" {...register("interest")}>
-                Radio3
-              </Radio>
-            </RadioGroup>
-          </FormControl>
-        </ModalBody>
-        <ModalFooter display="flex" justifyContent="space-between">
-          <Button
-            onClick={onClose}
-            color="white"
-            _hover={{ bg: "red.700" }}
-            _active={{ borderColor: "none" }}
-            _focus={{ borderColor: "none" }}
-            bg="red.400"
-            mr={3}
-            borderRadius={"50px 0 50px 0"}
+          <FormLabel>Nome</FormLabel>
+          <Editable
+            display="flex"
+            justifyContent="space-between"
+            textAlign="left"
+            defaultValue={user.name}
+            fontSize="md"
+            fontWeight="light"
           >
-            Cancel
-          </Button>
+            <EditablePreview />
+            <EditableInput {...register("name")} width={["150px", "260px"]} />
+            <EditableControls />
+          </Editable>
+          {errors.name?.message && (
+            <Text as="span" fontSize="0.7rem" color="red.700">
+              {errors.name?.message}
+            </Text>
+          )}
+          <Divider as="hr" borderColor="green.800" margin="8px 0" />
+          <FormLabel>Email</FormLabel>
+          <Editable
+            display="flex"
+            justifyContent="space-between"
+            textAlign="left"
+            defaultValue={user.email}
+            fontSize="md"
+            fontWeight="light"
+          >
+            <EditablePreview />
+            <EditableInput {...register("email")} width={["150px", "260px"]} />
+            <EditableControls />
+          </Editable>
+          {errors.email?.message && (
+            <Text as="span" fontSize="0.7rem" color="red.700">
+              {errors.email?.message}
+            </Text>
+          )}
+          <Divider as="hr" borderColor="green.800" margin="8px 0" />
+          <FormLabel>Interesse</FormLabel>
+          <HStack
+            display="flex"
+            alignItems="center"
+            justifyContent="space-between"
+            {...group}
+          >
+            {options.map((value) => {
+              const radio = getRadioProps({ value });
+              return (
+                <RadioCard key={value} {...radio}>
+                  {value}
+                </RadioCard>
+              );
+            })}
+          </HStack>
+        </ModalBody>
+        <ModalFooter display="flex" justifyContent="flex-end">
           <Button
             _hover={{ bg: "green.800" }}
             _active={{ borderColor: "none" }}

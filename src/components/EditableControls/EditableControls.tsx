@@ -5,7 +5,6 @@ import {
   useEditableControls,
 } from "@chakra-ui/react";
 import { FaCheck, FaEdit } from "react-icons/fa";
-import { AiFillCloseCircle } from "react-icons/ai";
 import { MdOutlineClose } from "react-icons/md";
 
 function EditableControls() {
@@ -17,7 +16,7 @@ function EditableControls() {
   } = useEditableControls();
 
   return isEditing ? (
-    <ButtonGroup justifyContent="center" size="sm">
+    <ButtonGroup justifyContent="flex-end" size="sm">
       <IconButton
         aria-label=""
         icon={<FaCheck />}

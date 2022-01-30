@@ -126,28 +126,7 @@ function Header({
                   </MenuItem>
                 </>
               )}
-              {!!accessToken && (
-                <>
-                  {history.location.pathname === "dashboard" ||
-                    (history.location.pathname === "plants" && (
-                      <>
-                        <MenuItem onClick={() => {}}>Editar usuário</MenuItem>
-                        <MenuItem onClick={() => history.push("/aboutus")}>
-                          Conheça nossa equipe
-                        </MenuItem>
-                      </>
-                    ))}
-                  {history.location.pathname === "curiosity" && (
-                    <>
-                      <MenuItem onClick={() => {}}>Editar usuário</MenuItem>
-                      <MenuItem onClick={() => history.push("plants")}>
-                        Encontrar uma nova planta
-                      </MenuItem>
-                    </>
-                  )}
-                  <MenuItem onClick={() => signOut()}>Sair</MenuItem>
-                </>
-              )}
+
               {!accessToken && history.location.pathname === "aboutus" && (
                 <>
                   <MenuItem onClick={() => history.push("/signin")}>
@@ -175,6 +154,28 @@ function Header({
                 <MenuItem onClick={() => history.push(secondLink)}>
                   {secondText}
                 </MenuItem>
+              )}
+              {!!accessToken && (
+                <>
+                  {history.location.pathname === "dashboard" ||
+                    (history.location.pathname === "plants" && (
+                      <>
+                        <MenuItem onClick={() => {}}>Editar usuário</MenuItem>
+                        <MenuItem onClick={() => history.push("/aboutus")}>
+                          Conheça nossa equipe
+                        </MenuItem>
+                      </>
+                    ))}
+                  {history.location.pathname === "curiosity" && (
+                    <>
+                      <MenuItem onClick={() => {}}>Editar usuário</MenuItem>
+                      <MenuItem onClick={() => history.push("plants")}>
+                        Encontrar uma nova planta
+                      </MenuItem>
+                    </>
+                  )}
+                  <MenuItem onClick={() => signOut()}>Sair</MenuItem>
+                </>
               )}
             </MenuList>
           </Menu>
