@@ -22,7 +22,11 @@ const InputBase: ForwardRefRenderFunction<
   InputComponentProps
 > = ({ error = null, placeholder, icon, type, ...rest }, ref) => {
   return (
-    <InputGroup display="flex" flexDirection="column">
+    <InputGroup
+      display="flex"
+      flexDirection="column"
+      w={["90%", "90%", "80%", "80%"]}
+    >
       <Input
         {...rest}
         placeholder={placeholder}
