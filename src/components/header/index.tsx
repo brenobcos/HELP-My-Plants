@@ -45,20 +45,21 @@ function Header({
       justifyContent="space-between"
       paddingLeft={["10px", "10px", "20px"]}
     >
-      <Image
-        w={["150px", "200px", "200px", "260px"]}
-        h={["140px"]}
-        src={Logo}
-        paddingLeft="3vw"
-      ></Image>
+      <Box marginTop={["60px", "100px"]} marginLeft="50px">
+        <Image
+          w={["150px", "200px", "200px", "220px"]}
+          h={["140px"]}
+          src={Logo}
+        ></Image>
+      </Box>
       <Flex
-        w="100%"
+        w={["50%", "50%", "50%", "60%"]}
         alignItems="center"
         justifyContent="space-evenly"
         display={["none", "none", "flex"]}
       >
         <Text
-          fontSize={["md", "md", "md", "1.375rem"]}
+          fontSize={["md", "md", "0.8rem", "1rem", "1.375rem"]}
           as="a"
           cursor="pointer"
           href={firstLink}
@@ -67,7 +68,7 @@ function Header({
         </Text>
         {!!secondLink && secondText && (
           <Text
-            fontSize={["md", "md", "md", "1.375rem"]}
+            fontSize={["md", "md", "0.8rem", "1rem", "1.375rem"]}
             as="a"
             cursor="pointer"
             href={secondLink}
@@ -79,8 +80,9 @@ function Header({
       <Flex
         alignItems="center"
         justifyContent="space-evenly"
-        marginBottom="auto"
         bg={theme.colors.green[800]}
+        marginBottom="auto"
+        marginTop={["30px", "50px"]}
         w={["100px", "100px", "120px"]}
         h={["60px", "60px", "80px"]}
         borderRadius="0 0 0 8px"
