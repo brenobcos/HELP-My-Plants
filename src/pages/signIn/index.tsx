@@ -30,21 +30,16 @@ function SignIn() {
         />
         <Flex
           sx={{
-            paddingTop: "10vh",
             height: "100%",
             width: "100vw",
             alignItems: "flex-start",
             justifyContent: "center",
             "@media screen and (min-width: 1024px)": {
-              justifyContent: "flex-start",
-              paddingLeft: "2vw",
-              paddingTop: "10vh",
+              justifyContent: "space-evenly",
             },
             "@media screen and (min-width: 1280px)": {
-              paddingLeft: "10vw",
             },
             "@media screen and (min-width: 1480px)": {
-              paddingLeft: "15vw",
             },
           }}
         >
@@ -67,6 +62,7 @@ function SignIn() {
                 opacity: "1",
                 width: "30vw",
                 height: "30vw",
+                position: "inherit",
                 minWidth: "100px",
                 minHeight: "100px",
                 maxWidth: "580px",

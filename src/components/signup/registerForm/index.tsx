@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 import { useAuth } from "../../../providers/auth/index";
 import { InputComponent } from "../../../components/input";
 import { FaCaretDown, FaEnvelope, FaLock, FaUser } from "react-icons/fa";
-//import { useHistory } from "react-router-dom";
 
 interface SignUpData {
   email: string;
@@ -17,8 +16,6 @@ interface SignUpData {
 
 export function RegisterForm() {
   const { SignUp } = useAuth();
-
-  //const history = useHistory();
 
   const registerSchema = yup.object().shape({
     name: yup
@@ -50,16 +47,15 @@ export function RegisterForm() {
     SignUp(signup);
   }
 
-  console.log();
-
   return (
     <Flex
       onSubmit={handleSubmit(onSignUp)}
       alignItems="center"
       as="form"
       flexDirection="column"
+      position="relative"
+      bottom={["auto", "auto","50px"]}
       maxW="500px"
-      paddingRight={[0, 0, 0, "5vw"]}
       width={["100vw", "400px", "500px"]}
     >
       <Heading
@@ -67,16 +63,12 @@ export function RegisterForm() {
         fontSize={["3xl", "3xl", "4xl"]}
         fontWeight="regular"
         textAlign="center"
-        //textShadow={"0px 4px 4px rgba(0, 0, 0, 0.5)"}
       >
         Cadastro
       </Heading>
       <Text
-        fontSize={["md", "lg", "lg"]}
-        mt="3"
+        fontSize={["sm"]}
         textAlign="center"
-        //textShadow={"0px 4px 4px rgba(0, 0, 0, 0.5)"}
-        w={["89%", "83%", "59%", "70%"]}
       >
         Faça o cadastro para cuidar das suas plantas
       </Text>
@@ -107,11 +99,11 @@ export function RegisterForm() {
             height="45px"
             w="100%"
           >
-            <option value="hobby">Hobby</option>
-            <option value="professional">Profissional</option>
-            <option value="student">Estudante</option>
+            <option style={{color: "black"}} value="hobby">Hobby</option>
+            <option style={{color: "black"}} value="professional">Profissional</option>
+            <option style={{color: "black"}} value="student">Estudante</option>
           </Select>
-          <Text fontSize="xs" color="red.400">
+          <Text fontSize="xs" color="red.700" h="10px">
             {errors?.interest?.message}
           </Text>
         </Flex>
@@ -131,15 +123,6 @@ export function RegisterForm() {
           type="password"
         />
       </VStack>
-      {/* <Text
-        fontSize={["xs", "sm", "md"]}
-        mt="2"
-        textAlign="center"
-        textShadow={"0px 4px 4px rgba(0, 0, 0, 0.25)"}
-      >
-        Já tem uma conta ainda? Clique{" "}
-        <b onClick={() => history.push("/signin")}>aqui.</b>
-      </Text> */}
       <Button
         type="submit"
         _active={{
@@ -157,9 +140,8 @@ export function RegisterForm() {
         height="3vw"
         maxHeight="70px"
         minHeight="45px"
-        mb="8"
-        mt="4"
-        w={["89%", "83%", "59%", "68%"]}
+        mt="2"
+        w={["89%", "83%", "59%"]}
         maxW={["332px", "100%", "100%"]}
       >
         Cadastrar

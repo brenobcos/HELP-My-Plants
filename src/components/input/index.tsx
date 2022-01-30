@@ -11,8 +11,8 @@ import { FieldError } from "react-hook-form";
 import { IconType } from "react-icons/lib";
 
 interface InputComponentProps extends InputProps {
-  placeholder: string;
   error: FieldError | null | undefined;
+  name: string;
   type?: string;
   icon: IconType;
 }
@@ -20,16 +20,19 @@ interface InputComponentProps extends InputProps {
 const InputBase: ForwardRefRenderFunction<
   HTMLInputElement,
   InputComponentProps
-> = ({ error = null, placeholder, icon, type, ...rest }, ref) => {
+> = ({ error = null, icon, type, name, ...rest }, ref) => {
   return (
     <InputGroup
+      // isInvalid={!!error}
       display="flex"
       flexDirection="column"
       w={["90%", "90%", "80%", "80%"]}
     >
       <Input
+        name={name}
+        ref={ref}
+        type={type}
         {...rest}
-        placeholder={placeholder}
         _placeholder={{ color: "green.100", fontWeight: "medium" }}
         backgroundColor="green.800"
         border="none"
@@ -41,7 +44,7 @@ const InputBase: ForwardRefRenderFunction<
       <InputRightElement>
         <Icon as={icon} color="green.100" height="24px" width="24px" />
       </InputRightElement>
-      <Text color="red.400" fontSize="xs" paddingTop="5px" margin="0px">
+      <Text color="red.700" fontSize="xs" h="10px">
         {error?.message}
       </Text>
     </InputGroup>
