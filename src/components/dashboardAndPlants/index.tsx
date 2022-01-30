@@ -16,16 +16,20 @@ export function DashboardsRender({
   firstText,
 }: DashboardsRenderProps) {
   return (
-    <Flex h="100vh" w="100vw">
+    <Flex flexDirection="column" h="100vh" justify="space-between" w="100vw">
       <Header
         firstLink={firstLink}
         firstText={firstText}
         secondLink="/curiosity"
         secondText="Como cuidar da sua planta"
       />
-      <Flex flexDirection="column" paddingLeft="5vw">
-        <Heading>{title}</Heading>
-        <Flex overflow="scroll hidden">{children}</Flex>
+      <Flex flexDirection="column" h="calc(100vh - 140px)" paddingLeft="5vw">
+        <Heading as="h3" fontWeight="regular">
+          {title}
+        </Heading>
+        <Flex overflow="scroll hidden" w="100vw">
+          {children}
+        </Flex>
       </Flex>
     </Flex>
   );
