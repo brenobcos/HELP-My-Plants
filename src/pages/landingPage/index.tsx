@@ -36,16 +36,17 @@ function LandingPage() {
         ]}
         flexDirection={["column", "column", "column", "row"]}
         alignItems="center"
-        height={["85%", "100%", "100%", "auto"]}
+        height={["85%", "100%", "100%", "90%"]}
       >
         <Flex
           mr={["0", "0", "0", "2.5%"]}
           flexDirection="column"
           w={["90%", "90%", "90%", "40%"]}
-          h={["50%", "50%", "50%", "80%"]}
+          h={["50%", "50%", "50%", "65%"]}
+          justifyContent="space-around"
           gap="20px"
         >
-          <Flex flexDir="column">
+          <Flex flexDir="column" justifyContent="space-between" h="50%">
             <Heading fontSize={["2xl", "4xl"]} fontWeight="800">
               MANTENHA SUAS PLANTAS SAUDÁVEIS
             </Heading>

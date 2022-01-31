@@ -32,15 +32,14 @@ function SignIn() {
           sx={{
             height: "100%",
             width: "100vw",
-            alignItems: "flex-start",
+            alignItems: "center",
             justifyContent: "center",
+            mb: "11%",
             "@media screen and (min-width: 1024px)": {
               justifyContent: "space-evenly",
             },
-            "@media screen and (min-width: 1280px)": {
-            },
-            "@media screen and (min-width: 1480px)": {
-            },
+            "@media screen and (min-width: 1280px)": {},
+            "@media screen and (min-width: 1480px)": {},
           }}
         >
           <LogInForm />
