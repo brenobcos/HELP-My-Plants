@@ -27,8 +27,7 @@ interface plantMinMax {
   min: number;
   max: number;
 }
-
-interface plant {
+interface userPlant {
   name: string;
   cientific_name: string;
   water: number;
@@ -37,25 +36,27 @@ interface plant {
   height: plantMinMax;
   info: string;
   image: string;
-  reminder?: string;
   surname?: string;
+  reminder?: string;
   last_watering?: string;
   details?: string;
   userId?: number;
-  id?: number;
+  id: number;
 }
+
 interface ModalNewPlantProps {
   isOpen: boolean;
   onClose: () => void;
-  plant: plant;
+  plant: userPlant;
 }
 
-interface NewPlantData {
+interface EditPlantData {
   surname: string;
   reminder: string;
   details: string;
   last_watering: string;
 }
+
 export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
   const registerPlantSchema = yup.object().shape({
     surname: yup
@@ -69,28 +70,27 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
     last_watering: yup.string().required("Campo obrigatório"),
   });
 
-  const { user } = useAuth();
-  const { addNewPlant } = useUserPlants();
+  const { accessToken } = useAuth();
+  const { changeUserPlant, deleteUserPlant } = useUserPlants();
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<NewPlantData>({ resolver: yupResolver(registerPlantSchema) });
+  } = useForm<EditPlantData>({ resolver: yupResolver(registerPlantSchema) });
 
-  function handleAddPlant(data: NewPlantData) {
+  function handleEditPlant(data: EditPlantData) {
     plant.surname = data.surname;
     plant.last_watering = data.last_watering;
     plant.details = data.details;
-    plant.userId = user.id;
     plant.reminder = data.reminder;
-    addNewPlant(plant);
+    changeUserPlant(plant, accessToken);
   }
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent
         as="form"
-        onSubmit={handleSubmit(handleAddPlant)}
+        onSubmit={handleSubmit(handleEditPlant)}
         width={["280px", "400px"]}
         borderRadius="50px 8px 50px 0px "
         border="3px solid transparent"
@@ -129,7 +129,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
           <FormLabel fontWeight="bold">Lembrete</FormLabel>
           <Editable
             textAlign="left"
-            defaultValue="Anote algo que você não pode esquecer aqui"
+            defaultValue={plant.reminder}
             fontSize="md"
             fontWeight="light"
             display="flex"
@@ -153,7 +153,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
           <FormLabel fontWeight="bold">Detalhes</FormLabel>
           <Editable
             textAlign="left"
-            defaultValue="Anote informações sobre sua planta aqui"
+            defaultValue={plant.details}
             fontSize="md"
             fontWeight="light"
             display="flex"
@@ -171,7 +171,11 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
 
           <FormLabel fontWeight="bold">Ultima rega</FormLabel>
           <Flex flexDirection="column">
-            <StyledInput type="date" {...register("last_watering")} />
+            <StyledInput
+              type="date"
+              defaultValue={plant.last_watering}
+              {...register("last_watering")}
+            />
             {errors.last_watering?.message && (
               <Text as="span" fontSize="0.7rem" color="red.700">
                 {errors.last_watering?.message}
@@ -180,23 +184,38 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
           </Flex>
 
           <Divider as="hr" borderColor="green.800" margin="8px 0" />
-
-          <Button
-            _hover={{ bg: "green.800" }}
-            _active={{ borderColor: "none" }}
-            _focus={{ borderColor: "none" }}
-            color="white"
-            bg="green.400"
-            mr={3}
-            mb={3}
-            borderRadius={"50px 0 50px 0"}
-            marginLeft="67%"
-            mt="30px"
-            type="submit"
-            w="35%"
-          >
-            adicionar
-          </Button>
+          <Flex justifyContent="space-between">
+            <Button
+              onClick={() => deleteUserPlant(plant.id, accessToken)}
+              _hover={{ bg: "red.800" }}
+              _active={{ borderColor: "none" }}
+              _focus={{ borderColor: "none" }}
+              color="white"
+              bg="red.400"
+              mr={3}
+              mb={3}
+              borderRadius={"50px 0 50px 0"}
+              mt="30px"
+              w="35%"
+            >
+              remover
+            </Button>
+            <Button
+              _hover={{ bg: "green.800" }}
+              _active={{ borderColor: "none" }}
+              _focus={{ borderColor: "none" }}
+              color="white"
+              bg="green.400"
+              mr={3}
+              mb={3}
+              borderRadius={"50px 0 50px 0"}
+              mt="30px"
+              type="submit"
+              w="35%"
+            >
+              adicionar
+            </Button>
+          </Flex>
         </ModalBody>
       </ModalContent>
     </Modal>

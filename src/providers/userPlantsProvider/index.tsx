@@ -18,6 +18,7 @@ interface plant {
   height: plantMinMax;
   info: string;
   image: string;
+  reminder?: string;
   surname?: string;
   last_watering?: string;
   details?: string;
@@ -53,7 +54,6 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
       })
       .then((response) => {
         setUserPlants(response.data);
-        console.log(userPlants);
       })
       .catch((error) => console.log(error));
   }
@@ -66,7 +66,7 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
         },
       })
       .then((_) => {
-        console.log("adicionando ao carrinho");
+        console.log("Planta adicionada");
         getUserPlants(user.id);
       })
       .catch((error) => console.log(error));
@@ -80,7 +80,7 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
         },
       })
       .then((_) => {
-        console.log("adicionando ao carrinho");
+        console.log("Planta editada");
         getUserPlants(user.id);
       })
       .catch((error) => console.log(error));
@@ -94,7 +94,7 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
         },
       })
       .then((_) => {
-        console.log("adicionando ao carrinho");
+        console.log("Planta removida");
         getUserPlants(user.id);
       })
       .catch((error) => console.log(error));
