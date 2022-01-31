@@ -83,7 +83,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
     plant.last_watering = data.last_watering;
     plant.details = data.details;
     plant.reminder = data.reminder;
-    changeUserPlant(plant, accessToken);
+    changeUserPlant(plant);
   }
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -186,7 +186,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
           <Divider as="hr" borderColor="green.800" margin="8px 0" />
           <Flex justifyContent="space-between">
             <Button
-              onClick={() => deleteUserPlant(plant.id, accessToken)}
+              onClick={() => deleteUserPlant(plant.id)}
               _hover={{ bg: "red.800" }}
               _active={{ borderColor: "none" }}
               _focus={{ borderColor: "none" }}
