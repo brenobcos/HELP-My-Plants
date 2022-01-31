@@ -1,5 +1,5 @@
 import { useDisclosure } from "@chakra-ui/react";
-import ModalNewPlant from "../../components/modals/modalAddPlant";
+import { ModalNewPlant } from "../../components/modals/modalAddPlant";
 import { useUserPlants } from "../../providers/userPlantsProvider";
 import { useAuth } from "../../providers/auth";
 import { useState, useEffect } from "react";

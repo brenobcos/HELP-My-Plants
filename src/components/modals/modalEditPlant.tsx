@@ -56,7 +56,8 @@ interface EditPlantData {
   details: string;
   last_watering: string;
 }
-function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
+
+export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
   const registerPlantSchema = yup.object().shape({
     surname: yup
       .string()
@@ -220,5 +221,3 @@ function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
     </Modal>
   );
 }
-
-export default ModalNewPlant;
