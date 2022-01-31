@@ -23,11 +23,11 @@ export function DashboardsRender({
         secondLink="/curiosity"
         secondText="Como cuidar da sua planta"
       />
-      <Flex flexDirection="column" h="calc(100vh - 140px)" paddingLeft="5vw">
-        <Heading as="h3" fontWeight="regular">
+      <Flex flexDirection="column" h="calc(100vh - 100px)" paddingLeft="5vw">
+        <Heading as="h3" fontWeight="regular" fontSize="xl">
           {title}
         </Heading>
-        <Flex overflow="scroll hidden" w="100vw">
+        <Flex w="100vw" justifyContent="center">
           {children}
         </Flex>
       </Flex>
