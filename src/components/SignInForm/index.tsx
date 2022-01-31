@@ -3,20 +3,16 @@ import { useHistory } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useAuth } from "../../providers/auth";
+import { InputComponent } from "../input";
 import {
   Box,
   Button,
   FormControl,
-  FormErrorMessage,
-  Icon,
-  Input,
-  InputGroup,
-  InputRightElement,
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { HiMail } from "react-icons/hi";
-import { FaLock } from "react-icons/fa";
+import { FaEnvelope, FaLock } from "react-icons/fa";
+
 interface SignInData {
   email: string;
   password: string;
@@ -27,6 +23,7 @@ function LogInForm() {
     email: yup.string().required("E-mail obrigatório").email("E-mail inválido"),
     password: yup.string().required("Senha obrigatória"),
   });
+  
   const {
     formState: { errors },
     register,
@@ -53,17 +50,15 @@ function LogInForm() {
       }}
     >
       <Text
-        fontSize={["3xl", "4xl", "5xl"]}
-        textShadow={"0px 4px 4px rgba(0, 0, 0, 0.5)"}
+        fontSize={["2xl", "4xl"]}
       >
         Entrar
       </Text>
       <Text
-        fontSize={["md", "lg", "xl"]}
-        textShadow={"0px 4px 4px rgba(0, 0, 0, 0.5)"}
+        fontSize={["sm", "md"]}
         sx={{ paddingBottom: ["15px", "20px", "30px"] }}
       >
-        Faça login para cuidar das suas plantas
+        Faça login para cuidar das suas plantas :)
       </Text>
       <Stack
         sx={{
@@ -74,120 +69,31 @@ function LogInForm() {
       >
         <FormControl
           as="form"
-          isInvalid={!!errors}
           sx={{
             width: ["90%", "80%", "70%"],
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            gap: "30px",
+            gap: "10px",
             flexDirection: "column",
           }}
           onSubmit={handleSubmit(handleSignIn)}
         >
-          <InputGroup sx={{ display: "flex", flexDirection: "column" }}>
-            <Input
-              id="email"
-              focusBorderColor="green.400"
-              placeholder="E-mail"
-              sx={{
-                backgroundColor: "green.800",
-                color: "green.100",
-                filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
-                height: "3vw",
-                maxHeight: "70px",
-                minHeight: "45px",
-                border: "none",
-              }}
-              _autofill={{
-                transition: "background-color 5000s ease-in-out 0s",
-                color: "white",
-                webkitTextFillColor: "#ffffff",
-              }}
-              _placeholder={{
-                color: "green.100",
-                fontWeight: "medium",
-                fontSize: ["md", "lg", "xl"],
-              }}
-              isInvalid={!!errors.email}
-              {...register("email")}
-            />
-            <InputRightElement
-              sx={{ height: "100%", paddingRight: "3%" }}
-              children={
-                <Icon
-                  as={HiMail}
-                  sx={{
-                    color: "green.100",
-                    height: "70%",
-                    width: "auto",
-                  }}
-                />
-              }
-            />
-
-            {!!errors.email?.message && (
-              <FormErrorMessage
-                color="red.400"
-                fontSize="10px"
-                sx={{ paddingTop: "5px", margin: "0px" }}
-              >
-                {errors.email?.message}
-              </FormErrorMessage>
-            )}
-          </InputGroup>
-          <InputGroup sx={{ display: "flex", flexDirection: "column" }}>
-            <Input
-              id="password"
-              focusBorderColor="green.400"
-              placeholder="Senha"
-              sx={{
-                backgroundColor: "green.800",
-                color: "green.100",
-                filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
-                height: "3vw",
-                maxHeight: "70px",
-                minHeight: "45px",
-                border: "none",
-              }}
-              _autofill={{
-                transition: "background-color 5000s ease-in-out 0s",
-                color: "green.100",
-              }}
-              _placeholder={{
-                color: "green.100",
-                fontWeight: "medium",
-                fontSize: ["md", "lg", "xl"],
-              }}
-              type="password"
-              isInvalid={!!errors.password}
-              {...register("password")}
-            />
-            <InputRightElement
-              sx={{ height: "100%", paddingRight: "3%" }}
-              children={
-                <Icon
-                  as={FaLock}
-                  sx={{
-                    color: "green.100",
-                    height: "70%",
-                    width: "auto",
-                  }}
-                />
-              }
-            />
-            {!!errors.password?.message && (
-              <FormErrorMessage
-                color="red.400"
-                fontSize="10px"
-                sx={{ paddingTop: "5px", margin: "0px" }}
-              >
-                {errors.password?.message}
-              </FormErrorMessage>
-            )}
-          </InputGroup>
+          <InputComponent
+            {...register("email")}
+            error={errors.email}
+            icon={FaEnvelope}
+            placeholder="E-mail"
+          />
+          <InputComponent
+            {...register("password")}
+            error={errors.password}
+            icon={FaLock}
+            placeholder="Senha"
+            type="password"
+          />
           <Text
-            fontSize={["xs", "sm", "md"]}
+            fontSize={["xs", "sm"]}
             textShadow={"0px 4px 4px rgba(0, 0, 0, 0.25)"}
           >
             Não tem uma conta ainda? Clique{" "}
@@ -195,15 +101,15 @@ function LogInForm() {
           </Text>
           <Button
             sx={{
-              backgroundColor: "green.400",
+              backgroundColor: "green.100",
               color: "green.800",
-              width: "100%",
+              width: "80%",
               height: "3vw",
               maxHeight: "70px",
               minHeight: "45px",
               filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
 
-              fontSize: [12, 18, 26],
+              fontSize: [12, 18],
             }}
             _hover={{ bg: "green.400", transform: "scale(1.01)" }}
             _active={{
