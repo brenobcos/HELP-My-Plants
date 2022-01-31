@@ -54,7 +54,7 @@ export function RegisterForm() {
       as="form"
       flexDirection="column"
       position="relative"
-      bottom={["auto", "auto","50px"]}
+      // bottom={["auto", "auto","50px"]}
       maxW="500px"
       width={["100vw", "400px", "500px"]}
     >
@@ -66,10 +66,7 @@ export function RegisterForm() {
       >
         Cadastro
       </Heading>
-      <Text
-        fontSize={["sm"]}
-        textAlign="center"
-      >
+      <Text fontSize={["sm"]} textAlign="center">
         Faça o cadastro para cuidar das suas plantas
       </Text>
       <VStack mt="4" spacing="2">
@@ -99,9 +96,15 @@ export function RegisterForm() {
             height="45px"
             w="100%"
           >
-            <option style={{color: "black"}} value="hobby">Hobby</option>
-            <option style={{color: "black"}} value="professional">Profissional</option>
-            <option style={{color: "black"}} value="student">Estudante</option>
+            <option style={{ color: "black" }} value="hobby">
+              Hobby
+            </option>
+            <option style={{ color: "black" }} value="professional">
+              Profissional
+            </option>
+            <option style={{ color: "black" }} value="student">
+              Estudante
+            </option>
           </Select>
           <Text fontSize="xs" color="red.700" h="10px">
             {errors?.interest?.message}

@@ -4,13 +4,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useAuth } from "../../providers/auth";
 import { InputComponent } from "../input";
-import {
-  Box,
-  Button,
-  FormControl,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Button, FormControl, Stack, Text } from "@chakra-ui/react";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 
 interface SignInData {
@@ -23,7 +17,7 @@ function LogInForm() {
     email: yup.string().required("E-mail obrigatório").email("E-mail inválido"),
     password: yup.string().required("Senha obrigatória"),
   });
-  
+
   const {
     formState: { errors },
     register,
@@ -49,11 +43,7 @@ function LogInForm() {
         width: ["100vw", "400px", "500px"],
       }}
     >
-      <Text
-        fontSize={["2xl", "4xl"]}
-      >
-        Entrar
-      </Text>
+      <Text fontSize={["2xl", "4xl"]}>Entrar</Text>
       <Text
         fontSize={["sm", "md"]}
         sx={{ paddingBottom: ["15px", "20px", "30px"] }}

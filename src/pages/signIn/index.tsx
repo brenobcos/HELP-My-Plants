@@ -30,16 +30,15 @@ function SignIn() {
         />
         <Flex
           sx={{
-            height: "100%",
             width: "100vw",
-            alignItems: "flex-start",
+            height: "60%",
+            alignItems: "center",
             justifyContent: "center",
             "@media screen and (min-width: 1024px)": {
+              height: "100%",
+              marginBottom: "12%",
               justifyContent: "space-evenly",
-            },
-            "@media screen and (min-width: 1280px)": {
-            },
-            "@media screen and (min-width: 1480px)": {
+              alignItems: "center",
             },
           }}
         >
@@ -65,8 +64,8 @@ function SignIn() {
                 position: "inherit",
                 minWidth: "100px",
                 minHeight: "100px",
-                maxWidth: "580px",
-                maxHeight: "580px",
+                maxWidth: "400px",
+                maxHeight: "400px",
                 bottom: "0",
                 right: "5vw",
                 top: "15vh",
