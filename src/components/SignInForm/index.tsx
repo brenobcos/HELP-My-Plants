@@ -40,7 +40,6 @@ function LogInForm() {
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
-        mb: "6%",
         width: ["100vw", "400px", "500px"],
       }}
     >
