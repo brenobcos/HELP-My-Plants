@@ -15,7 +15,7 @@ import {
   Flex,
 } from "@chakra-ui/react";
 
-//   import { StyledInput } from "./style";
+import { StyledInput } from "./style";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
@@ -27,7 +27,7 @@ interface plantMinMax {
   min: number;
   max: number;
 }
-interface plant {
+interface userPlant {
   name: string;
   cientific_name: string;
   water: number;
@@ -41,13 +41,13 @@ interface plant {
   last_watering?: string;
   details?: string;
   userId?: number;
-  id?: number;
+  id: number;
 }
 
 interface ModalNewPlantProps {
   isOpen: boolean;
   onClose: () => void;
-  plant: plant;
+  plant: userPlant;
 }
 
 interface EditPlantData {
@@ -69,7 +69,7 @@ function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
     last_watering: yup.string().required("Campo obrigatório"),
   });
 
-  const { user, accessToken } = useAuth();
+  const { accessToken } = useAuth();
   const { changeUserPlant, deleteUserPlant } = useUserPlants();
   const {
     register,
@@ -84,7 +84,6 @@ function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
     plant.reminder = data.reminder;
     changeUserPlant(plant, accessToken);
   }
-  console.log(plant.id);
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
@@ -171,7 +170,7 @@ function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
 
           <FormLabel fontWeight="bold">Ultima rega</FormLabel>
           <Flex flexDirection="column">
-            <input
+            <StyledInput
               type="date"
               defaultValue={plant.last_watering}
               {...register("last_watering")}
@@ -186,7 +185,7 @@ function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
           <Divider as="hr" borderColor="green.800" margin="8px 0" />
           <Flex justifyContent="space-between">
             <Button
-              //   onClick={() => deleteUserPlant(plant.id, accessToken)}
+              onClick={() => deleteUserPlant(plant.id, accessToken)}
               _hover={{ bg: "red.800" }}
               _active={{ borderColor: "none" }}
               _focus={{ borderColor: "none" }}

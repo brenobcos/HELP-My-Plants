@@ -27,6 +27,7 @@ interface plantMinMax {
   min: number;
   max: number;
 }
+
 interface plant {
   name: string;
   cientific_name: string;
@@ -36,13 +37,13 @@ interface plant {
   height: plantMinMax;
   info: string;
   image: string;
+  reminder?: string;
   surname?: string;
   last_watering?: string;
   details?: string;
   userId?: number;
   id?: number;
 }
-
 interface ModalNewPlantProps {
   isOpen: boolean;
   onClose: () => void;
@@ -81,6 +82,7 @@ function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
     plant.last_watering = data.last_watering;
     plant.details = data.details;
     plant.userId = user.id;
+    plant.reminder = data.reminder;
     addNewPlant(plant);
     console.log(plant);
   }

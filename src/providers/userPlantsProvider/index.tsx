@@ -18,6 +18,7 @@ interface plant {
   height: plantMinMax;
   info: string;
   image: string;
+  reminder?: string;
   surname?: string;
   last_watering?: string;
   details?: string;

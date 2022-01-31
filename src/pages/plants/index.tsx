@@ -1,5 +1,4 @@
 import { useDisclosure } from "@chakra-ui/react";
-import ModalEditPlant from "../../components/modals/modalEditPlant";
 import ModalNewPlant from "../../components/modals/modalAddPlant";
 import { useUserPlants } from "../../providers/userPlantsProvider";
 import { useAuth } from "../../providers/auth";
@@ -19,6 +18,7 @@ interface plant {
   info: string;
   image: string;
   surname?: string;
+  reminder?: string;
   last_watering?: string;
   details?: string;
   userId?: number;
@@ -26,7 +26,7 @@ interface plant {
 }
 
 function Plants() {
-  const { getUserPlants, userPlants } = useUserPlants();
+  const { getUserPlants } = useUserPlants();
   const { plants, renderPlants } = usePlants();
   const { user, accessToken } = useAuth();
 
@@ -43,21 +43,19 @@ function Plants() {
     onClose: onModalAddClose,
   } = useDisclosure();
 
-  console.log(plantState);
-
   function onClickButton(plant: plant) {
     onModalOpen();
     setPlantState(plant);
   }
   return (
     <div>
-      <ModalEditPlant
+      <ModalNewPlant
         isOpen={isModalAddPlantOpen}
         onClose={onModalAddClose}
         plant={plantState}
       />
       ;
-      {userPlants.map((plant: plant) => {
+      {plants.map((plant: plant) => {
         return (
           <div key={plant.name}>
             <button onClick={() => onClickButton(plant)}>edit</button>
