@@ -27,7 +27,7 @@ export function DashboardsRender({
         <Heading as="h3" fontWeight="regular" fontSize="xl">
           {title}
         </Heading>
-        <Flex w="100vw" justifyContent="center">
+        <Flex justifyContent="center" w="100%">
           {children}
         </Flex>
       </Flex>
