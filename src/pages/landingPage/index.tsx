@@ -28,7 +28,7 @@ function LandingPage() {
           "space-around",
           "space-evenly",
         ]}
-        mr={["0", "0", "0", "8%"]}
+        mt={["0", "0", "0", "4%"]}
         flexDirection={["column", "column", "column", "row"]}
         alignItems="center"
         height={["85%", "100%", "100%", "auto"]}
@@ -40,7 +40,11 @@ function LandingPage() {
           h={["50%", "50%", "50%", "80%"]}
           justifyContent="space-evenly"
         >
-          <Heading fontSize={["2xl", "4xl", "5xl", "6xl"]} fontWeight="800">
+          <Heading
+            fontSize={["2xl", "4xl", "5xl", "6xl"]}
+            fontWeight="800"
+            color="#00210D"
+          >
             MANTENHA SUAS PLANTAS SAÚDAVEIS
           </Heading>
           <Text fontSize={["sm", "md", "lg", "2xl"]}>
