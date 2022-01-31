@@ -7,12 +7,14 @@ import {
   SiCss3,
   SiChakraui,
 } from "react-icons/si";
+import { CardAboutus } from "../../components/CardAboutus";
 
 function AboutUs() {
   return (
     <>
       <Header firstLink="curiosity" firstText="Como cuidar da sua planta" />
       <Flex flexDir={["column-reverse", "column"]}>
+        <CardAboutus />
         <Flex flexDir="column" w={["auto", "400px"]} padding={["0 10px", "0"]}>
           <Text
             color="green.800"
