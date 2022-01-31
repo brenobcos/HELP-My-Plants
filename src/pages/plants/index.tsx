@@ -4,6 +4,8 @@ import { useUserPlants } from "../../providers/userPlantsProvider";
 import { useAuth } from "../../providers/auth";
 import { useState, useEffect } from "react";
 import { usePlants } from "../../providers/plantsProvider";
+import { CardDatabase } from "../../components/CardDatabase";
+
 interface plantMinMax {
   min: number;
   max: number;
@@ -59,6 +61,20 @@ function Plants() {
         return (
           <div key={plant.name}>
             <button onClick={() => onClickButton(plant)}>edit</button>
+            {plants.map((plant: plant) => (
+            <CardDatabase
+              key={plant.id}
+              name={plant.name}
+              cientific_name={plant.cientific_name}
+              height={plant.height}
+              image={plant.image}
+              info={plant.info}
+              lighting={plant.lighting}
+              temperature={plant.temperature}
+              water={plant.water}
+              last_watering={plant.last_watering}
+            />
+          ))}
           </div>
         );
       })}
