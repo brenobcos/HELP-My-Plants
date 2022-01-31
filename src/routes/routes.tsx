@@ -4,9 +4,15 @@ import { useAuth } from "../providers/auth";
 interface Props extends RouteProps {
   component: ComponentType;
   isPrivate?: boolean;
+  isPublic?: boolean;
 }
 
-function Route({ component: Component, isPrivate = false, ...rest }: Props) {
+function Route({
+  component: Component,
+  isPrivate = false,
+  isPublic = false,
+  ...rest
+}: Props) {
   const { accessToken } = useAuth();
 
   return (
@@ -14,6 +20,8 @@ function Route({ component: Component, isPrivate = false, ...rest }: Props) {
       {...rest}
       render={() =>
         isPrivate === !!accessToken ? (
+          <Component />
+        ) : isPublic ? (
           <Component />
         ) : (
           <Redirect to={isPrivate ? "/" : "/dashboard"} />
