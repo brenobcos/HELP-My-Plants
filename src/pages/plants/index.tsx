@@ -39,14 +39,14 @@ function Plants() {
 
   const {
     isOpen: isModalAddPlantOpen,
-    onOpen: onCartOpen,
+    onOpen: onModalOpen,
     onClose: onModalAddClose,
   } = useDisclosure();
 
   console.log(plantState);
 
   function onClickButton(plant: plant) {
-    onCartOpen();
+    onModalOpen();
     setPlantState(plant);
   }
   return (

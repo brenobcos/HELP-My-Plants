@@ -26,8 +26,8 @@ function SignUp() {
           "center",
         ]}
         as="main"
-        justify="flex-end"
-        minH="calc(100vh - 140px)"
+        justify="space-evenly"
+        h="calc(100vh - 150px)"
       >
         <Image
           src={img}
@@ -40,9 +40,9 @@ function SignUp() {
             maxHeight: "500px",
             maxWidth: "500px",
             opacity: "0.6",
-            position: "fixed",
             width: "80vw",
             zIndex: "-1",
+            position: "fixed",
             "@media screen and (min-width: 1024px)": {
               bottom: "20vh",
               height: "30vw",
@@ -53,6 +53,7 @@ function SignUp() {
               minWidth: "100px",
               opacity: "1",
               top: "26vh",
+              position: "inherit",
               width: "30vw",
             },
             "@media screen and (min-width: 1280px)": {

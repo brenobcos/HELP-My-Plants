@@ -1,4 +1,4 @@
-import { Flex, Button, Text, Heading, Image, Center } from "@chakra-ui/react";
+import { Flex, Button, Text, Heading, Image, Center, Box } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
 import Header from "../../components/header";
 import { FaRegUser } from "react-icons/fa";
@@ -10,7 +10,6 @@ function LandingPage() {
   const history = useHistory();
   return (
     <Flex maxW="100vw" h="100vh" flexDirection="column">
-      <Center w="100%" h="15%">
         <Header
           firstLink="aboutus"
           secondLink="curiosity"
@@ -20,7 +19,6 @@ function LandingPage() {
           firstLabel="Login"
           iconLink="/signin"
         />
-      </Center>
       <Flex
         justifyContent={[
           "space-around",
@@ -28,7 +26,6 @@ function LandingPage() {
           "space-around",
           "space-evenly",
         ]}
-        mr={["0", "0", "0", "8%"]}
         flexDirection={["column", "column", "column", "row"]}
         alignItems="center"
         height={["85%", "100%", "100%", "auto"]}
@@ -38,20 +35,22 @@ function LandingPage() {
           flexDirection="column"
           w={["90%", "90%", "90%", "40%"]}
           h={["50%", "50%", "50%", "80%"]}
-          justifyContent="space-evenly"
+          gap="20px"
         >
-          <Heading fontSize={["2xl", "4xl", "5xl", "6xl"]} fontWeight="800">
-            MANTENHA SUAS PLANTAS SAÚDAVEIS
-          </Heading>
-          <Text fontSize={["sm", "md", "lg", "2xl"]}>
-            Plantas reduzem o nível de stress e melhoram seu humor - O que as
-            tornam perfeitas para sua casa e escritório.
-          </Text>
+          <Flex flexDir="column">
+            <Heading fontSize={["2xl", "4xl"]} fontWeight="800">
+              MANTENHA SUAS PLANTAS SAUDÁVEIS
+            </Heading>
+            <Text fontSize={["sm", "md"]}>
+              Plantas reduzem o nível de stress e melhoram seu humor - O que as
+              tornam perfeitas para sua casa e escritório.
+            </Text>
+          </Flex>
           <Button
             onClick={() => history.push("/signup")}
-            w={["179px", "183px", "185px", "190px"]}
-            h={["46px", "52px", "62px", "70px"]}
-            fontSize="22px"
+            w={["179px", "183px"]}
+            h={["46px", "52px"]}
+            fontSize="1.188rem"
             borderRadius="10px"
             color="gray.0"
             background="green.1000"
@@ -63,31 +62,29 @@ function LandingPage() {
         </Flex>
 
         <Image
-          width={["220px", "300px", "300px", "500px"]}
-          height={["220px", "300px", "300px", "500px"]}
+
+          width={["220px", "300px", "350px"]}
+          height={["220px", "300px", "350px"]}
           opacity={["0.5", "0.5", "0.5", "1"]}
           src={img}
         />
       </Flex>
-      <Center
+      {/* <Center
         borderRadius="15px 0 0 0"
         bg="green.1000"
         w="70%"
-        h="119px"
-        mt="auto"
         ml="auto"
         color="gray.0"
         display={["none", "none", "none", "inherit"]}
       >
-        <Center bg="green.100" w="200px" h="100%" borderRadius="15px 0 0 0">
-          <Image src={imgFooter} />
+        <Center  borderRadius="15px 0 0 0">
         </Center>
-        <Text ml="3%">
+        <Text ml="3%" fontSize="sm">
           “Deus Todo-Poderoso foi quem primeiro plantou um jardim. Na verdade,
           plantar jardins é o mais puro dos prazeres humanos” – Francis Bacon,
           (1625) Sobre Jardins
         </Text>
-      </Center>
+      </Center> */}
     </Flex>
   );
 }
