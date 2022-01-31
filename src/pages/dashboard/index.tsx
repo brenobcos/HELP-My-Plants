@@ -3,8 +3,27 @@ import { CardDashboard } from "../../components/CardDashboard";
 import { useUserPlants } from "../../providers/userPlantsProvider";
 import { useAuth } from "../../providers/auth";
 import { useEffect } from "react";
-import { Flex, Text } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+
+interface plantMinMax {
+  min: number;
+  max: number;
+}
+
+interface plant {
+  name: string;
+  cientific_name: string;
+  water: number;
+  lighting: plantMinMax;
+  temperature: plantMinMax;
+  height: plantMinMax;
+  info: string;
+  image: string;
+  surname?: string;
+  last_watering?: string;
+  details?: string;
+  userId?: number;
+  id?: number;
+}
 
 function Dashboard() {
   const { userPlants, getUserPlants } = useUserPlants();
@@ -20,7 +39,7 @@ function Dashboard() {
       firstLink="/plants"
       firstText="Encontrar uma nova planta"
     >
-      {userPlants.length>=1 ?  {userPlants.map((plant) => (
+      {userPlants.map((plant: plant) => (
         <CardDashboard
           key={plant.id}
           name={plant.name}
@@ -33,13 +52,7 @@ function Dashboard() {
           water={plant.water}
           last_watering={plant.last_watering}
         />
-      ))}:
-      <Flex flexDirection="column">
-        <Text>Você ainda não tem plantas no seu jardim.</Text>
-        <Text>Adicione plantas ao seu jardim clicando <Link to="/plants">aqui</Link>.</Text>
-      </Flex>
-      }
-     
+      ))}
     </DashboardsRender>
   );
 }
