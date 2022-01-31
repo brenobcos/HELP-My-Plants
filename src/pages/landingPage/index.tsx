@@ -1,4 +1,12 @@
-import { Flex, Button, Text, Heading, Image, Center, Box } from "@chakra-ui/react";
+import {
+  Flex,
+  Button,
+  Text,
+  Heading,
+  Image,
+  Center,
+  Box,
+} from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
 import Header from "../../components/header";
 import { FaRegUser } from "react-icons/fa";
@@ -10,15 +18,15 @@ function LandingPage() {
   const history = useHistory();
   return (
     <Flex maxW="100vw" h="100vh" flexDirection="column">
-        <Header
-          firstLink="aboutus"
-          secondLink="curiosity"
-          firstText="Conheça nosso time"
-          secondText="Como cuidar da sua planta"
-          firstIcon={FaRegUser}
-          firstLabel="Login"
-          iconLink="/signin"
-        />
+      <Header
+        firstLink="aboutus"
+        secondLink="curiosity"
+        firstText="Conheça nosso time"
+        secondText="Como cuidar da sua planta"
+        firstIcon={FaRegUser}
+        firstLabel="Login"
+        iconLink="/signin"
+      />
       <Flex
         justifyContent={[
           "space-around",
@@ -62,7 +70,6 @@ function LandingPage() {
         </Flex>
 
         <Image
-
           width={["220px", "300px", "350px"]}
           height={["220px", "300px", "350px"]}
           opacity={["0.5", "0.5", "0.5", "1"]}
