@@ -54,7 +54,6 @@ export function RegisterForm() {
       as="form"
       flexDirection="column"
       position="relative"
-      // bottom={["auto", "auto","50px"]}
       maxW="500px"
       width={["100vw", "400px", "500px"]}
     >

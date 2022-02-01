@@ -46,10 +46,9 @@ export function CardDatabase({
   userId,
   id,
 }: plant) {
-
-  const media = (min:number, max:number) => {
-    return Math.ceil((min + max)/4)
-  }
+  const media = (min: number, max: number) => {
+    return Math.ceil((min + max) / 4);
+  };
 
   return (
     <Flex
@@ -88,7 +87,13 @@ export function CardDatabase({
             </Text>
           </Flex>
           <Flex flexDirection="column" alignItems="center">
-            <FaThermometerQuarter color={theme.colors.temperature[`${media(temperature.min,temperature.max)}`]} />
+            <FaThermometerQuarter
+              color={
+                theme.colors.temperature[
+                  `${media(temperature.min, temperature.max)}`
+                ]
+              }
+            />
             <Text as="span" fontSize=".625rem" fontWeight="light" mt="1">
               {`${temperature.min}º-${temperature.max}º`}
             </Text>
@@ -120,7 +125,7 @@ export function CardDatabase({
           Lembrar de tirar do quarto e colocar na varanda 2x por semana.
         </Text>
         <IconButton
-        mt="5"
+          mt="5"
           color="gray.0"
           bgColor="green.800"
           borderRadius="50%"
