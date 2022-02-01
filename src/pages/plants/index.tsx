@@ -51,16 +51,10 @@ function Plants() {
   }
   return (
     <div>
-      <ModalNewPlant
-        isOpen={isModalAddPlantOpen}
-        onClose={onModalAddClose}
-        plant={plantState}
-      />
       ;
       {plants.map((plant: plant) => {
         return (
           <div key={plant.name}>
-            <button onClick={() => onClickButton(plant)}>edit</button>
             {plants.map((plant: plant) => (
               <CardDatabase
                 key={plant.id}
@@ -73,8 +67,14 @@ function Plants() {
                 temperature={plant.temperature}
                 water={plant.water}
                 last_watering={plant.last_watering}
+                onClick={() => onClickButton(plant)}
               />
             ))}
+            <ModalNewPlant
+              isOpen={isModalAddPlantOpen}
+              onClose={onModalAddClose}
+              plant={plantState}
+            />
           </div>
         );
       })}

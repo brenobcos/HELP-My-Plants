@@ -40,7 +40,7 @@ interface userPlant {
   last_watering?: string;
   details?: string;
   userId?: number;
-  id: number;
+  id?: number | undefined;
 }
 
 interface ModalNewPlantProps {
@@ -177,6 +177,8 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
 
           <Divider as="hr" borderColor="green.800" margin="8px 0" />
           <Flex justifyContent="space-between">
+            {!!plant.id && (
+
             <Button
               onClick={() => deleteUserPlant(plant.id)}
               _hover={{ bg: "red.800" }}
@@ -191,6 +193,7 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
             >
               remover
             </Button>
+            )}
             <Button
               _hover={{ bg: "green.800" }}
               _active={{ borderColor: "none" }}

@@ -30,10 +30,12 @@ interface plant {
   details?: string;
   userId?: number;
   id?: number;
+  onClick?: () => void;
 }
 
 export function CardDashboard({
   name,
+  onClick,
   cientific_name,
   water,
   lighting,
@@ -152,9 +154,11 @@ export function CardDashboard({
           bgColor="green.800"
           mt="2"
           borderRadius="50%"
+          _hover={{ bg: "green.600"}}
           colorScheme="blue"
           aria-label="Search database"
           icon={<FaSlidersH fontSize="1.5rem" />}
+          onClick={onClick}
         />
       </Flex>
     </Flex>

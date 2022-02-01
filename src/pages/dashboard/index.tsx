@@ -2,9 +2,11 @@ import { DashboardsRender } from "../../components/dashboardAndPlants";
 import { CardDashboard } from "../../components/CardDashboard";
 import { useUserPlants } from "../../providers/userPlantsProvider";
 import { useAuth } from "../../providers/auth";
-import { useEffect } from "react";
-import { Flex, Text } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import { Flex, Text, useDisclosure } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { ModalEditPlant } from "../../components/modals/modalEditPlant";
+
 
 interface plantMinMax {
   min: number;
@@ -35,6 +37,19 @@ function Dashboard() {
     getUserPlants(user.id);
   }, []);
 
+  const [plantState, setPlantState] = useState<plant>({} as plant);
+
+  const {
+    isOpen: isModalAddPlantOpen,
+    onOpen: onModalOpen,
+    onClose: onModalAddClose,
+  } = useDisclosure();
+
+  function onClickButton(plant: plant) {
+    onModalOpen();
+    setPlantState(plant);
+  }
+
   return (
     <DashboardsRender
       title="Meu Jardim"
@@ -62,8 +77,14 @@ function Dashboard() {
               temperature={plant.temperature}
               water={plant.water}
               last_watering={plant.last_watering}
+              onClick={()=>onClickButton(plant)}
             />
           ))}
+              <ModalEditPlant
+              isOpen={isModalAddPlantOpen}
+              onClose={onModalAddClose}
+              plant={plantState}
+            />
         </Flex>
       ) : (
         <Flex
