@@ -38,12 +38,6 @@ interface plant {
   info: string;
   image: string;
   id: number;
-  // reminder?: string;
-  // surname?: string;
-  // last_watering?: string;
-  // details?: string;
-  // userId?: number;
-  // id?: number;
 }
 
 interface ModalNewPlantProps {
@@ -88,6 +82,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
       userId: user.id,
       reminder: data.reminder,
     });
+    onClose();
   }
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -160,9 +155,11 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
 
           <FormLabel fontWeight="bold">Detalhes</FormLabel>
 
-          <StyledTextArea {...register("details")}>
-            Mais informações que você achar relevante aqui:)
-          </StyledTextArea>
+          <StyledTextArea
+            defaultValue={"Mais informações que você achar relevante aqui:)"}
+            {...register("details")}
+          />
+
           <Divider as="hr" borderColor="green.800" margin="4px 0" />
 
           <FormLabel fontWeight="bold">Ultima rega</FormLabel>
