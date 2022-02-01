@@ -22,7 +22,7 @@ export function CardAboutus({
   function Shared() {
     return (
       <AnimateSharedLayout>
-        <Flex margin="5px 0">
+        <Flex margin="4px 0">
           <motion.div
             style={{
               display: "flex",
@@ -36,10 +36,10 @@ export function CardAboutus({
           >
             <Image
               boxShadow="0 2px 4px 2px rgba(0, 0, 0, 0.15)"
-              width="108px"
-              maxWidth="108px"
-              height="108px"
-              maxHeight="108px"
+              width="98px"
+              maxWidth="98px"
+              height="98x"
+              maxHeight="98px"
               onMouseEnter={onOpen}
               onClick={isOpen ? onClose : onOpen}
               border="3px solid transparent"
@@ -57,7 +57,7 @@ export function CardAboutus({
                   exit={{ opacity: 0 }}
                 >
                   <Flex
-                    w={["200px", "300px"]}
+                    w={["200px", "220px", "220px", "300px"]}
                     flexDir="column"
                     onMouseLeave={onClose}
                     onClick={onClose}
@@ -65,11 +65,11 @@ export function CardAboutus({
                     <Text
                       textAlign="center"
                       color="green.800"
-                      fontSize={["20px", "26px"]}
+                      fontSize={"20px"}
                     >
                       {name}
                     </Text>
-                    <Text textAlign="center" color="green.500" fontSize="18px">
+                    <Text textAlign="center" color="green.500" fontSize="16px">
                       {office}
                     </Text>
                     <Flex
@@ -83,20 +83,20 @@ export function CardAboutus({
                         _after={{ border: "none" }}
                         _focus={{ border: "none" }}
                         cursor="pointer"
-                        bgColor="white"
+                        bgColor="transparent"
                         aria-label=""
                         onClick={() => (window.location.href = `${github}`)}
-                        icon={<FaGithub fontSize="30px" />}
+                        icon={<FaGithub fontSize="25px" />}
                       ></IconButton>
                       <IconButton
                         _active={{ border: "none" }}
                         _after={{ border: "none" }}
                         _focus={{ border: "none" }}
                         cursor="pointer"
-                        bgColor="white"
+                        bgColor="transparent"
                         aria-label=""
                         onClick={() => (window.location.href = `${linkedin}`)}
-                        icon={<FaLinkedin fontSize="30px" />}
+                        icon={<FaLinkedin fontSize="25px" />}
                       ></IconButton>
                     </Flex>
                   </Flex>

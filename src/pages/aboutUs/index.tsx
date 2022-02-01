@@ -1,4 +1,4 @@
-import { Flex, Text, theme } from "@chakra-ui/react";
+import { Flex, Image, Text, theme } from "@chakra-ui/react";
 import Header from "../../components/header";
 import {
   SiTypescript,
@@ -13,6 +13,7 @@ import bruno from "../../assets/avatarbruno.jpg";
 import breno from "../../assets/avatarbreno.png";
 import luiza from "../../assets/avatarluiza.png";
 import johnny from "../../assets/avatarjohnny.png";
+import loginpage from "../../assets/loginpage.png";
 
 function AboutUs() {
   return (
@@ -23,7 +24,33 @@ function AboutUs() {
         justifyContent={["center", "center", "space-evenly"]}
         alignItems={["center", "center"]}
       >
-        <Flex flexDir="column" w="40%" justifyContent="space-evenly">
+        <Flex
+          flexDir="column"
+          w={["90%", "90%", "40%"]}
+          justifyContent="space-evenly"
+          position="relative"
+        >
+          <Image
+            box-shadow="inset 20px 14px 124px rgba(0, 0, 0, 0.18)"
+            position="absolute"
+            left="50%"
+            top="50%"
+            sx={{ transform: "translate(-35%, -40%)" }}
+            translateY="-50%"
+            zIndex="-1"
+            src={loginpage}
+            opacity="60%"
+            borderRadius="50%"
+            width="375px"
+          ></Image>
+          <Text
+            color="green.800"
+            fontSize="36px"
+            fontWeight="500"
+            textAlign="center"
+          >
+            Devs
+          </Text>
           <CardAboutus
             image={breno}
             name="Breno Carlos"
@@ -34,8 +61,8 @@ function AboutUs() {
           <CardAboutus
             image={bruno}
             name="Bruno Tetzner"
-            linkedin="https://www.linkedin.com/in/caiquefcavalheiro/"
-            github="https://www.linkedin.com/in/bruno-tetzner-a93091175/"
+            linkedin="https://www.linkedin.com/in/bruno-tetzner-a93091175/ "
+            github="https://github.com/brunotetzner"
             office="Quality Assurance"
           />
           <CardAboutus
@@ -60,7 +87,6 @@ function AboutUs() {
             office="Product Owner"
           />
         </Flex>
-
         <Flex
           flexDir="column"
           w={["320px", "400px"]}
