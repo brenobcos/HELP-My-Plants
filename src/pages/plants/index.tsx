@@ -62,19 +62,19 @@ function Plants() {
           <div key={plant.name}>
             <button onClick={() => onClickButton(plant)}>edit</button>
             {plants.map((plant: plant) => (
-            <CardDatabase
-              key={plant.id}
-              name={plant.name}
-              cientific_name={plant.cientific_name}
-              height={plant.height}
-              image={plant.image}
-              info={plant.info}
-              lighting={plant.lighting}
-              temperature={plant.temperature}
-              water={plant.water}
-              last_watering={plant.last_watering}
-            />
-          ))}
+              <CardDatabase
+                key={plant.id}
+                name={plant.name}
+                cientific_name={plant.cientific_name}
+                height={plant.height}
+                image={plant.image}
+                info={plant.info}
+                lighting={plant.lighting}
+                temperature={plant.temperature}
+                water={plant.water}
+                last_watering={plant.last_watering}
+              />
+            ))}
           </div>
         );
       })}
