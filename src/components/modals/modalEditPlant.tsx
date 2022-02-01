@@ -83,6 +83,11 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
     plant.reminder = data.reminder;
     changeUserPlant(plant);
   }
+
+  function handleDelete() {
+    deleteUserPlant(plant.id);
+    onClose();
+  }
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
@@ -104,7 +109,7 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
           <FormLabel fontWeight="bold">Apelido</FormLabel>
           <Editable
             textAlign="left"
-            defaultValue={plant.name}
+            defaultValue={plant.surname}
             fontSize="md"
             fontWeight="light"
             display="flex"
@@ -179,7 +184,7 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
           <Flex justifyContent="space-between">
             {!!plant.id && (
               <Button
-                onClick={() => deleteUserPlant(plant.id)}
+                onClick={handleDelete}
                 _hover={{ bg: "red.800" }}
                 _active={{ borderColor: "none" }}
                 _focus={{ borderColor: "none" }}
@@ -194,6 +199,7 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
               </Button>
             )}
             <Button
+              onClick={() => onClose()}
               _hover={{ bg: "green.800" }}
               _active={{ borderColor: "none" }}
               _focus={{ borderColor: "none" }}

@@ -38,12 +38,6 @@ interface plant {
   info: string;
   image: string;
   id: number;
-  // reminder?: string;
-  // surname?: string;
-  // last_watering?: string;
-  // details?: string;
-  // userId?: number;
-  // id?: number;
 }
 
 interface ModalNewPlantProps {

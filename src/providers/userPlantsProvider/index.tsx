@@ -57,6 +57,29 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
       })
       .then((response) => {
         setUserPlants(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+        toast({
+          title: "Ops... Algo deu errado",
+          description:
+            "Não foi possivel buscar suas plantas, recarregue a pagína ou tente novamente mais tarde",
+          status: "error",
+          duration: 6000,
+          isClosable: true,
+        });
+      });
+  }
+
+  function addNewPlant(plant: plant) {
+    api
+      .post("/userPlants/", plant, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      })
+      .then((_) => {
+        getUserPlants(user.id);
         toast({
           title: "Informações registradas.",
           description: "Planta adicionada ao jardim",
@@ -75,20 +98,6 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
           isClosable: true,
         });
       });
-  }
-
-  function addNewPlant(plant: plant) {
-    api
-      .post("/userPlants/", plant, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      })
-      .then((_) => {
-        console.log("Planta adicionada");
-        getUserPlants(user.id);
-      })
-      .catch((error) => console.log(error));
   }
 
   function changeUserPlant(plant: plant) {

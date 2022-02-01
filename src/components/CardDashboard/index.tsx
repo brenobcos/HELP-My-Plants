@@ -154,7 +154,7 @@ export function CardDashboard({
           bgColor="green.800"
           mt="2"
           borderRadius="50%"
-          _hover={{ bg: "green.600"}}
+          _hover={{ bg: "green.600" }}
           colorScheme="blue"
           aria-label="Search database"
           icon={<FaSlidersH fontSize="1.5rem" />}
