@@ -30,10 +30,10 @@ interface plant {
 function Plants() {
   const { getUserPlants } = useUserPlants();
   const { plants, renderPlants } = usePlants();
-  const { user, accessToken } = useAuth();
+  const { user } = useAuth();
 
   useEffect(() => {
-    getUserPlants(user.id, accessToken);
+    getUserPlants(user.id);
     renderPlants();
   }, []);
 
