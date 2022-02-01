@@ -35,7 +35,7 @@ interface UserProps {
 }
 
 function EditUser({ isOpen, onClose }: editUserProps) {
-  const { user } = useAuth();
+  const { user, patchUser } = useAuth();
   const [interest, setInterest] = useState(user.interest);
   const registerSchema = yup.object().shape({
     name: yup
@@ -62,8 +62,7 @@ function EditUser({ isOpen, onClose }: editUserProps) {
       email: data.email,
       interest: interest,
     };
-    //chamar função patchUser
-    // patchUser(newUser);
+    patchUser(newUser);
     onClose();
   }
 
