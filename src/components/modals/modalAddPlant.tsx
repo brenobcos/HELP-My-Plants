@@ -116,6 +116,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
             <EditableInput
               {...register("surname")}
               width={["150px", "260px"]}
+              id="2"
             />
             <EditableControls />
           </Editable>
@@ -140,6 +141,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
             <EditableInput
               {...register("reminder")}
               width={["150px", "260px"]}
+              id="3"
             />
             <EditableControls />
           </Editable>
@@ -164,6 +166,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
             <EditableInput
               {...register("details")}
               width={["150px", "260px"]}
+              id="4"
             />
             <EditableControls />
           </Editable>
@@ -171,7 +174,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
 
           <FormLabel fontWeight="bold">Ultima rega</FormLabel>
           <Flex flexDirection="column">
-            <StyledInput type="date" {...register("last_watering")} />
+            <StyledInput type="date" {...register("last_watering")} id="5" />
             {errors.last_watering?.message && (
               <Text as="span" fontSize="0.7rem" color="red.700">
                 {errors.last_watering?.message}
