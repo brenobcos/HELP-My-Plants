@@ -141,7 +141,7 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
         toast({
           title: "Planta removida",
           description: "Escolha uma nova planta na pagína de plantas",
-          status: "success",
+          status: "info",
           duration: 3000,
           isClosable: true,
         });
