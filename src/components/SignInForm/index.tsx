@@ -70,12 +70,14 @@ function LogInForm() {
           onSubmit={handleSubmit(handleSignIn)}
         >
           <InputComponent
+            id="email"
             {...register("email")}
             error={errors.email}
             icon={FaEnvelope}
             placeholder="E-mail"
           />
           <InputComponent
+            id="password"
             {...register("password")}
             error={errors.password}
             icon={FaLock}
