@@ -34,12 +34,19 @@ interface SignInCredentials {
   password: string;
 }
 
+interface PatchUser {
+  email: string;
+  name: string;
+  interest: string;
+}
+
 interface AuthContextData {
   user: User;
   accessToken: string;
   signIn: (credentials: SignInCredentials) => Promise<void>;
   signOut: () => void;
   SignUp: ({ name, email, password, interest }: SignUpData) => void;
+  patchUser: (patchData: PatchUser) => void;
 }
 
 export const AuthContext = createContext<AuthContextData>(
@@ -131,6 +138,33 @@ function AuthProvider({ children }: AuthProviderProps) {
     setData({} as AuthState);
   }
 
+  async function patchUser(patchData: PatchUser) {
+    await api
+      .patch(
+        `/users/${data.user.id}`,
+        { patchData },
+        {
+          headers: { Authorization: `Bearer ${data.accessToken}` },
+        }
+      )
+      .then(() =>
+        toast({
+          title: "Usuário Atualizado",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        })
+      )
+      .catch(() =>
+        toast({
+          title: "Erro ao atualizar!",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        })
+      );
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -139,6 +173,7 @@ function AuthProvider({ children }: AuthProviderProps) {
         signIn,
         signOut,
         SignUp,
+        patchUser,
       }}
     >
       {children}
