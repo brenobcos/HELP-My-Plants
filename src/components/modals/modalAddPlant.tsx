@@ -174,6 +174,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
           <Divider as="hr" borderColor="green.800" margin="8px 0" />
 
           <Button
+            onClick={onClose}
             _hover={{ bg: "green.800" }}
             _active={{ borderColor: "none" }}
             _focus={{ borderColor: "none" }}

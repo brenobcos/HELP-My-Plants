@@ -83,6 +83,10 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
     plant.reminder = data.reminder;
     changeUserPlant(plant);
   }
+  function onClickButton(id: number) {
+    deleteUserPlant(id);
+    onClose();
+  }
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
@@ -178,7 +182,7 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
           <Divider as="hr" borderColor="green.800" margin="8px 0" />
           <Flex justifyContent="space-between">
             <Button
-              onClick={() => deleteUserPlant(plant.id)}
+              onClick={() => onClickButton}
               _hover={{ bg: "red.800" }}
               _active={{ borderColor: "none" }}
               _focus={{ borderColor: "none" }}
@@ -192,6 +196,7 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
               remover
             </Button>
             <Button
+              onClick={onClose}
               _hover={{ bg: "green.800" }}
               _active={{ borderColor: "none" }}
               _focus={{ borderColor: "none" }}
