@@ -24,7 +24,7 @@ interface plant {
   last_watering?: string;
   details?: string;
   userId?: number;
-  id?: number;
+  id: number;
 }
 interface UserPlantsContextData {
   getUserPlants: (userId: number) => void;

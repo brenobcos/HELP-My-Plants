@@ -26,7 +26,7 @@ interface plantMinMax {
   min: number;
   max: number;
 }
-interface userPlant {
+interface plant {
   name: string;
   cientific_name: string;
   water: number;
@@ -35,8 +35,8 @@ interface userPlant {
   height: plantMinMax;
   info: string;
   image: string;
-  surname?: string;
   reminder?: string;
+  surname?: string;
   last_watering?: string;
   details?: string;
   userId?: number;
@@ -46,7 +46,7 @@ interface userPlant {
 interface ModalNewPlantProps {
   isOpen: boolean;
   onClose: () => void;
-  plant: userPlant;
+  plant: plant;
 }
 
 interface EditPlantData {
@@ -177,20 +177,22 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
 
           <Divider as="hr" borderColor="green.800" margin="8px 0" />
           <Flex justifyContent="space-between">
-            <Button
-              onClick={() => deleteUserPlant(plant.id)}
-              _hover={{ bg: "red.800" }}
-              _active={{ borderColor: "none" }}
-              _focus={{ borderColor: "none" }}
-              color="white"
-              bg="red.400"
-              mr={3}
-              borderRadius={"50px 0 50px 0"}
-              mt="10px"
-              w="35%"
-            >
-              remover
-            </Button>
+            {!!plant.id && (
+              <Button
+                onClick={() => deleteUserPlant(plant.id)}
+                _hover={{ bg: "red.800" }}
+                _active={{ borderColor: "none" }}
+                _focus={{ borderColor: "none" }}
+                color="white"
+                bg="red.400"
+                mr={3}
+                borderRadius={"50px 0 50px 0"}
+                mt="10px"
+                w="35%"
+              >
+                remover
+              </Button>
+            )}
             <Button
               _hover={{ bg: "green.800" }}
               _active={{ borderColor: "none" }}

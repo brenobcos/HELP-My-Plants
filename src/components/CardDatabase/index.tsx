@@ -24,26 +24,19 @@ interface plant {
   height: plantMinMax;
   info: string;
   image: string;
-  surname?: string;
-  last_watering?: string;
-  details?: string;
-  userId?: number;
-  id?: number;
+  id: number;
+  onClick: () => void;
 }
 
 export function CardDatabase({
   name,
+  onClick,
   cientific_name,
   water,
   lighting,
   temperature,
   height,
-  info,
   image,
-  surname,
-  last_watering,
-  details,
-  userId,
   id,
 }: plant) {
   const media = (min: number, max: number) => {
@@ -125,6 +118,7 @@ export function CardDatabase({
           Lembrar de tirar do quarto e colocar na varanda 2x por semana.
         </Text>
         <IconButton
+          _hover={{ bg: "green.600" }}
           mt="5"
           color="gray.0"
           bgColor="green.800"
@@ -132,6 +126,7 @@ export function CardDatabase({
           colorScheme="blue"
           aria-label="Search database"
           icon={<FaPlus fontSize="1.5rem" />}
+          onClick={onClick}
         />
       </Flex>
     </Flex>
