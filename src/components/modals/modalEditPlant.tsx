@@ -19,7 +19,6 @@ import { StyledInput } from "./style";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { useAuth } from "../../providers/auth/index";
 import { useUserPlants } from "../../providers/userPlantsProvider";
 import EditableControls from "../../components/EditableControls/EditableControls";
 
@@ -70,7 +69,6 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
     last_watering: yup.string().required("Campo obrigatório"),
   });
 
-  const { accessToken } = useAuth();
   const { changeUserPlant, deleteUserPlant } = useUserPlants();
   const {
     register,
@@ -83,7 +81,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
     plant.last_watering = data.last_watering;
     plant.details = data.details;
     plant.reminder = data.reminder;
-    changeUserPlant(plant, accessToken);
+    changeUserPlant(plant);
   }
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -114,6 +112,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
           >
             <EditablePreview />
             <EditableInput
+              id="9"
               {...register("surname")}
               width={["150px", "260px"]}
             />
@@ -140,6 +139,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
             <EditableInput
               {...register("reminder")}
               width={["150px", "260px"]}
+              id="10"
             />
             <EditableControls />
           </Editable>
@@ -164,6 +164,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
             <EditableInput
               {...register("details")}
               width={["150px", "260px"]}
+              id="11"
             />
             <EditableControls />
           </Editable>
@@ -175,6 +176,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
               type="date"
               defaultValue={plant.last_watering}
               {...register("last_watering")}
+              id="12"
             />
             {errors.last_watering?.message && (
               <Text as="span" fontSize="0.7rem" color="red.700">
@@ -186,7 +188,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
           <Divider as="hr" borderColor="green.800" margin="8px 0" />
           <Flex justifyContent="space-between">
             <Button
-              onClick={() => deleteUserPlant(plant.id, accessToken)}
+              onClick={() => deleteUserPlant(plant.id)}
               _hover={{ bg: "red.800" }}
               _active={{ borderColor: "none" }}
               _focus={{ borderColor: "none" }}
