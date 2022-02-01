@@ -82,6 +82,7 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
     plant.details = data.details;
     plant.reminder = data.reminder;
     changeUserPlant(plant);
+    onClose();
   }
 
   function handleDelete() {
@@ -158,9 +159,11 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
 
           <FormLabel fontWeight="bold">Detalhes</FormLabel>
 
-          <StyledTextArea {...register("details")}>
-            {plant.details}
-          </StyledTextArea>
+          <StyledTextArea
+            defaultValue={plant.details}
+            {...register("details")}
+          />
+
           <Divider as="hr" borderColor="green.800" margin="4px 0" />
 
           <Divider as="hr" borderColor="green.800" margin="8px 0" />
@@ -199,7 +202,6 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
               </Button>
             )}
             <Button
-              onClick={() => onClose()}
               _hover={{ bg: "green.800" }}
               _active={{ borderColor: "none" }}
               _focus={{ borderColor: "none" }}

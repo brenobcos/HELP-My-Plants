@@ -1,7 +1,5 @@
 import { Flex, useDisclosure } from "@chakra-ui/react";
 import { ModalNewPlant } from "../../components/modals/modalAddPlant";
-import { useUserPlants } from "../../providers/userPlantsProvider";
-import { useAuth } from "../../providers/auth";
 import { useState, useEffect } from "react";
 import { usePlants } from "../../providers/plantsProvider";
 import { CardDatabase } from "../../components/CardDatabase";
@@ -25,12 +23,9 @@ interface plant {
 }
 
 function Plants() {
-  const { getUserPlants } = useUserPlants();
   const { plants, renderPlants } = usePlants();
-  const { user } = useAuth();
 
   useEffect(() => {
-    getUserPlants(user.id);
     renderPlants();
   }, []);
 
@@ -71,9 +66,9 @@ function Plants() {
         gap="25px"
         alignItems="flex-start"
       >
-        {plants.map((plant: plant) => (
+        {plants.map((plant: plant, index) => (
           <CardDatabase
-            key={plant.id}
+            key={index}
             id={plant.id}
             name={plant.name}
             cientific_name={plant.cientific_name}

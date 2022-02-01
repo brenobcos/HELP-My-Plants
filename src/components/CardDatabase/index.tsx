@@ -42,7 +42,6 @@ export function CardDatabase({
   const media = (min: number, max: number) => {
     return Math.ceil((min + max) / 4);
   };
-
   return (
     <Flex
       color="green.800"

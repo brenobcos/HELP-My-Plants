@@ -137,7 +137,6 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
         },
       })
       .then((_) => {
-        console.log("Planta removida");
         getUserPlants(user.id);
         toast({
           title: "Planta removida",
