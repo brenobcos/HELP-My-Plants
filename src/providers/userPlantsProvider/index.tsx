@@ -26,10 +26,10 @@ interface plant {
   id?: number;
 }
 interface UserPlantsContextData {
-  getUserPlants: (userId: number, token: string) => void;
+  getUserPlants: (userId: number) => void;
   addNewPlant: (plant: plant) => void;
-  changeUserPlant: (plant: plant, token: string) => void;
-  deleteUserPlant: (plantId: number, token: string) => void;
+  changeUserPlant: (plant: plant) => void;
+  deleteUserPlant: (plantId: number) => void;
   userPlants: plant[];
 }
 
@@ -86,11 +86,11 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
       .catch((error) => console.log(error));
   }
 
-  function deleteUserPlant(plantId: number, token: string) {
+  function deleteUserPlant(plantId: number) {
     api
       .delete(`userPlants/${plantId}`, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${accessToken}`,
         },
       })
       .then((_) => {

@@ -29,10 +29,10 @@ interface plant {
 
 function Dashboard() {
   const { userPlants, getUserPlants } = useUserPlants();
-  const { user, accessToken } = useAuth();
+  const { user } = useAuth();
 
   useEffect(() => {
-    getUserPlants(user.id, accessToken);
+    getUserPlants(user.id);
   }, []);
 
   return (
