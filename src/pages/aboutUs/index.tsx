@@ -8,14 +8,65 @@ import {
   SiChakraui,
 } from "react-icons/si";
 import { CardAboutus } from "../../components/CardAboutus";
+import caique from "../../assets/avatarcaique.png";
+import bruno from "../../assets/avatarbruno.jpg";
+import breno from "../../assets/avatarbreno.png";
+import luiza from "../../assets/avatarluiza.png";
+import johnny from "../../assets/avatarjohnny.png";
 
 function AboutUs() {
   return (
     <>
       <Header firstLink="curiosity" firstText="Como cuidar da sua planta" />
-      <Flex flexDir={["column-reverse", "column"]}>
-        <CardAboutus />
-        <Flex flexDir="column" w={["auto", "400px"]} padding={["0 10px", "0"]}>
+      <Flex
+        flexDir={["column-reverse", "column-reverse", "row"]}
+        justifyContent={["center", "center", "space-evenly"]}
+        alignItems={["center", "center"]}
+      >
+        <Flex flexDir="column" w="40%" justifyContent="space-evenly">
+          <CardAboutus
+            image={breno}
+            name="Breno Carlos"
+            linkedin=""
+            github="https://github.com/brenobcos"
+            office="Tech Leader"
+          />
+          <CardAboutus
+            image={bruno}
+            name="Bruno Tetzner"
+            linkedin="https://www.linkedin.com/in/caiquefcavalheiro/"
+            github="https://www.linkedin.com/in/bruno-tetzner-a93091175/"
+            office="Quality Assurance"
+          />
+          <CardAboutus
+            image={caique}
+            name="Caique Cavalheiro"
+            linkedin="https://www.linkedin.com/in/caiquefcavalheiro/"
+            github="https://github.com/Caique-Cavalheiro"
+            office="Scrum Master"
+          />
+          <CardAboutus
+            image={johnny}
+            name="Johnny Gregório"
+            linkedin="https://www.linkedin.com/in/johnny-gregorio-237737218/"
+            github="https://github.com/johkker"
+            office="Quality Assurance"
+          />
+          <CardAboutus
+            image={luiza}
+            name="Luiza Schmidt"
+            linkedin="https://www.linkedin.com/in/luiza-schmidt-7946a51b2/"
+            github="https://github.com/lsmescolotto"
+            office="Product Owner"
+          />
+        </Flex>
+
+        <Flex
+          flexDir="column"
+          w={["320px", "400px"]}
+          padding={["0 10px", "0"]}
+          h="100%"
+        >
           <Text
             color="green.800"
             alignSelf="center"
