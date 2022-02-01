@@ -7,7 +7,6 @@ import { Flex, Text, useDisclosure } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { ModalEditPlant } from "../../components/modals/modalEditPlant";
 
-
 interface plantMinMax {
   min: number;
   max: number;
@@ -22,11 +21,12 @@ interface plant {
   height: plantMinMax;
   info: string;
   image: string;
+  reminder?: string;
   surname?: string;
   last_watering?: string;
   details?: string;
   userId?: number;
-  id?: number;
+  id: number;
 }
 
 function Dashboard() {
@@ -77,14 +77,14 @@ function Dashboard() {
               temperature={plant.temperature}
               water={plant.water}
               last_watering={plant.last_watering}
-              onClick={()=>onClickButton(plant)}
+              onClick={() => onClickButton(plant)}
             />
           ))}
-              <ModalEditPlant
-              isOpen={isModalAddPlantOpen}
-              onClose={onModalAddClose}
-              plant={plantState}
-            />
+          <ModalEditPlant
+            isOpen={isModalAddPlantOpen}
+            onClose={onModalAddClose}
+            plant={plantState}
+          />
         </Flex>
       ) : (
         <Flex

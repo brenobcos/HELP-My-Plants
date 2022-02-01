@@ -19,12 +19,7 @@ interface plant {
   height: plantMinMax;
   info: string;
   image: string;
-  surname?: string;
-  reminder?: string;
-  last_watering?: string;
-  details?: string;
-  userId?: number;
-  id?: number;
+  id: number;
 }
 
 function Plants() {
@@ -58,6 +53,7 @@ function Plants() {
             {plants.map((plant: plant) => (
               <CardDatabase
                 key={plant.id}
+                id={plant.id}
                 name={plant.name}
                 cientific_name={plant.cientific_name}
                 height={plant.height}
@@ -66,7 +62,6 @@ function Plants() {
                 lighting={plant.lighting}
                 temperature={plant.temperature}
                 water={plant.water}
-                last_watering={plant.last_watering}
                 onClick={() => onClickButton(plant)}
               />
             ))}

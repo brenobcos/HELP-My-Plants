@@ -24,11 +24,7 @@ interface plant {
   height: plantMinMax;
   info: string;
   image: string;
-  surname?: string;
-  last_watering?: string;
-  details?: string;
-  userId?: number;
-  id?: number;
+  id: number;
   onClick: () => void;
 }
 
@@ -40,12 +36,7 @@ export function CardDatabase({
   lighting,
   temperature,
   height,
-  info,
   image,
-  surname,
-  last_watering,
-  details,
-  userId,
   id,
 }: plant) {
   const media = (min: number, max: number) => {

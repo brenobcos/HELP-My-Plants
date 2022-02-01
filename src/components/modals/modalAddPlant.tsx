@@ -37,13 +37,15 @@ interface plant {
   height: plantMinMax;
   info: string;
   image: string;
-  reminder?: string;
-  surname?: string;
-  last_watering?: string;
-  details?: string;
-  userId?: number;
-  id?: number;
+  id: number;
+  // reminder?: string;
+  // surname?: string;
+  // last_watering?: string;
+  // details?: string;
+  // userId?: number;
+  // id?: number;
 }
+
 interface ModalNewPlantProps {
   isOpen: boolean;
   onClose: () => void;
@@ -78,12 +80,14 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
   } = useForm<NewPlantData>({ resolver: yupResolver(registerPlantSchema) });
 
   function handleAddPlant(data: NewPlantData) {
-    plant.surname = data.surname;
-    plant.last_watering = data.last_watering;
-    plant.details = data.details;
-    plant.userId = user.id;
-    plant.reminder = data.reminder;
-    addNewPlant(plant);
+    addNewPlant({
+      ...plant,
+      surname: data.surname,
+      last_watering: data.last_watering,
+      details: data.details,
+      userId: user.id,
+      reminder: data.reminder,
+    });
   }
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
