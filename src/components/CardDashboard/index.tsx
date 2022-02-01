@@ -47,10 +47,9 @@ export function CardDashboard({
   userId,
   id,
 }: plant) {
-
-  const media = (min:number, max:number) => {
-    return Math.ceil((min + max)/4)
-  }
+  const media = (min: number, max: number) => {
+    return Math.ceil((min + max) / 4);
+  };
 
   return (
     <Flex
@@ -89,7 +88,13 @@ export function CardDashboard({
             </Text>
           </Flex>
           <Flex flexDirection="column" alignItems="center">
-            <FaThermometerQuarter color={theme.colors.temperature[`${media(temperature.min,temperature.max)}`]} />
+            <FaThermometerQuarter
+              color={
+                theme.colors.temperature[
+                  `${media(temperature.min, temperature.max)}`
+                ]
+              }
+            />
             <Text as="span" fontSize=".625rem" fontWeight="light" mt="1">
               {`${temperature.min}º-${temperature.max}º`}
             </Text>

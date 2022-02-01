@@ -15,7 +15,7 @@ import {
   Flex,
 } from "@chakra-ui/react";
 
-import { StyledInput } from "./style";
+import { StyledInput, StyledTextArea } from "./style";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
@@ -92,6 +92,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
         as="form"
         onSubmit={handleSubmit(handleAddPlant)}
         width={["280px", "400px"]}
+        maxHeight="85%"
         borderRadius="50px 8px 50px 0px "
         border="3px solid transparent"
         bg="linear-gradient(#FFFFFF, #FFFFFF) padding-box,linear-gradient(50deg, #FFFFFF 25%, #46FF42 50%,#FFFFFF 75%) border-box"
@@ -112,7 +113,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
             flexDirection="row"
             justifyContent="space-between"
           >
-            <EditablePreview />
+            <EditablePreview maxHeight="40px" overflow="auto" />
             <EditableInput
               {...register("surname")}
               width={["150px", "260px"]}
@@ -130,14 +131,15 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
           <FormLabel fontWeight="bold">Lembrete</FormLabel>
           <Editable
             textAlign="left"
-            defaultValue="Anote algo que você não pode esquecer aqui"
+            defaultValue="algo que você não pode esquecer"
             fontSize="md"
             fontWeight="light"
             display="flex"
             flexDirection="row"
             justifyContent="space-between"
+            maxBlockSize="200px"
           >
-            <EditablePreview />
+            <EditablePreview maxHeight="40px" overflow="auto" />
             <EditableInput
               {...register("reminder")}
               width={["150px", "260px"]}
@@ -153,24 +155,11 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
           <Divider as="hr" borderColor="green.800" margin="8px 0" />
 
           <FormLabel fontWeight="bold">Detalhes</FormLabel>
-          <Editable
-            textAlign="left"
-            defaultValue="Anote informações sobre sua planta aqui"
-            fontSize="md"
-            fontWeight="light"
-            display="flex"
-            flexDirection="row"
-            justifyContent="space-between"
-          >
-            <EditablePreview />
-            <EditableInput
-              {...register("details")}
-              width={["150px", "260px"]}
-              id="4"
-            />
-            <EditableControls />
-          </Editable>
-          <Divider as="hr" borderColor="green.800" margin="8px 0" />
+
+          <StyledTextArea {...register("details")}>
+            Mais informações que você achar relevante aqui:)
+          </StyledTextArea>
+          <Divider as="hr" borderColor="green.800" margin="4px 0" />
 
           <FormLabel fontWeight="bold">Ultima rega</FormLabel>
           <Flex flexDirection="column">
@@ -191,10 +180,9 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
             color="white"
             bg="green.400"
             mr={3}
-            mb={3}
             borderRadius={"50px 0 50px 0"}
             marginLeft="67%"
-            mt="30px"
+            mt="10px"
             type="submit"
             w="35%"
           >
