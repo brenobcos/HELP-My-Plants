@@ -17,11 +17,7 @@ interface plant {
   height: plantMinMax;
   info: string;
   image: string;
-  surname?: string;
-  last_watering?: string;
-  details?: string;
-  userId?: number;
-  id?: number;
+  id: number;
 }
 interface PlantsProviderData {
   plants: Array<plant>;
