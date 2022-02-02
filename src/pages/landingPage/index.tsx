@@ -1,18 +1,10 @@
-import {
-  Flex,
-  Button,
-  Text,
-  Heading,
-  Image,
-  Center,
-  Box,
-} from "@chakra-ui/react";
+import { Flex, Button, Text, Heading, Image, Box } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
 import Header from "../../components/header";
 import { FaRegUser } from "react-icons/fa";
+import imgFooter from "../../assets/imagem-footer.png";
 
 const img = require("../../assets/Plant Image.png");
-const imgFooter = require("../../assets/landingpagesmall.png");
 
 function LandingPage() {
   const history = useHistory();
@@ -36,13 +28,12 @@ function LandingPage() {
         ]}
         flexDirection={["column", "column", "column", "row"]}
         alignItems="center"
-        height={["85%", "100%", "100%", "90%"]}
+        height={["85%", "100%", "auto"]}
       >
         <Flex
           mr={["0", "0", "0", "2.5%"]}
           flexDirection="column"
           w={["90%", "90%", "90%", "40%"]}
-          h={["50%", "50%", "50%", "65%"]}
           justifyContent="space-around"
           gap="20px"
         >
@@ -59,6 +50,7 @@ function LandingPage() {
             onClick={() => history.push("/signup")}
             w={["179px", "183px"]}
             h={["46px", "52px"]}
+            marginTop="10px"
             fontSize="1.188rem"
             borderRadius="10px"
             color="gray.0"
@@ -77,22 +69,31 @@ function LandingPage() {
           src={img}
         />
       </Flex>
-      {/* <Center
-        borderRadius="15px 0 0 0"
+      <Flex
+        borderRadius="30px 0 0 0"
         bg="green.1000"
-        w="70%"
+        w="60%"
+        mt="auto"
         ml="auto"
         color="gray.0"
+        border="none"
         display={["none", "none", "none", "inherit"]}
+        justifyContent="flex-start"
       >
-        <Center  borderRadius="15px 0 0 0">
-        </Center>
-        <Text ml="3%" fontSize="sm">
+        <Box backgroundColor="green.200" borderRadius="30px 0 0 0">
+          <Image
+            backgroundColor="green.200"
+            width="150px"
+            src={imgFooter}
+            borderRadius="30px 0 0 0"
+          />
+        </Box>
+        <Flex alignItems="center" ml="3%" fontSize="xs" justifyContent="center">
           “Deus Todo-Poderoso foi quem primeiro plantou um jardim. Na verdade,
           plantar jardins é o mais puro dos prazeres humanos” – Francis Bacon,
           (1625) Sobre Jardins
-        </Text>
-      </Center> */}
+        </Flex>
+      </Flex>
     </Flex>
   );
 }

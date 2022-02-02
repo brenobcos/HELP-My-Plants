@@ -2,9 +2,10 @@ import { DashboardsRender } from "../../components/dashboardAndPlants";
 import { CardDashboard } from "../../components/CardDashboard";
 import { useUserPlants } from "../../providers/userPlantsProvider";
 import { useEffect, useState } from "react";
-import { Flex, Text, useDisclosure } from "@chakra-ui/react";
+import { Flex, Heading, Text, useDisclosure } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { ModalEditPlant } from "../../components/modals/modalEditPlant";
+import { theme } from "../../styles/theme";
 
 interface plantMinMax {
   min: number;
@@ -53,19 +54,32 @@ function Dashboard() {
       title="Meu Jardim"
       firstLink="/plants"
       firstText="Encontrar uma nova planta"
+      topTitle={true}
     >
       {userPlants.length >= 1 ? (
         <Flex
-          w="900px"
-          h="500px"
-          overflowX="scroll"
-          position="fixed"
-          bottom="5px"
+          alignItems="flex-start"
+          css={{
+            "&::-webkit-scrollbar": {
+              width: "1px",
+            },
+            "&::-webkit-scrollbar-track": {
+              width: "1px",
+            },
+            "&::-webkit-scrollbar-thumb": {
+              background: `${theme.colors.green[400]}`,
+              borderRadius: "24px",
+            },
+          }}
           gap="25px"
+          h="480px"
+          mt={["20px", "0"]}
+          overflowX="scroll"
+          w={["90vw"]}
         >
-          {userPlants.map((plant: plant) => (
+          {userPlants.map((plant: plant, index) => (
             <CardDashboard
-              key={plant.id}
+              key={index}
               name={plant.name}
               cientific_name={plant.cientific_name}
               height={plant.height}
@@ -96,7 +110,7 @@ function Dashboard() {
             Você ainda não tem plantas no seu jardim.
           </Text>
           <Text textAlign="center">
-            Adicione novas plantas clicando{" "}
+            Adicione novas plantas clicando
             <Link to="/plants">
               <b>aqui</b>
             </Link>

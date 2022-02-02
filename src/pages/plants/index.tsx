@@ -10,6 +10,7 @@ interface plantMinMax {
   min: number;
   max: number;
 }
+
 interface plant {
   name: string;
   cientific_name: string;
@@ -41,6 +42,7 @@ function Plants() {
     onModalOpen();
     setPlantState(plant);
   }
+
   return (
     <DashboardsRender
       firstLink="/dashboard"
@@ -48,9 +50,7 @@ function Plants() {
       title="Adicione uma nova planta ao seu jardim"
     >
       <Flex
-        w={["90vw"]}
-        h="450px"
-        overflowX="scroll"
+        alignItems="flex-start"
         css={{
           "&::-webkit-scrollbar": {
             width: "1px",
@@ -64,7 +64,9 @@ function Plants() {
           },
         }}
         gap="25px"
-        alignItems="flex-start"
+        h="450px"
+        overflowX="scroll"
+        w="90vw"
       >
         {plants.map((plant: plant, index) => (
           <CardDatabase
