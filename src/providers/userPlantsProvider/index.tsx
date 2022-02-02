@@ -27,7 +27,7 @@ interface plant {
   id: number;
 }
 interface UserPlantsContextData {
-  getUserPlants: (userId: number) => void;
+  getUserPlants: () => void;
   addNewPlant: (plant: plant) => void;
   changeUserPlant: (plant: plant) => void;
   deleteUserPlant: (plantId: number) => void;
@@ -48,9 +48,9 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
 
   const toast = useToast();
 
-  function getUserPlants(userId: number) {
+  function getUserPlants() {
     api
-      .get(`/userPlants/?userId=${userId}`, {
+      .get(`/userPlants/?userId=${user.id}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -58,16 +58,8 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
       .then((response) => {
         setUserPlants(response.data);
       })
-      .catch((error) => {
-        console.log(error);
-        toast({
-          title: "Ops... Algo deu errado",
-          description:
-            "Não foi possivel buscar suas plantas, recarregue a pagína ou tente novamente mais tarde",
-          status: "error",
-          duration: 6000,
-          isClosable: true,
-        });
+      .catch((err) => {
+        console.log(err);
       });
   }
 
@@ -79,7 +71,7 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
         },
       })
       .then((_) => {
-        getUserPlants(user.id);
+        getUserPlants();
         toast({
           title: "Informações registradas.",
           description: "Planta adicionada ao jardim",
@@ -108,7 +100,7 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
         },
       })
       .then((_) => {
-        getUserPlants(user.id);
+        getUserPlants();
         toast({
           title: "Planta editada.",
           description: "As alterações foram salvas com sucesso",
@@ -137,7 +129,12 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
         },
       })
       .then((_) => {
-        getUserPlants(user.id);
+        if (userPlants.length > 1) {
+          getUserPlants();
+        } else {
+          setUserPlants([]);
+        }
+
         toast({
           title: "Planta removida",
           description: "Escolha uma nova planta na pagína de plantas",

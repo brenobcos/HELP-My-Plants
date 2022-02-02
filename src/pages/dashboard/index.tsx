@@ -1,7 +1,6 @@
 import { DashboardsRender } from "../../components/dashboardAndPlants";
 import { CardDashboard } from "../../components/CardDashboard";
 import { useUserPlants } from "../../providers/userPlantsProvider";
-import { useAuth } from "../../providers/auth";
 import { useEffect, useState } from "react";
 import { Flex, Heading, Text, useDisclosure } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
@@ -32,10 +31,9 @@ interface plant {
 
 function Dashboard() {
   const { userPlants, getUserPlants } = useUserPlants();
-  const { user } = useAuth();
 
   useEffect(() => {
-    getUserPlants(user.id);
+    getUserPlants();
   }, []);
 
   const [plantState, setPlantState] = useState<plant>({} as plant);

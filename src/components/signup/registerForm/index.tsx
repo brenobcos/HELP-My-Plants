@@ -95,13 +95,13 @@ export function RegisterForm() {
             height="45px"
             w="100%"
           >
-            <option style={{ color: "black" }} value="hobby">
+            <option style={{ color: "black" }} value="Hobby">
               Hobby
             </option>
-            <option style={{ color: "black" }} value="professional">
+            <option style={{ color: "black" }} value="Profissional">
               Profissional
             </option>
-            <option style={{ color: "black" }} value="student">
+            <option style={{ color: "black" }} value="Estudante">
               Estudante
             </option>
           </Select>
