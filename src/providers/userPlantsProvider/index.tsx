@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { api } from "../../services/index";
+import { useToast } from "@chakra-ui/react";
 import { useAuth } from "../auth";
 interface UserPlantsProviderProps {
   children: ReactNode;
@@ -45,6 +46,8 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
   const [userPlants, setUserPlants] = useState<plant[]>([]);
   const { user, accessToken } = useAuth();
 
+  const toast = useToast();
+
   function getUserPlants(userId: number) {
     api
       .get(`/userPlants/?userId=${userId}`, {
@@ -55,7 +58,17 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
       .then((response) => {
         setUserPlants(response.data);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        toast({
+          title: "Ops... Algo deu errado",
+          description:
+            "Não foi possivel buscar suas plantas, recarregue a pagína ou tente novamente mais tarde",
+          status: "error",
+          duration: 6000,
+          isClosable: true,
+        });
+      });
   }
 
   function addNewPlant(plant: plant) {
@@ -66,10 +79,25 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
         },
       })
       .then((_) => {
-        console.log("Planta adicionada");
         getUserPlants(user.id);
+        toast({
+          title: "Informações registradas.",
+          description: "Planta adicionada ao jardim",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        toast({
+          title: "Ops... Algo deu errado",
+          description: "As informações não foram cadastradas, tente novamente.",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      });
   }
 
   function changeUserPlant(plant: plant) {
@@ -80,10 +108,25 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
         },
       })
       .then((_) => {
-        console.log("Planta editada");
         getUserPlants(user.id);
+        toast({
+          title: "Planta editada.",
+          description: "As alterações foram salvas com sucesso",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        toast({
+          title: "Ops... Algo deu errado",
+          description: "As informações não foram cadastradas, tente novamente.",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      });
   }
 
   function deleteUserPlant(plantId: number) {
@@ -94,10 +137,25 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
         },
       })
       .then((_) => {
-        console.log("Planta removida");
         getUserPlants(user.id);
+        toast({
+          title: "Planta removida",
+          description: "Escolha uma nova planta na pagína de plantas",
+          status: "info",
+          duration: 3000,
+          isClosable: true,
+        });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        toast({
+          title: "Ops... Algo deu errado",
+          description: "Não foi possível excluir a planta, tente novamente.",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      });
   }
   return (
     <UserPlantsContext.Provider
