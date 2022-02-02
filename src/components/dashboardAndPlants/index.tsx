@@ -7,6 +7,7 @@ interface DashboardsRenderProps {
   title: string;
   firstLink: string;
   firstText: string;
+  topTitle?: boolean;
 }
 
 export function DashboardsRender({
@@ -14,19 +15,45 @@ export function DashboardsRender({
   title,
   firstLink,
   firstText,
+  topTitle = false,
 }: DashboardsRenderProps) {
   return (
-    <Flex flexDirection="column" h="100vh" justify="space-between" w="100vw">
+    <Flex flexDirection="column" h={["auto"]} justify="space-between" w="100vw">
       <Header
         firstLink={firstLink}
         firstText={firstText}
         secondLink="/curiosity"
         secondText="Como cuidar da sua planta"
       />
-      <Flex flexDirection="column" h="calc(100vh - 100px)" paddingLeft="5vw">
-        <Heading as="h3" fontWeight="regular" fontSize="xl">
-          {title}
-        </Heading>
+      <Flex
+        flexDirection="column"
+        // h={["auto", "auto", "calc(100vh - 100px)", "calc(100vh - 100px)"]}
+        // minH="calc(100vh - 100px)"
+      >
+        {topTitle ? (
+          <Heading
+            as="h3"
+            top={["22vh", "13vh", "13vh", "12vh"]}
+            fontSize="3xl"
+            fontWeight="regular"
+            right={["25vw", "10vw", "35vw", "37vw"]}
+            position="fixed"
+          >
+            {title}
+          </Heading>
+        ) : (
+          <Heading
+            as="h3"
+            fontWeight="regular"
+            fontSize="xl"
+            mb={["15px", "9px"]}
+            ml={["5vw", "0"]}
+            mr={["5vw", "0"]}
+          >
+            {title}
+          </Heading>
+        )}
+
         <Flex justifyContent="center" w="100%">
           {children}
         </Flex>
