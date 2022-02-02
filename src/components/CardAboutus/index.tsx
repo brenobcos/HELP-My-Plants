@@ -1,4 +1,4 @@
-import { Flex, IconButton, Image, Text, useDisclosure } from "@chakra-ui/react";
+import { Flex, IconButton, Image, Text } from "@chakra-ui/react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
 
@@ -17,8 +17,6 @@ export function CardAboutus({
   linkedin,
   office,
 }: CardProps) {
-  const { isOpen, onClose, onOpen } = useDisclosure();
-
   function Shared() {
     return (
       <AnimateSharedLayout>
@@ -27,10 +25,10 @@ export function CardAboutus({
             style={{
               display: "flex",
               alignItems: "center",
-              borderRadius: "50px",
+              borderRadius: "50px 0 50px 0",
               border: "3px solid transparent",
               background:
-                "linear-gradient(#FFFFFF, #FFFFFF) padding-box,linear-gradient(15deg, #FFFFFF 30%, #46FF42 30%,#FFFFFF 90%) border-box",
+                "linear-gradient(#FFFFFF, #FFFFFF) padding-box,linear-gradient(15deg, #FFFFFF 30%, #184A2C 30%,#FFFFFF 90%) border-box",
             }}
             layout
           >
@@ -40,68 +38,58 @@ export function CardAboutus({
               maxWidth="98px"
               height="98x"
               maxHeight="98px"
-              onMouseEnter={onOpen}
-              onClick={isOpen ? onClose : onOpen}
               border="3px solid transparent"
-              bg="linear-gradient(#FFFFFF, #FFFFFF) padding-box,linear-gradient(50deg, #FFFFFF 25%, #46FF42 70%,#FFFFFF 0%) border-box"
-              borderRadius="50px"
+              bg="linear-gradient(#FFFFFF, #FFFFFF) padding-box,linear-gradient(50deg, #FFFFFF 25%, #184A2C 70%,#FFFFFF 0%) border-box"
+              borderRadius="50px 0 50px 0"
               src={image}
               alt={name}
             />
             <AnimatePresence>
-              {isOpen && (
-                <motion.div
-                  layout
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
+              <motion.div
+                layout
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <Flex
+                  flexDir="column"
+                  width={["200px", "220px", "220px", "300px"]}
                 >
+                  <Text textAlign="center" color="green.800" fontSize={"20px"}>
+                    {name}
+                  </Text>
+                  <Text textAlign="center" color="green.500" fontSize="16px">
+                    {office}
+                  </Text>
                   <Flex
-                    w={["200px", "220px", "220px", "300px"]}
-                    flexDir="column"
-                    onMouseLeave={onClose}
-                    onClick={onClose}
+                    alignItems="center"
+                    justifyContent="space-evenly"
+                    margin="0 30px"
                   >
-                    <Text
-                      textAlign="center"
-                      color="green.800"
-                      fontSize={"20px"}
-                    >
-                      {name}
-                    </Text>
-                    <Text textAlign="center" color="green.500" fontSize="16px">
-                      {office}
-                    </Text>
-                    <Flex
-                      alignItems="center"
-                      justifyContent="space-evenly"
-                      margin="0 30px"
-                    >
-                      <IconButton
-                        as="a"
-                        _active={{ border: "none" }}
-                        _after={{ border: "none" }}
-                        _focus={{ border: "none" }}
-                        cursor="pointer"
-                        bgColor="transparent"
-                        aria-label=""
-                        onClick={() => (window.location.href = `${github}`)}
-                        icon={<FaGithub fontSize="25px" />}
-                      ></IconButton>
-                      <IconButton
-                        _active={{ border: "none" }}
-                        _after={{ border: "none" }}
-                        _focus={{ border: "none" }}
-                        cursor="pointer"
-                        bgColor="transparent"
-                        aria-label=""
-                        onClick={() => (window.location.href = `${linkedin}`)}
-                        icon={<FaLinkedin fontSize="25px" />}
-                      ></IconButton>
-                    </Flex>
+                    <IconButton
+                      as="a"
+                      _active={{ border: "none" }}
+                      _after={{ border: "none" }}
+                      _focus={{ border: "none" }}
+                      cursor="pointer"
+                      bgColor="transparent"
+                      aria-label=""
+                      onClick={() => (window.location.href = `${github}`)}
+                      icon={<FaGithub fontSize="25px" />}
+                    ></IconButton>
+                    <IconButton
+                      _active={{ border: "none" }}
+                      _after={{ border: "none" }}
+                      _focus={{ border: "none" }}
+                      cursor="pointer"
+                      bgColor="transparent"
+                      aria-label=""
+                      onClick={() => (window.location.href = `${linkedin}`)}
+                      icon={<FaLinkedin fontSize="25px" />}
+                    ></IconButton>
                   </Flex>
-                </motion.div>
-              )}
+                </Flex>
+              </motion.div>
             </AnimatePresence>
           </motion.div>
         </Flex>
