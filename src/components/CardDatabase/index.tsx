@@ -38,9 +38,20 @@ export function CardDatabase({
   height,
   image,
   id,
+  info,
 }: plant) {
   const media = (min: number, max: number) => {
-    return Math.ceil((min + max) / 4);
+    const finalMedia = min;
+    // Math.ceil((min + max) / 2);
+    if (finalMedia > 28) {
+      return "hell";
+    } else if (finalMedia > 25) {
+      return "hot";
+    } else if (finalMedia > 20) {
+      return "warm";
+    } else {
+      return "cold";
+    }
   };
   return (
     <Flex
@@ -85,6 +96,11 @@ export function CardDatabase({
                   `${media(temperature.min, temperature.max)}`
                 ]
               }
+              // color={
+              //   theme.colors.temperature[
+              //     `${media(temperature.min, temperature.max)}`
+              //   ]
+              // }
             />
             <Text as="span" fontSize=".625rem" fontWeight="light" mt="1">
               {`${temperature.min}º-${temperature.max}º`}
@@ -114,7 +130,7 @@ export function CardDatabase({
           w="13rem"
           color="green.800"
         >
-          Lembrar de tirar do quarto e colocar na varanda 2x por semana.
+          {info}
         </Text>
         <IconButton
           _hover={{ bg: "green.600" }}
