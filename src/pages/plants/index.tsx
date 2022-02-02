@@ -46,7 +46,6 @@ function Plants() {
   }
   return (
     <div>
-      ;
       {plants.map((plant: plant) => {
         return (
           <div key={plant.name}>
