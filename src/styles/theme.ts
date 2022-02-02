@@ -79,6 +79,9 @@ export const theme = extendTheme({
         bg: "gradient.background",
         color: "green.800",
       },
+      html:{
+        scrollBehavior: "smooth",
+      }
     },
   },
 });

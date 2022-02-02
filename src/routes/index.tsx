@@ -5,7 +5,7 @@ import SignIn from "../pages/signIn";
 import SignUp from "../pages/signUp";
 import Dashboard from "../pages/dashboard";
 import Plants from "../pages/plants";
-import Curiosity from "../pages/curiosity";
+import {Curiosity} from "../pages/curiosity";
 import AboutUs from "../pages/aboutUs";
 
 function Routes() {
