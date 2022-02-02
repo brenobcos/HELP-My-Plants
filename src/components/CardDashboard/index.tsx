@@ -52,6 +52,11 @@ export function CardDashboard({
   const media = (min: number, max: number) => {
     return Math.ceil((min + max) / 4);
   };
+  
+  const handleDate = (date: string) => {
+    return date.split("-").reverse().splice(0,2).join("-")
+  }
+
 
   return (
     <Flex
@@ -147,7 +152,7 @@ export function CardDashboard({
             border: "none",
           }}
         >
-          Última rega 20/01
+          Última rega: {last_watering && handleDate(last_watering)}
         </Text>
         <IconButton
           color="gray.0"
