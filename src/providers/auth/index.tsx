@@ -91,9 +91,8 @@ function AuthProvider({ children }: AuthProviderProps) {
         });
 
         const { accessToken, user } = res.data;
-
-        localStorage.setItem("@HelpMyPlants:accessToken", accessToken);
         localStorage.setItem("@HelpMyPlants:user", JSON.stringify(user));
+        localStorage.setItem("@HelpMyPlants:accessToken", accessToken);
 
         setData({ accessToken, user });
       })
@@ -134,7 +133,6 @@ function AuthProvider({ children }: AuthProviderProps) {
   function signOut() {
     localStorage.removeItem("@HelpMyPlants:accessToken");
     localStorage.removeItem("@HelpMyPlants:user");
-
     setData({} as AuthState);
   }
 
@@ -142,19 +140,28 @@ function AuthProvider({ children }: AuthProviderProps) {
     await api
       .patch(
         `/users/${data.user.id}`,
-        { patchData },
+        { ...patchData },
         {
           headers: { Authorization: `Bearer ${data.accessToken}` },
         }
       )
-      .then(() =>
+      .then((res) => {
+        localStorage.setItem(
+          "@HelpMyPlants:user",
+          JSON.stringify({
+            name: res.data.name,
+            email: res.data.email,
+            id: res.data.id,
+            interest: res.data.interest,
+          })
+        );
         toast({
           title: "Usuário Atualizado",
           status: "success",
           duration: 3000,
           isClosable: true,
-        })
-      )
+        });
+      })
       .catch(() =>
         toast({
           title: "Erro ao atualizar!",
