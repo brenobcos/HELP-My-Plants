@@ -44,7 +44,7 @@ export function CardDatabase({
     const finalMedia = min;
     // Math.ceil((min + max) / 2);
     if (finalMedia > 28) {
-      return "hell";
+      return "veryHell";
     } else if (finalMedia > 25) {
       return "hot";
     } else if (finalMedia > 20) {
