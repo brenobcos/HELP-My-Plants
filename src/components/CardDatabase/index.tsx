@@ -38,9 +38,17 @@ export function CardDatabase({
   height,
   image,
   id,
+  info,
 }: plant) {
-  const media = (min: number, max: number) => {
-    return Math.ceil((min + max) / 4);
+  const average = (min: number) => {
+    if (min > 28) {
+      return "veryHell";
+    } else if (min > 25) {
+      return "hot";
+    } else if (min > 20) {
+      return "warm";
+    }
+    return "cold";
   };
   return (
     <Flex
@@ -69,7 +77,7 @@ export function CardDatabase({
         >
           {cientific_name}
         </Text>
-        <Image w="11.375rem" h="12.625rem" src={image} alt="Samambaia" />
+        <Image w="9.375rem" h="10.625rem" src={image} alt="Samambaia" />
         <Image src={detailplant} alt="raminho de planta" w="4.875rem" />
         <Flex gap="10px" mt="10px">
           <Flex flexDirection="column" alignItems="center">
@@ -80,11 +88,7 @@ export function CardDatabase({
           </Flex>
           <Flex flexDirection="column" alignItems="center">
             <FaThermometerQuarter
-              color={
-                theme.colors.temperature[
-                  `${media(temperature.min, temperature.max)}`
-                ]
-              }
+              color={theme.colors.temperature[`${average(temperature.min)}`]}
             />
             <Text as="span" fontSize=".625rem" fontWeight="light" mt="1">
               {`${temperature.min}º-${temperature.max}º`}
@@ -103,6 +107,7 @@ export function CardDatabase({
             </Text>
           </Flex>
         </Flex>
+        <Flex></Flex>
         <Text
           as="span"
           fontSize=".625rem"
@@ -112,9 +117,10 @@ export function CardDatabase({
           mb="1"
           mt="2"
           w="13rem"
+          h="3.8rem"
           color="green.800"
         >
-          Lembrar de tirar do quarto e colocar na varanda 2x por semana.
+          {info}
         </Text>
         <IconButton
           _hover={{ bg: "green.600" }}
