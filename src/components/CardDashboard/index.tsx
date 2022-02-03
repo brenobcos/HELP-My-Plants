@@ -34,7 +34,6 @@ interface plant {
   onClick?: () => void;
 }
 
-
 export function CardDashboard({
   name,
   onClick,
@@ -80,7 +79,7 @@ export function CardDashboard({
     >
       <Flex flexDirection="column" alignItems="center">
         <Text as="h1" mt="2" fontWeight="500" fontSize="1.125rem">
-          {name}
+          {surname}
         </Text>
         <Text
           as="span"

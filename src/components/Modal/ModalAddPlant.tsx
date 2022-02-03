@@ -132,14 +132,14 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
               {errors.surname?.message}
             </Text>
           )}
-          <Divider as="hr" borderColor="green.800" margin="8px 0" />
+          <Divider as="hr" borderColor="green.800" margin="4px 0" />
 
           <FormLabel fontWeight="bold" marginBottom="0">
             Lembrete
           </FormLabel>
           <Editable
             textAlign="left"
-            defaultValue="algo que você não pode esquecer"
+            defaultValue="lembrete"
             fontSize="md"
             fontWeight="light"
             display="flex"
@@ -160,7 +160,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
               {errors.reminder?.message}
             </Text>
           )}
-          <Divider as="hr" borderColor="green.800" margin="8px 0" />
+          <Divider as="hr" borderColor="green.800" margin="4px 0" />
 
           <FormLabel fontWeight="bold" marginBottom="0">
             Detalhes
@@ -185,7 +185,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
             )}
           </Flex>
 
-          <Divider as="hr" borderColor="green.800" margin="8px 0" />
+          <Divider as="hr" borderColor="green.800" margin="4px 0" />
 
           <Button
             _hover={{ bg: "green.800" }}

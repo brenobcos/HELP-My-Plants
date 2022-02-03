@@ -137,7 +137,7 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
               {errors.surname?.message}
             </Text>
           )}
-          <Divider as="hr" borderColor="green.800" margin="8px 0" />
+          <Divider as="hr" borderColor="green.800" margin="4px 0" />
 
           <FormLabel fontWeight="bold" marginBottom="0">
             Lembrete
@@ -164,7 +164,7 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
               {errors.reminder?.message}
             </Text>
           )}
-          <Divider as="hr" borderColor="green.800" margin="8px 0" />
+          <Divider as="hr" borderColor="green.800" margin="4px 0" />
 
           <FormLabel fontWeight="bold" marginBottom="0">
             Detalhes
@@ -176,8 +176,6 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
           />
 
           <Divider as="hr" borderColor="green.800" margin="4px 0" />
-
-          <Divider as="hr" borderColor="green.800" margin="8px 0" />
 
           <FormLabel fontWeight="bold" marginBottom="0">
             Ultima rega
