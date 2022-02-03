@@ -29,7 +29,7 @@ export function Curiosity() {
           display={["none", "none", "flex"]}
         >
           <Heading as="h2" fontSize="1.75rem" textAlign="center" id="clean">
-            Como higienizar sua planta
+            Higienize a sua planta
           </Heading>
           <Image
             src={clean}
@@ -46,7 +46,7 @@ export function Curiosity() {
           </Text>
           <Divider h="1px" opacity="1" backgroundColor="green.1000" />
           <Heading as="h2" fontSize="1.75rem" textAlign="center" id="inside">
-            Plantas para interiores: saiba como escolher
+            Como escolher plantas para interiores
           </Heading>
           <Image
             src={inside}
@@ -64,7 +64,7 @@ export function Curiosity() {
           </Text>
           <Divider h="1px" opacity="1" backgroundColor="green.1000" />
           <Heading as="h2" fontSize="1.75rem" textAlign="center" id="garden">
-            Como escolher plantas para o jardim
+            Plantas ideais para seu jardim
           </Heading>
           <Image
             src={garden}
@@ -85,7 +85,7 @@ export function Curiosity() {
           </Text>
           <Divider h="1px" opacity="1" backgroundColor="green.1000" />
           <Heading as="h2" fontSize="1.75rem" textAlign="center" id="vase">
-            Dicas de como usar vasos na decoração
+            Como usar vasos para decorar
           </Heading>
           <Image
             src={vase}
@@ -106,7 +106,7 @@ export function Curiosity() {
           </Text>
           <Divider h="1px" opacity="1" backgroundColor="green.1000" />
           <Heading as="h2" fontSize="1.75rem" textAlign="center" id="care">
-            Dicas de como cuidar das plantas em casa
+            Cuidando das plantas de casa
           </Heading>
           <Image
             src={care}
@@ -130,7 +130,7 @@ export function Curiosity() {
             textAlign="center"
             id="fertilizer"
           >
-            Como adubar as plantas em vasos
+            Adubando plantas em vasos
           </Heading>
           <Image
             src={fertilizer}
@@ -148,7 +148,7 @@ export function Curiosity() {
           </Text>
           <Divider h="1px" opacity="1" backgroundColor="green.1000" />
           <Heading as="h2" fontSize="1.75rem" textAlign="center" id="pruning">
-            Como podar plantas: dicas essenciais
+            Como realizar a poda
           </Heading>
           <Image
             src={pruning}
@@ -168,33 +168,32 @@ export function Curiosity() {
             podar e adubar as plantas.
           </Text>
           <Divider h="1px" opacity="1" backgroundColor="green.1000" />
-          <Box marginBottom="20px">
-            <Heading as="h2" fontSize="1.75rem" textAlign="center" id="light">
-              Iluminação para jardim: 3 dicas para adicionar luz ao seu projeto.
-            </Heading>
-            <Image
-              src={light}
-              width="40%"
-              alignSelf="center"
-              borderRadius="50px 8px 50px 0px "
-            />
+          <Heading as="h2" fontSize="1.75rem" textAlign="center" id="light">
+            Planejando a iluminação do seu jardim
+          </Heading>
+          <Image
+            src={light}
+            width="40%"
+            alignSelf="center"
+            borderRadius="50px 8px 50px 0px "
+          />
 
-            <Text as="p">
-              1. Definir o estilo do projeto.
-              <br />
+          <Box marginBottom="20px">
+            <Text as="div" textAlign="justify">
+              <Text fontWeight="bold">1. Definir o estilo do projeto.</Text>
               O primeiro passo é entender qual é o objetivo do jardim. Em alguns
               casos, ele será meramente decorativo e, portanto, o foco deve ser
               em fornecer a iluminação certa para destacar todas as cores das
               plantas e objetos.
               <br />
-              2. Escolher as lâmpadas adequadas.
               <br />
+              <Text fontWeight="bold">2. Escolher as lâmpadas adequadas.</Text>
               Primeiramente, observe a quantidade de metros quadrados que é
               iluminado por cada modelo, essa informação vem na própria
               embalagem.
               <br />
-              3. Utilizar técnicas de iluminação.
               <br />
+              <Text fontWeight="bold">3. Utilizar técnicas de iluminação.</Text>
               As principais são o backlight, no qual uma luz mais fraca é
               posicionada horizontalmente no fundo do jardim para criar efeitos
               de sombra, e o up light, em que refletores projetarão a luz de
@@ -239,7 +238,7 @@ export function Curiosity() {
                 fontWeight="bold"
               >
                 <Text margin="0 10px">
-                  Aprenda a escolher plantas para interiores
+                  Como escolher plantas para interiores
                 </Text>
               </Box>
             </Box>
