@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { Box, Divider, Flex, Heading, Image, Text } from "@chakra-ui/react";
 
 import garden from "../../assets/garden.jpg";
 import care from "../../assets/careplants.jpg";
@@ -23,7 +23,8 @@ export function Curiosity() {
       >
         <Flex
           flexDir="column"
-          width="55%"
+          width="100%"
+          margin="0 40px"
           gap="30px"
           display={["none", "none", "flex"]}
         >
@@ -43,6 +44,7 @@ export function Curiosity() {
             pra retirar o excesso de pó. Limpeza com pano. Outra opção é
             utilizar um pano macio úmido, ou pedaços de algodão úmidos.
           </Text>
+          <Divider h="1px" opacity="1" backgroundColor="green.1000" />
           <Heading as="h2" fontSize="1.75rem" textAlign="center" id="inside">
             Plantas para interiores: saiba como escolher
           </Heading>
@@ -60,6 +62,7 @@ export function Curiosity() {
             especialmente para apartamentos, são aquelas que gostam de sombra ou
             mesmo que são sensíveis ao excesso de sol.
           </Text>
+          <Divider h="1px" opacity="1" backgroundColor="green.1000" />
           <Heading as="h2" fontSize="1.75rem" textAlign="center" id="garden">
             Como escolher plantas para o jardim
           </Heading>
@@ -80,6 +83,7 @@ export function Curiosity() {
             novato na área da jardinagem, comece com um jardim pequeno para
             poder experimentar e ter sucesso, antes de o expandir!
           </Text>
+          <Divider h="1px" opacity="1" backgroundColor="green.1000" />
           <Heading as="h2" fontSize="1.75rem" textAlign="center" id="vase">
             Dicas de como usar vasos na decoração
           </Heading>
@@ -100,6 +104,7 @@ export function Curiosity() {
             paleta de cores e outros objetos do espaço. “Seguir o mesmo estilo
             do ambiente é uma aposta segura.
           </Text>
+          <Divider h="1px" opacity="1" backgroundColor="green.1000" />
           <Heading as="h2" fontSize="1.75rem" textAlign="center" id="care">
             Dicas de como cuidar das plantas em casa
           </Heading>
@@ -118,6 +123,7 @@ export function Curiosity() {
             água, é só ficar atento. Troque os vasos sempre que necessário,
             higienize suas plantas.
           </Text>
+          <Divider h="1px" opacity="1" backgroundColor="green.1000" />
           <Heading
             as="h2"
             fontSize="1.75rem"
@@ -140,6 +146,7 @@ export function Curiosity() {
             em vasos. Ricas em nutrientes, quando misturadas à terra de plantio,
             essas cascas liberam mais energia para as variedades.
           </Text>
+          <Divider h="1px" opacity="1" backgroundColor="green.1000" />
           <Heading as="h2" fontSize="1.75rem" textAlign="center" id="pruning">
             Como podar plantas: dicas essenciais
           </Heading>
@@ -160,40 +167,44 @@ export function Curiosity() {
             esse é também o período, segundo especialistas, mais favorável para
             podar e adubar as plantas.
           </Text>
-          <Heading as="h2" fontSize="1.75rem" textAlign="center" id="light">
-            Iluminação para jardim: 3 dicas para adicionar luz ao seu projeto.
-          </Heading>
-          <Image
-            src={light}
-            width="40%"
-            alignSelf="center"
-            borderRadius="50px 8px 50px 0px "
-          />
+          <Divider h="1px" opacity="1" backgroundColor="green.1000" />
+          <Box marginBottom="20px">
+            <Heading as="h2" fontSize="1.75rem" textAlign="center" id="light">
+              Iluminação para jardim: 3 dicas para adicionar luz ao seu projeto.
+            </Heading>
+            <Image
+              src={light}
+              width="40%"
+              alignSelf="center"
+              borderRadius="50px 8px 50px 0px "
+            />
 
-          <Text as="p">
-            1. Definir o estilo do projeto.
-            <br />
-            O primeiro passo é entender qual é o objetivo do jardim. Em alguns
-            casos, ele será meramente decorativo e, portanto, o foco deve ser em
-            fornecer a iluminação certa para destacar todas as cores das plantas
-            e objetos.
-            <br />
-            2. Escolher as lâmpadas adequadas.
-            <br />
-            Primeiramente, observe a quantidade de metros quadrados que é
-            iluminado por cada modelo, essa informação vem na própria embalagem.
-            <br />
-            3. Utilizar técnicas de iluminação.
-            <br />
-            As principais são o backlight, no qual uma luz mais fraca é
-            posicionada horizontalmente no fundo do jardim para criar efeitos de
-            sombra, e o up light, em que refletores projetarão a luz de baixo
-            para cima.
-          </Text>
+            <Text as="p">
+              1. Definir o estilo do projeto.
+              <br />
+              O primeiro passo é entender qual é o objetivo do jardim. Em alguns
+              casos, ele será meramente decorativo e, portanto, o foco deve ser
+              em fornecer a iluminação certa para destacar todas as cores das
+              plantas e objetos.
+              <br />
+              2. Escolher as lâmpadas adequadas.
+              <br />
+              Primeiramente, observe a quantidade de metros quadrados que é
+              iluminado por cada modelo, essa informação vem na própria
+              embalagem.
+              <br />
+              3. Utilizar técnicas de iluminação.
+              <br />
+              As principais são o backlight, no qual uma luz mais fraca é
+              posicionada horizontalmente no fundo do jardim para criar efeitos
+              de sombra, e o up light, em que refletores projetarão a luz de
+              baixo para cima.
+            </Text>
+          </Box>
         </Flex>
         <Box
           position="relative"
-          w={["90%", "90%", "40%"]}
+          width="100%"
           display={["none", "none", "flex"]}
           justifyContent="center"
         >
@@ -209,11 +220,12 @@ export function Curiosity() {
                 padding="2"
                 cursor="pointer"
                 onClick={() => (window.location.href = "#clean")}
-                borderRadius="50px 8px 50px 0px "
-                border="2px solid transparent"
-                bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box, linear-gradient(5deg, rgba(191,223,215,0) 30%, rgba(24,74,44,1) 50%, rgba(191,223,215,0) 70%) border-box;"
+                borderRadius="50px 0px"
+                border="3px solid transparent"
+                bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box"
+                fontWeight="bold"
               >
-                Como higienizar sua planta
+                <Text margin="0 10px">Higienize a sua planta</Text>
               </Box>
             </Box>
             <Box>
@@ -221,11 +233,14 @@ export function Curiosity() {
                 padding="2"
                 cursor="pointer"
                 onClick={() => (window.location.href = "#inside")}
-                borderRadius="50px 8px 50px 0px "
-                border="2px solid transparent"
-                bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box, linear-gradient(5deg, rgba(191,223,215,0) 30%, rgba(24,74,44,1) 50%, rgba(191,223,215,0) 70%) border-box;"
+                borderRadius="50px 0px"
+                border="3px solid transparent"
+                bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box"
+                fontWeight="bold"
               >
-                Plantas para interiores: saiba como escolher
+                <Text margin="0 10px">
+                  Aprenda a escolher plantas para interiores
+                </Text>
               </Box>
             </Box>
             <Box>
@@ -233,11 +248,12 @@ export function Curiosity() {
                 padding="2"
                 cursor="pointer"
                 onClick={() => (window.location.href = "#garden")}
-                borderRadius="50px 8px 50px 0px "
-                border="2px solid transparent"
-                bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box, linear-gradient(5deg, rgba(191,223,215,0) 30%, rgba(24,74,44,1) 50%, rgba(191,223,215,0) 70%) border-box;"
+                borderRadius="50px 0px"
+                border="3px solid transparent"
+                bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box"
+                fontWeight="bold"
               >
-                Como escolher plantas para o jardim
+                <Text margin="0 10px">Plantas ideais para seu jardim</Text>
               </Box>
             </Box>
             <Box>
@@ -245,11 +261,12 @@ export function Curiosity() {
                 padding="2"
                 cursor="pointer"
                 onClick={() => (window.location.href = "#vase")}
-                borderRadius="50px 8px 50px 0px "
-                border="2px solid transparent"
-                bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box, linear-gradient(5deg, rgba(191,223,215,0) 30%, rgba(24,74,44,1) 50%, rgba(191,223,215,0) 70%) border-box;"
+                borderRadius="50px 0px"
+                border="3px solid transparent"
+                bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box"
+                fontWeight="bold"
               >
-                Dicas de como usar vasos na decoração
+                <Text margin="0 10px">Como usar vasos para decorar</Text>
               </Box>
             </Box>
             <Box>
@@ -257,11 +274,12 @@ export function Curiosity() {
                 padding="2"
                 cursor="pointer"
                 onClick={() => (window.location.href = "#care")}
-                borderRadius="50px 8px 50px 0px "
-                border="2px solid transparent"
-                bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box, linear-gradient(5deg, rgba(191,223,215,0) 30%, rgba(24,74,44,1) 50%, rgba(191,223,215,0) 70%) border-box;"
+                borderRadius="50px 0px"
+                border="3px solid transparent"
+                bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box"
+                fontWeight="bold"
               >
-                Dicas de como cuidar das plantas em casa
+                <Text margin="0 10px">Cuidando das plantas de casa</Text>
               </Box>
             </Box>
             <Box>
@@ -269,11 +287,12 @@ export function Curiosity() {
                 padding="2"
                 cursor="pointer"
                 onClick={() => (window.location.href = "#fertilizer")}
-                borderRadius="50px 8px 50px 0px "
-                border="2px solid transparent"
-                bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box, linear-gradient(5deg, rgba(191,223,215,0) 30%, rgba(24,74,44,1) 50%, rgba(191,223,215,0) 70%) border-box;"
+                borderRadius="50px 0px"
+                border="3px solid transparent"
+                bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box"
+                fontWeight="bold"
               >
-                Como adubar as plantas em vasos
+                <Text margin="0 10px">Adubando plantas em vasos</Text>
               </Box>
             </Box>
             <Box>
@@ -281,11 +300,12 @@ export function Curiosity() {
                 padding="2"
                 cursor="pointer"
                 onClick={() => (window.location.href = "#pruning")}
-                borderRadius="50px 8px 50px 0px "
-                border="2px solid transparent"
-                bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box, linear-gradient(5deg, rgba(191,223,215,0) 30%, rgba(24,74,44,1) 50%, rgba(191,223,215,0) 70%) border-box;"
+                borderRadius="50px 0px"
+                border="3px solid transparent"
+                bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box"
+                fontWeight="bold"
               >
-                Como podar plantas: dicas essenciais
+                <Text margin="0 10px">Como realizar a poda</Text>
               </Box>
             </Box>
             <Box mb="4">
@@ -293,11 +313,14 @@ export function Curiosity() {
                 padding="2"
                 cursor="pointer"
                 onClick={() => (window.location.href = "#light")}
-                borderRadius="50px 8px 50px 0px "
-                border="2px solid transparent"
-                bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box, linear-gradient(5deg, rgba(191,223,215,0) 30%, rgba(24,74,44,1) 50%, rgba(191,223,215,0) 70%) border-box;"
+                borderRadius="50px 0px"
+                fontWeight="bold"
+                border="3px solid transparent"
+                bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box"
               >
-                Dicas para planejar a iluminação do jardim
+                <Text margin="0 10px">
+                  Planejando a iluminição do seu jardim
+                </Text>
               </Box>
             </Box>
           </Flex>
