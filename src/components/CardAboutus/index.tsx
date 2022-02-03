@@ -63,6 +63,8 @@ export function CardAboutus({
               maxHeight: "98px",
               opacity: 0,
               zIndex: 1,
+              alignItems: "center",
+              justifyContent: "center",
               ":hover": {
                 animation: `${appearAnimation}`,
                 width: ["280px", "348px", "398px"],
@@ -71,8 +73,6 @@ export function CardAboutus({
                 animation: `${appearAnimation}`,
                 width: ["280px", "348px", "398px"],
               },
-              alignItems: "center",
-              justifyContent: "center",
             }}
           >
             <Text
