@@ -50,6 +50,7 @@ export function Header({
     <>
       {!!accessToken && <EditUser isOpen={isOpen} onClose={onClose} />}
       <Flex
+        as="header"
         w="100%"
         alignItems="flex-start"
         justifyContent="space-between"

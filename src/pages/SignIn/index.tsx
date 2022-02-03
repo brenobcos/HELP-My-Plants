@@ -1,6 +1,6 @@
 import { Flex, Image } from "@chakra-ui/react";
 import { FaUserPlus } from "react-icons/fa";
-import {Header} from "../../components/Header";
+import { Header } from "../../components/Header";
 import LogInForm from "../../components/SignInForm";
 
 const img = require("../../assets/loginpage.png");
@@ -29,6 +29,7 @@ export function SignIn() {
           iconLink="/signup"
         />
         <Flex
+          as="main"
           sx={{
             width: "100vw",
             height: "60%",
@@ -81,4 +82,3 @@ export function SignIn() {
     </>
   );
 }
-

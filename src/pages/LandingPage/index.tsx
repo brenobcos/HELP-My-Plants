@@ -20,6 +20,7 @@ export function LandingPage() {
         iconLink="/signin"
       />
       <Flex
+        as="main"
         justifyContent={[
           "space-around",
           "space-around",
@@ -31,6 +32,7 @@ export function LandingPage() {
         height={["85%", "100%", "auto"]}
       >
         <Flex
+          as="section"
           mr={["0", "0", "0", "2.5%"]}
           flexDirection="column"
           w={["90%", "90%", "90%", "40%"]}
@@ -70,6 +72,7 @@ export function LandingPage() {
         />
       </Flex>
       <Flex
+        as="footer"
         borderRadius="30px 0 0 0"
         bg="green.1000"
         w="60%"

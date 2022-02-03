@@ -53,6 +53,7 @@ export function Dashboard() {
     >
       {userPlants.length >= 1 ? (
         <Flex
+          as="section"
           alignItems="flex-start"
           css={{
             "&::-webkit-scrollbar": {
@@ -97,6 +98,7 @@ export function Dashboard() {
         </Flex>
       ) : (
         <Flex
+          as="section"
           flexDirection="column"
           h="30vh"
           justify="space-evenly"
