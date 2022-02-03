@@ -145,7 +145,7 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
           <Editable
             textAlign="left"
             defaultValue={plant.reminder}
-            fontSize="md"
+            fontSize="sm"
             fontWeight="light"
             display="flex"
             flexDirection="row"

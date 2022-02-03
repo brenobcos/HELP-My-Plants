@@ -113,7 +113,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
           <Editable
             textAlign="left"
             defaultValue={plant.name}
-            fontSize="md"
+            fontSize="sm"
             fontWeight="light"
             display="flex"
             flexDirection="row"
@@ -140,7 +140,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
           <Editable
             textAlign="left"
             defaultValue="lembrete"
-            fontSize="md"
+            fontSize="sm"
             fontWeight="light"
             display="flex"
             flexDirection="row"
