@@ -54,7 +54,6 @@ export function CardAboutus({
           }}
         >
           <Flex
-            id="teste"
             flexDir="column"
             width="68px"
             height="98px"
@@ -105,7 +104,6 @@ export function CardAboutus({
                 marginLeft="10%"
               ></IconButton>
               <IconButton
-                id="teste2"
                 _active={{ border: "none", bgColor: "white" }}
                 _after={{ border: "none", bgColor: "white" }}
                 _focus={{ border: "none", bgColor: "white" }}

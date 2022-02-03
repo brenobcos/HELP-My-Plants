@@ -167,14 +167,14 @@ function AboutUs() {
                 citados, de tema livre.
               </Text>
               <Text color="gray.0">
-                A idéia foi desenvolver um protótipo funcional de um WebApp,
-                focado em ajudar as pessoas a tererm um maior controle sobre a
+                A ideia foi desenvolver um protótipo funcional de um WebApp,
+                focado em ajudar as pessoas a ter um maior controle sobre a
                 qualidade de suas plantas ornamentais.
               </Text>
               <Text color="gray.0" paddingBottom="20px">
                 Há a possibilidade de escalabilidade da aplicação para incluir
-                um market place, leitor de QR Code para identificação,
-                recomendação de plantas por variáveis filtros, dentre outros.
+                um market place, leitor de QR Code para identificação e
+                recomendação de plantas por diversos filtros.
               </Text>
             </Flex>
           </Flex>
