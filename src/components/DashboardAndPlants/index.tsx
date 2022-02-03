@@ -1,6 +1,7 @@
-import {Header} from "../Header";
+import { Header } from "../Header";
 import { Flex, Heading } from "@chakra-ui/react";
 import { ReactNode } from "react";
+import { useUserPlants } from "../../providers/UserPlantsProvider";
 
 interface DashboardsRenderProps {
   children?: ReactNode;
@@ -17,6 +18,8 @@ export function DashboardsRender({
   firstText,
   topTitle = false,
 }: DashboardsRenderProps) {
+  const { userPlants } = useUserPlants();
+
   return (
     <Flex
       alignItems="center"
@@ -38,9 +41,8 @@ export function DashboardsRender({
         justify={["center", "center", "center", "center", "space-evenly"]}
         minH="calc(100vh - 150px)"
         w="90vw"
-
       >
-        {topTitle ? (
+        {userPlants.length >= 1 && topTitle ? (
           <Heading
             as="h3"
             top={["22vh", "13vh", "13vh", "12vh"]}
@@ -57,7 +59,6 @@ export function DashboardsRender({
             fontWeight="regular"
             fontSize="xl"
             mb={["15px", "9px"]}
-
           >
             {title}
           </Heading>
