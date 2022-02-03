@@ -1,5 +1,11 @@
-import { Flex, IconButton, Image, Text, keyframes } from "@chakra-ui/react";
-import { useState } from "react";
+import {
+  Flex,
+  IconButton,
+  Image,
+  Text,
+  keyframes,
+  Link,
+} from "@chakra-ui/react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 interface CardProps {
@@ -27,14 +33,6 @@ export function CardAboutus({
   `;
   function Shared() {
     const appearAnimation = `${appear} 1 1s linear forwards`;
-    const [state, setState] = useState(1);
-
-    function handleClick(link: string) {
-      if (state === 2) {
-        window.location.href = link;
-      }
-      setState(2);
-    }
 
     return (
       <Flex
@@ -99,8 +97,11 @@ export function CardAboutus({
                 cursor="pointer"
                 bgColor="transparent"
                 aria-label=""
-                onClick={() => handleClick(github)}
-                icon={<FaGithub fontSize="25px" />}
+                icon={
+                  <Link href={github} target="_blank">
+                    <FaGithub fontSize="25px" />
+                  </Link>
+                }
                 marginLeft="10%"
               ></IconButton>
               <IconButton
@@ -110,8 +111,11 @@ export function CardAboutus({
                 cursor="pointer"
                 bgColor="transparent"
                 aria-label=""
-                onClick={() => handleClick(linkedin)}
-                icon={<FaLinkedin fontSize="25px" />}
+                icon={
+                  <Link href={linkedin} target="_blank">
+                    <FaLinkedin fontSize="25px" />
+                  </Link>
+                }
               ></IconButton>
             </Flex>
           </Flex>
