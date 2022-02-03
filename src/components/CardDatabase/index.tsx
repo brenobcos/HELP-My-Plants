@@ -40,16 +40,15 @@ export function CardDatabase({
   id,
   info,
 }: plant) {
-  const media = (min: number) => {
+  const average = (min: number) => {
     if (min > 28) {
       return "veryHell";
     } else if (min > 25) {
       return "hot";
     } else if (min > 20) {
       return "warm";
-    } else {
-      return "cold";
     }
+    return "cold";
   };
   return (
     <Flex
@@ -89,7 +88,7 @@ export function CardDatabase({
           </Flex>
           <Flex flexDirection="column" alignItems="center">
             <FaThermometerQuarter
-              color={theme.colors.temperature[`${media(temperature.min)}`]}
+              color={theme.colors.temperature[`${average(temperature.min)}`]}
             />
             <Text as="span" fontSize=".625rem" fontWeight="light" mt="1">
               {`${temperature.min}º-${temperature.max}º`}
@@ -108,6 +107,7 @@ export function CardDatabase({
             </Text>
           </Flex>
         </Flex>
+        <Flex></Flex>
         <Text
           as="span"
           fontSize=".625rem"
