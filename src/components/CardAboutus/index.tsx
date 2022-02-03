@@ -53,7 +53,7 @@ export function CardAboutus({
           <Flex
             display="block"
             flexDir="column"
-            width="68px"
+            width="98px"
             height="98px"
             paddingLeft="22%"
             cursor="pointer"
