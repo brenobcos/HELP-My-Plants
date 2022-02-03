@@ -53,6 +53,18 @@ export function CardDashboard({
     return Math.ceil((min + max) / 4);
   };
 
+  const handleDate = (date: string) => {
+    return date.split("-").reverse().splice(0, 2).join("/");
+  };
+
+  const handleWatering = (date: string, waterDays: number) => {
+    const newDateWater = [];
+    const currentDate = date.split("-").reverse().splice(0, 2);
+    const nextDay = Number(currentDate.splice(0, 1)) + waterDays;
+    newDateWater.push(nextDay, currentDate);
+    return newDateWater.join().replace(",", "/");
+  };
+
   return (
     <Flex
       color="green.800"
@@ -130,7 +142,8 @@ export function CardDashboard({
         <Flex gap="3" mt="1">
           <FaFillDrip fontSize="1.5rem" />
           <Text as="h2" fontWeight="medium">
-            Próxima rega: 22/01
+            Próxima rega:{" "}
+            {last_watering && water && handleWatering(last_watering, water)}
           </Text>
         </Flex>
         <Text
@@ -147,7 +160,7 @@ export function CardDashboard({
             border: "none",
           }}
         >
-          Última rega 20/01
+          Última rega: {last_watering && handleDate(last_watering)}
         </Text>
         <IconButton
           color="gray.0"
