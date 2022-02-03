@@ -85,7 +85,7 @@ export function CardDashboard({
     >
       <Flex flexDirection="column" alignItems="center">
         <Text pl="10px" as="h1" mt="2" fontWeight="500" fontSize="1rem">
-          {surname}
+          {name}
         </Text>
         <Text
           as="span"
@@ -143,7 +143,7 @@ export function CardDashboard({
           w="13rem"
           color="green.800"
         >
-          {reminder}
+          {details}
         </Text>
         <Flex gap="3" mt="1">
           <FaFillDrip fontSize="1.5rem" />

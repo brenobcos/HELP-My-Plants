@@ -117,7 +117,7 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
           </FormLabel>
           <Editable
             textAlign="left"
-            defaultValue={plant.surname}
+            defaultValue={plant.name}
             fontSize="md"
             fontWeight="light"
             display="flex"
