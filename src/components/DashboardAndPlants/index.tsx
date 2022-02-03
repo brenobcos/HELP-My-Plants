@@ -36,6 +36,7 @@ export function DashboardsRender({
         secondText="Como cuidar da sua planta"
       />
       <Flex
+        as="main"
         flexDirection="column"
         h={["auto", "auto", "auto", "calc(100vh - 150px)"]}
         justify={["center", "center", "center", "center", "space-evenly"]}
@@ -64,7 +65,7 @@ export function DashboardsRender({
           </Heading>
         )}
 
-        <Flex justify="space-around" mb={["15px", "9px"]} w="90vw">
+        <Flex as="section" justify="space-around" mb={["15px", "9px"]} w="90vw">
           {children}
         </Flex>
       </Flex>

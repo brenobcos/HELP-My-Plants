@@ -17,11 +17,13 @@ export function Curiosity() {
     <Box height="100%">
       <Header firstLink="/aboutus" firstText="Conheça nossa equipe" />
       <Flex
+        as="main"
         sx={{
           justifyContent: "space-evenly",
         }}
       >
         <Flex
+          as="section"
           flexDir="column"
           width="100%"
           margin="0 40px"
@@ -202,6 +204,7 @@ export function Curiosity() {
           </Box>
         </Flex>
         <Box
+          as="section"
           position="relative"
           width="100%"
           display={["none", "none", "flex"]}

@@ -22,6 +22,7 @@ export function AccordionComponent() {
   return (
     <>
       <Flex
+        as="section"
         id="content--container"
         width={["100%", "100%", "40%"]}
         margin="20px 30px"

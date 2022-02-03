@@ -35,6 +35,7 @@ function LogInForm() {
 
   return (
     <Box
+      as="section"
       sx={{
         display: "flex",
         alignItems: "center",
@@ -48,7 +49,7 @@ function LogInForm() {
         fontSize={["sm", "md"]}
         sx={{ paddingBottom: ["15px", "20px", "30px"] }}
       >
-        Faça login para cuidar das suas plantas :)
+        Faça login para cuidar das suas plantas :&#41;
       </Text>
       <Stack
         sx={{

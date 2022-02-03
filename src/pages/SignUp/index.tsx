@@ -1,6 +1,6 @@
 import { Flex, Image } from "@chakra-ui/react";
 import { RegisterForm } from "../../components/SignUp/registerForm";
-import {Header} from "../../components/Header";
+import { Header } from "../../components/Header";
 import { FaUser } from "react-icons/fa";
 
 const img = require("../../assets/signuppage.png");
@@ -67,4 +67,3 @@ export function SignUp() {
     </Flex>
   );
 }
-

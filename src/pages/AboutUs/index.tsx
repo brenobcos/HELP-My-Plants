@@ -24,11 +24,13 @@ export function AboutUs() {
     >
       <Header firstLink="curiosity" firstText="Como cuidar da sua planta" />
       <Flex
+        as="section"
         display={["none", "none", "flex"]}
         alignItems="center"
         justifyContent="space-around"
       >
         <Text
+          as="h3"
           color="green.800"
           fontSize="36px"
           fontWeight="500"
@@ -37,6 +39,7 @@ export function AboutUs() {
           Devs
         </Text>
         <Text
+          as="h3"
           color="green.800"
           alignSelf="center"
           fontSize="36px"
@@ -46,6 +49,7 @@ export function AboutUs() {
         </Text>
       </Flex>
       <Flex
+        as="main"
         flexDir={["column-reverse", "column-reverse", "row"]}
         justifyContent={["center", "center", "space-evenly"]}
         alignItems={["center", "center"]}
@@ -117,6 +121,7 @@ export function AboutUs() {
           />
         </Flex>
         <Flex
+          as="section"
           flexDir="column"
           w={["320px", "400px"]}
           padding={["0 10px", "0"]}
