@@ -37,15 +37,7 @@ export function AccordionComponent() {
                 border="3px solid transparent"
                 bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box"
                 fontWeight="bold"
-                _hover={{
-                  bg: "linear-gradient(#46FF42, #46FF42) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box",
-                }}
-                _focus={{
-                  bg: "linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box",
-                }}
-                _active={{
-                  bg: "linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box",
-                }}
+                _hover={{ filter: "brightness(0.8)" }}
               >
                 <Box flex="1" textAlign="left" fontWeight="bold">
                   Higienize a sua planta
@@ -71,15 +63,7 @@ export function AccordionComponent() {
                 border="3px solid transparent"
                 bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box"
                 fontWeight="bold"
-                _hover={{
-                  bg: "linear-gradient(#46FF42, #46FF42) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box",
-                }}
-                _focus={{
-                  bg: "linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box",
-                }}
-                _active={{
-                  bg: "linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box",
-                }}
+                _hover={{ filter: "brightness(0.8)" }}
               >
                 <Box flex="1" textAlign="left" fontWeight="bold">
                   Como escolher plantas para interiores
@@ -105,15 +89,7 @@ export function AccordionComponent() {
                 border="3px solid transparent"
                 bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box"
                 fontWeight="bold"
-                _hover={{
-                  bg: "linear-gradient(#46FF42, #46FF42) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box",
-                }}
-                _focus={{
-                  bg: "linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box",
-                }}
-                _active={{
-                  bg: "linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box",
-                }}
+                _hover={{ filter: "brightness(0.8)" }}
               >
                 <Box flex="1" textAlign="left" fontWeight="bold">
                   Plantas ideais para seu jardim
@@ -143,15 +119,7 @@ export function AccordionComponent() {
                 border="3px solid transparent"
                 bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box"
                 fontWeight="bold"
-                _hover={{
-                  bg: "linear-gradient(#46FF42, #46FF42) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box",
-                }}
-                _focus={{
-                  bg: "linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box",
-                }}
-                _active={{
-                  bg: "linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box",
-                }}
+                _hover={{ filter: "brightness(0.8)" }}
               >
                 <Box flex="1" textAlign="left" fontWeight="bold">
                   Como usar vasos para decorar
@@ -180,15 +148,7 @@ export function AccordionComponent() {
                 border="3px solid transparent"
                 bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box"
                 fontWeight="bold"
-                _hover={{
-                  bg: "linear-gradient(#46FF42, #46FF42) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box",
-                }}
-                _focus={{
-                  bg: "linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box",
-                }}
-                _active={{
-                  bg: "linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box",
-                }}
+                _hover={{ filter: "brightness(0.8)" }}
               >
                 <Box flex="1" textAlign="left" fontWeight="bold">
                   Cuidando das plantas de casa
@@ -218,15 +178,7 @@ export function AccordionComponent() {
                 border="3px solid transparent"
                 bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box"
                 fontWeight="bold"
-                _hover={{
-                  bg: "linear-gradient(#46FF42, #46FF42) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box",
-                }}
-                _focus={{
-                  bg: "linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box",
-                }}
-                _active={{
-                  bg: "linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box",
-                }}
+                _hover={{ filter: "brightness(0.8)" }}
               >
                 <Box flex="1" textAlign="left" fontWeight="bold">
                   Adubando plantas em vasos
@@ -252,15 +204,7 @@ export function AccordionComponent() {
                 border="3px solid transparent"
                 bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box"
                 fontWeight="bold"
-                _hover={{
-                  bg: "linear-gradient(#46FF42, #46FF42) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box",
-                }}
-                _focus={{
-                  bg: "linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box",
-                }}
-                _active={{
-                  bg: "linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box",
-                }}
+                _hover={{ filter: "brightness(0.8)" }}
               >
                 <Box flex="1" textAlign="left" fontWeight="bold">
                   Como realizar a poda
@@ -289,15 +233,7 @@ export function AccordionComponent() {
                 border="3px solid transparent"
                 bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box"
                 fontWeight="bold"
-                _hover={{
-                  bg: "linear-gradient(#46FF42, #46FF42) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box",
-                }}
-                _focus={{
-                  bg: "linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box",
-                }}
-                _active={{
-                  bg: "linear-gradient(#EAFBF2, #EAFBF2) padding-box,linear-gradient(175deg, #FFFFFF 0%, #46FF42 70%,#FFFFFF 75%) border-box",
-                }}
+                _hover={{ filter: "brightness(0.8)" }}
               >
                 <Box flex="1" textAlign="left" fontWeight="bold">
                   Planejando a iluminação do seu jardim
