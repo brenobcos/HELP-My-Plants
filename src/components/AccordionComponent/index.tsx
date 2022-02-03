@@ -24,7 +24,7 @@ export function AccordionComponent() {
       <Flex
         id="content--container"
         width={["100%", "100%", "40%"]}
-        height="315px"
+        margin="20px 30px"
         flexDir="column"
         gap="5px"
         display={["flex", "flex", "none"]}
@@ -33,11 +33,13 @@ export function AccordionComponent() {
           <AccordionItem border="none">
             <Box as="h2">
               <AccordionButton
-                borderRadius="50px 8px 50px 0px "
-                border="2px solid transparent"
-                bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box, linear-gradient(5deg, rgba(191,223,215,0) 30%, rgba(24,74,44,1) 50%, rgba(191,223,215,0) 70%) border-box;"
+                borderRadius="50px 0px"
+                border="1px solid"
+                borderColor="green.800"
+                backgroundColor="green.400"
+                _focus={{ borderColor: "green.800", bgColor: "none" }}
               >
-                <Box flex="1" textAlign="left">
+                <Box flex="1" textAlign="left" fontWeight="bold">
                   Como higienizar sua planta
                 </Box>
                 <AccordionIcon />
@@ -57,11 +59,12 @@ export function AccordionComponent() {
           <AccordionItem border="none">
             <Box as="h2">
               <AccordionButton
-                borderRadius="50px 8px 50px 0px "
-                border="2px solid transparent"
-                bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box, linear-gradient(5deg, rgba(191,223,215,0) 30%, rgba(24,74,44,1) 50%, rgba(191,223,215,0) 70%) border-box;"
+                borderRadius="50px 0px"
+                border="1px solid"
+                borderColor="green.800"
+                backgroundColor="green.400"
               >
-                <Box flex="1" textAlign="left">
+                <Box flex="1" textAlign="left" fontWeight="bold">
                   Plantas para interiores: saiba como escolher
                 </Box>
                 <AccordionIcon />
@@ -81,11 +84,12 @@ export function AccordionComponent() {
           <AccordionItem border="none">
             <Box as="h2">
               <AccordionButton
-                borderRadius="50px 8px 50px 0px "
-                border="2px solid transparent"
-                bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box, linear-gradient(5deg, rgba(191,223,215,0) 30%, rgba(24,74,44,1) 50%, rgba(191,223,215,0) 70%) border-box;"
+                borderRadius="50px 0px"
+                border="1px solid"
+                borderColor="green.800"
+                backgroundColor="green.400"
               >
-                <Box flex="1" textAlign="left">
+                <Box flex="1" textAlign="left" fontWeight="bold">
                   Como escolher plantas para o jardim
                 </Box>
                 <AccordionIcon />
@@ -109,11 +113,12 @@ export function AccordionComponent() {
           <AccordionItem border="none">
             <Box as="h2">
               <AccordionButton
-                borderRadius="50px 8px 50px 0px "
-                border="2px solid transparent"
-                bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box, linear-gradient(5deg, rgba(191,223,215,0) 30%, rgba(24,74,44,1) 50%, rgba(191,223,215,0) 70%) border-box;"
+                borderRadius="50px 0px"
+                border="1px solid"
+                borderColor="green.800"
+                backgroundColor="green.400"
               >
-                <Box flex="1" textAlign="left">
+                <Box flex="1" textAlign="left" fontWeight="bold">
                   Dicas de como usar vasos na decoração
                 </Box>
                 <AccordionIcon />
@@ -136,11 +141,12 @@ export function AccordionComponent() {
           <AccordionItem border="none">
             <Box as="h2">
               <AccordionButton
-                borderRadius="50px 8px 50px 0px "
-                border="2px solid transparent"
-                bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box, linear-gradient(5deg, rgba(191,223,215,0) 30%, rgba(24,74,44,1) 50%, rgba(191,223,215,0) 70%) border-box;"
+                borderRadius="50px 0px"
+                border="1px solid"
+                borderColor="green.800"
+                backgroundColor="green.400"
               >
-                <Box flex="1" textAlign="left">
+                <Box flex="1" textAlign="left" fontWeight="bold">
                   Dicas de como cuidar das plantas em casa
                 </Box>
                 <AccordionIcon />
@@ -164,11 +170,12 @@ export function AccordionComponent() {
           <AccordionItem border="none">
             <Box as="h2">
               <AccordionButton
-                borderRadius="50px 8px 50px 0px "
-                border="2px solid transparent"
-                bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box, linear-gradient(5deg, rgba(191,223,215,0) 30%, rgba(24,74,44,1) 50%, rgba(191,223,215,0) 70%) border-box;"
+                borderRadius="50px 0px"
+                border="1px solid"
+                borderColor="green.800"
+                backgroundColor="green.400"
               >
-                <Box flex="1" textAlign="left">
+                <Box flex="1" textAlign="left" fontWeight="bold">
                   Como adubar as plantas em vasos
                 </Box>
                 <AccordionIcon />
@@ -188,11 +195,12 @@ export function AccordionComponent() {
           <AccordionItem border="none">
             <Box as="h2">
               <AccordionButton
-                borderRadius="50px 8px 50px 0px "
-                border="2px solid transparent"
-                bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box, linear-gradient(5deg, rgba(191,223,215,0) 30%, rgba(24,74,44,1) 50%, rgba(191,223,215,0) 70%) border-box;"
+                borderRadius="50px 0px"
+                border="1px solid"
+                borderColor="green.800"
+                backgroundColor="green.400"
               >
-                <Box flex="1" textAlign="left">
+                <Box flex="1" textAlign="left" fontWeight="bold">
                   Como podar plantas: dicas essenciais
                 </Box>
                 <AccordionIcon />
@@ -215,11 +223,12 @@ export function AccordionComponent() {
           <AccordionItem border="none">
             <Box as="h2">
               <AccordionButton
-                borderRadius="50px 8px 50px 0px "
-                border="2px solid transparent"
-                bg="linear-gradient(#EAFBF2, #EAFBF2) padding-box, linear-gradient(5deg, rgba(191,223,215,0) 30%, rgba(24,74,44,1) 50%, rgba(191,223,215,0) 70%) border-box;"
+                borderRadius="50px 0px"
+                border="1px solid"
+                borderColor="green.800"
+                backgroundColor="green.400"
               >
-                <Box flex="1" textAlign="left">
+                <Box flex="1" textAlign="left" fontWeight="bold">
                   Iluminação para jardim: 3 dicas para adicionar luz ao seu
                   projeto
                 </Box>
