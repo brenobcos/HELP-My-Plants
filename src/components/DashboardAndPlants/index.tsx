@@ -49,7 +49,7 @@ export function DashboardsRender({
             fontSize="3xl"
             fontWeight="regular"
             right={["25vw", "10vw", "35vw", "37vw"]}
-            position="fixed"
+            position="absolute"
           >
             {title}
           </Heading>
