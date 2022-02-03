@@ -1,5 +1,5 @@
 import { Flex, Image, Text, theme } from "@chakra-ui/react";
-import {Header} from "../../components/Header";
+import { Header } from "../../components/Header";
 import {
   SiTypescript,
   SiReact,
@@ -183,4 +183,3 @@ export function AboutUs() {
     </Flex>
   );
 }
-
