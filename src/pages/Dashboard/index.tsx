@@ -31,6 +31,7 @@ interface plant {
 
 export function Dashboard() {
   const { userPlants } = useUserPlants();
+  console.log(userPlants);
 
   const [plantState, setPlantState] = useState<plant>({} as plant);
 
@@ -102,13 +103,14 @@ export function Dashboard() {
           h="30vh"
           justify="space-evenly"
           mt={["15%", "7%", "3%", "3%"]}
+          marginBottom="35vh"
           w={["90vw", "70vw", "50vw"]}
         >
           <Text textAlign="center">
             Você ainda não tem plantas no seu jardim.
           </Text>
           <Text textAlign="center">
-            Adicione novas plantas clicando
+            Adicione novas plantas clicando{" "}
             <Link to="/plants">
               <b>aqui</b>
             </Link>
