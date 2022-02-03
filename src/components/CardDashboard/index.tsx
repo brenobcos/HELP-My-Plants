@@ -26,12 +26,14 @@ interface plant {
   info: string;
   image: string;
   surname?: string;
+  reminder?: string;
   last_watering?: string;
   details?: string;
   userId?: number;
   id?: number;
   onClick?: () => void;
 }
+
 
 export function CardDashboard({
   name,
@@ -42,6 +44,7 @@ export function CardDashboard({
   temperature,
   height,
   info,
+  reminder,
   image,
   surname,
   last_watering,
@@ -127,17 +130,19 @@ export function CardDashboard({
           </Flex>
         </Flex>
         <Text
-          as="span"
+          as="p"
+          h="30px"
+          pr="2px"
           fontSize=".625rem"
           fontWeight="light"
-          textAlign="left"
+          display="block"
           ml="2"
           mb="1"
           mt="2"
           w="13rem"
           color="green.800"
         >
-          Lembrar de tirar do quarto e colocar na varanda 2x por semana.
+          {reminder}
         </Text>
         <Flex gap="3" mt="1">
           <FaFillDrip fontSize="1.5rem" />
@@ -165,7 +170,7 @@ export function CardDashboard({
         <IconButton
           color="gray.0"
           bgColor="green.800"
-          mt="2"
+          mt="1"
           borderRadius="50%"
           _hover={{ bg: "green.600" }}
           colorScheme="blue"
