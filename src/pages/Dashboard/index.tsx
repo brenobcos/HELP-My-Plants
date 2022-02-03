@@ -81,6 +81,7 @@ export function Dashboard() {
               height={plant.height}
               image={plant.image}
               info={plant.info}
+              details={plant.details}
               reminder={plant.reminder}
               lighting={plant.lighting}
               temperature={plant.temperature}

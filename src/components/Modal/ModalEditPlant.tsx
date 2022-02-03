@@ -61,7 +61,7 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
     surname: yup
       .string()
       .required("Campo obrigatório")
-      .max(30, "Seu apelido pode ter no maxímo trinta caracteres"),
+      .max(20, "Seu apelido pode ter no maxímo vinte caracteres"),
     reminder: yup
       .string()
       .max(60, "Seu lembrete pode ter no maxímo sessenta caracteres"),
@@ -117,7 +117,7 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
           </FormLabel>
           <Editable
             textAlign="left"
-            defaultValue={plant.surname}
+            defaultValue={plant.name}
             fontSize="md"
             fontWeight="light"
             display="flex"

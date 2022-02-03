@@ -51,10 +51,16 @@ export function CardDashboard({
   userId,
   id,
 }: plant) {
-  const media = (min: number, max: number) => {
-    return Math.ceil((min + max) / 4);
+  const average = (min: number) => {
+    if (min > 28) {
+      return "veryHell";
+    } else if (min > 25) {
+      return "hot";
+    } else if (min > 20) {
+      return "warm";
+    }
+    return "cold";
   };
-
   const handleDate = (date: string) => {
     return date.split("-").reverse().splice(0, 2).join("/");
   };
@@ -78,8 +84,8 @@ export function CardDashboard({
       bg="linear-gradient(#FFFFFF, #FFFFFF) padding-box,linear-gradient(60deg, rgba(191,223,215,0) 25%, rgba(24,74,44,1) 50%, rgba(191,223,215,0) 75%) border-box;"
     >
       <Flex flexDirection="column" alignItems="center">
-        <Text as="h1" mt="2" fontWeight="500" fontSize="1.125rem">
-          {surname}
+        <Text pl="10px" as="h1" mt="2" fontWeight="500" fontSize="1rem">
+          {name}
         </Text>
         <Text
           as="span"
@@ -105,11 +111,7 @@ export function CardDashboard({
           </Flex>
           <Flex flexDirection="column" alignItems="center">
             <FaThermometerQuarter
-              color={
-                theme.colors.temperature[
-                  `${media(temperature.min, temperature.max)}`
-                ]
-              }
+              color={theme.colors.temperature[`${average(temperature.min)}`]}
             />
             <Text as="span" fontSize=".625rem" fontWeight="light" mt="1">
               {`${temperature.min}º-${temperature.max}º`}
@@ -141,7 +143,7 @@ export function CardDashboard({
           w="13rem"
           color="green.800"
         >
-          {reminder}
+          {details}
         </Text>
         <Flex gap="3" mt="1">
           <FaFillDrip fontSize="1.5rem" />
