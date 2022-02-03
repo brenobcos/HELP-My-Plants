@@ -17,8 +17,34 @@ import loginpage from "../../assets/loginpage.png";
 
 function AboutUs() {
   return (
-    <>
+    <Flex
+      width={["auto", "auto", "100vw"]}
+      height={["auto", "auto", "100vh"]}
+      flexDir="column"
+    >
       <Header firstLink="curiosity" firstText="Como cuidar da sua planta" />
+      <Flex
+        display={["none", "none", "flex"]}
+        alignItems="center"
+        justifyContent="space-around"
+      >
+        <Text
+          color="green.800"
+          fontSize="36px"
+          fontWeight="500"
+          textAlign="center"
+        >
+          Devs
+        </Text>
+        <Text
+          color="green.800"
+          alignSelf="center"
+          fontSize="36px"
+          fontWeight="500"
+        >
+          Sobre o App
+        </Text>
+      </Flex>
       <Flex
         flexDir={["column-reverse", "column-reverse", "row"]}
         justifyContent={["center", "center", "space-evenly"]}
@@ -30,10 +56,21 @@ function AboutUs() {
           justifyContent="space-evenly"
           position="relative"
         >
+          <Text
+            display={["block", "block", "none"]}
+            margin="20px 0"
+            color="green.800"
+            fontSize="36px"
+            fontWeight="500"
+            textAlign="center"
+          >
+            Devs
+          </Text>
           <Image
+            objectFit="cover"
             box-shadow="inset 20px 14px 124px rgba(0, 0, 0, 0.18)"
             position="absolute"
-            left="50%"
+            left={["40%", "50%"]}
             top="50%"
             sx={{ transform: "translate(-35%, -40%)" }}
             translateY="-50%"
@@ -43,18 +80,10 @@ function AboutUs() {
             borderRadius="50%"
             width="375px"
           ></Image>
-          <Text
-            color="green.800"
-            fontSize="36px"
-            fontWeight="500"
-            textAlign="center"
-          >
-            Devs
-          </Text>
           <CardAboutus
             image={breno}
             name="Breno Carlos"
-            linkedin=""
+            linkedin="https://www.linkedin.com/in/devbrenocar/"
             github="https://github.com/brenobcos"
             office="Tech Leader"
           />
@@ -94,10 +123,12 @@ function AboutUs() {
           h="100%"
         >
           <Text
+            display={["block", "block", "none"]}
+            margin="20px 0"
             color="green.800"
-            alignSelf="center"
             fontSize="36px"
             fontWeight="500"
+            textAlign="center"
           >
             Sobre o App
           </Text>
@@ -136,20 +167,20 @@ function AboutUs() {
                 citados, de tema livre.
               </Text>
               <Text color="gray.0">
-                A idéia foi desenvolver um protótipo funcional de um WebApp,
-                focado em ajudar as pessoas a tererm um maior controle sobre a
+                A ideia foi desenvolver um protótipo funcional de um WebApp,
+                focado em ajudar as pessoas a ter um maior controle sobre a
                 qualidade de suas plantas ornamentais.
               </Text>
               <Text color="gray.0" paddingBottom="20px">
                 Há a possibilidade de escalabilidade da aplicação para incluir
-                um market place, leitor de QR Code para identificação,
-                recomendação de plantas por variáveis filtros, dentre outros.
+                um market place, leitor de QR Code para identificação e
+                recomendação de plantas por diversos filtros.
               </Text>
             </Flex>
           </Flex>
         </Flex>
       </Flex>
-    </>
+    </Flex>
   );
 }
 
