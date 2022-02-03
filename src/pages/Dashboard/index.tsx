@@ -1,12 +1,11 @@
 import { DashboardsRender } from "../../components/DashboardAndPlants";
 import { CardDashboard } from "../../components/CardDashboard";
 import { useUserPlants } from "../../providers/UserPlantsProvider";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Flex, Text, useDisclosure } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { ModalEditPlant } from "../../components/Modal/ModalEditPlant";
 import { theme } from "../../styles/theme";
-import { cleanup } from "@testing-library/react";
 
 interface plantMinMax {
   min: number;
@@ -31,14 +30,7 @@ interface plant {
 }
 
 export function Dashboard() {
-  const { userPlants, getUserPlants } = useUserPlants();
-
-  useEffect(() => {
-    getUserPlants();
-    return () => {
-      cleanup();
-    };
-  }, []);
+  const { userPlants } = useUserPlants();
 
   const [plantState, setPlantState] = useState<plant>({} as plant);
 
