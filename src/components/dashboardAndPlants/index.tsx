@@ -18,7 +18,14 @@ export function DashboardsRender({
   topTitle = false,
 }: DashboardsRenderProps) {
   return (
-    <Flex flexDirection="column" h={["auto"]} justify="space-between" w="100vw">
+    <Flex
+      alignItems="center"
+      flexDirection="column"
+      h={["auto", "auto", "auto", "100vh"]}
+      justify="space-between"
+      minH="100vh"
+      w="100vw"
+    >
       <Header
         firstLink={firstLink}
         firstText={firstText}
@@ -27,7 +34,10 @@ export function DashboardsRender({
       />
       <Flex
         flexDirection="column"
-        // h={["auto", "auto", "calc(100vh - 100px)", "calc(100vh - 100px)"]}
+        h={["auto", "auto", "auto", "calc(100vh - 150px)"]}
+        justify={["center", "center", "center", "center", "space-evenly"]}
+        minH="calc(100vh - 150px)"
+        w="90vw"
         // minH="calc(100vh - 100px)"
       >
         {topTitle ? (
@@ -47,14 +57,14 @@ export function DashboardsRender({
             fontWeight="regular"
             fontSize="xl"
             mb={["15px", "9px"]}
-            ml={["5vw", "0"]}
-            mr={["5vw", "0"]}
+            // ml={["5vw", "0"]}
+            // mr={["5vw", "0"]}
           >
             {title}
           </Heading>
         )}
 
-        <Flex justifyContent="center" w="100%">
+        <Flex justify="space-around" mb={["15px", "9px"]} w="90vw">
           {children}
         </Flex>
       </Flex>
