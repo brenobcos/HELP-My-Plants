@@ -94,6 +94,7 @@ export function Dashboard() {
               temperature={plant.temperature}
               water={plant.water}
               last_watering={plant.last_watering}
+              surname={plant.surname}
               onClick={() => onClickButton(plant)}
             />
           ))}
