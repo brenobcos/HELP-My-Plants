@@ -6,6 +6,7 @@ import { Flex, Text, useDisclosure } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { ModalEditPlant } from "../../components/Modal/ModalEditPlant";
 import { theme } from "../../styles/theme";
+import { cleanup } from "@testing-library/react";
 
 interface plantMinMax {
   min: number;
@@ -34,6 +35,9 @@ export function Dashboard() {
 
   useEffect(() => {
     getUserPlants();
+    return () => {
+      cleanup();
+    };
   }, []);
 
   const [plantState, setPlantState] = useState<plant>({} as plant);
@@ -90,6 +94,7 @@ export function Dashboard() {
               temperature={plant.temperature}
               water={plant.water}
               last_watering={plant.last_watering}
+              surname={plant.surname}
               onClick={() => onClickButton(plant)}
             />
           ))}
@@ -122,4 +127,3 @@ export function Dashboard() {
     </DashboardsRender>
   );
 }
-
