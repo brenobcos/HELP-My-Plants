@@ -56,6 +56,7 @@ export function CardAboutus({
             width="68px"
             height="98px"
             paddingLeft="22%"
+            cursor="pointer"
             sx={{
               transition: "width 1s",
               overflow: "hidden",
