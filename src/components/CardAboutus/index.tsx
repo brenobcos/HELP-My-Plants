@@ -24,9 +24,8 @@ export function CardAboutus({
   office,
 }: CardProps) {
   const appear = keyframes`
-   0%   {opacity: 0;}
-  25%  {opacity: 0;}
-  50%  {opacity: 0.5;}
+   0%   {opacity:0;}
+  50%  {opacity:0;}
   75%  {opacity: 0.8;}
   100% {opacity: 1;}
   
@@ -52,15 +51,17 @@ export function CardAboutus({
           }}
         >
           <Flex
+            display="block"
             flexDir="column"
             width="68px"
             height="98px"
             paddingLeft="22%"
+            cursor="pointer"
             sx={{
               transition: "width 1s",
               overflow: "hidden",
               maxHeight: "98px",
-              opacity: "0.1",
+              opacity: 0,
               zIndex: 1,
               ":hover": {
                 animation: `${appearAnimation}`,
@@ -90,7 +91,6 @@ export function CardAboutus({
             </Text>
             <Flex alignItems="center" justifyContent="center" margin="0 30px">
               <IconButton
-                as="a"
                 _active={{ border: "none", bgColor: "white" }}
                 _after={{ border: "none", bgColor: "white" }}
                 _focus={{ border: "none", bgColor: "white" }}
