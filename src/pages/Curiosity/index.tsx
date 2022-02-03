@@ -9,12 +9,12 @@ import light from "../../assets/light.png";
 import fertilizer from "../../assets/fertilizer.jpg";
 import pruning from "../../assets/pruning.png";
 
-import {Header} from "../../components/Header";
+import { Header } from "../../components/Header";
 import { AccordionComponent } from "../../components/AccordionComponent";
 
 export function Curiosity() {
   return (
-    <div>
+    <Box height="100%">
       <Header firstLink="/aboutus" firstText="Conheça nossa equipe" />
       <Flex
         sx={{
@@ -118,7 +118,12 @@ export function Curiosity() {
             água, é só ficar atento. Troque os vasos sempre que necessário,
             higienize suas plantas.
           </Text>
-          <Heading as="h2" fontSize="1.75rem" textAlign="center" id="fertilizer">
+          <Heading
+            as="h2"
+            fontSize="1.75rem"
+            textAlign="center"
+            id="fertilizer"
+          >
             Como adubar as plantas em vasos
           </Heading>
           <Image
@@ -190,10 +195,10 @@ export function Curiosity() {
           position="relative"
           w={["90%", "90%", "40%"]}
           display={["none", "none", "flex"]}
+          justifyContent="center"
         >
           <Flex
             id="content--container"
-            width={["100%", "100%", "40%"]}
             height="315px"
             flexDir="column"
             gap="5px"
@@ -299,6 +304,6 @@ export function Curiosity() {
         </Box>
         <AccordionComponent />
       </Flex>
-    </div>
+    </Box>
   );
 }
