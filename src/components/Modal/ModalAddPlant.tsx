@@ -21,7 +21,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../../providers/Auth/index";
 import { useUserPlants } from "../../providers/UserPlantsProvider";
-import {EditableControls} from "../EditableControls";
+import { EditableControls } from "../EditableControls";
 
 interface plantMinMax {
   min: number;
@@ -96,13 +96,20 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
         border="3px solid transparent"
         bg="linear-gradient(#FFFFFF, #FFFFFF) padding-box,linear-gradient(50deg, #FFFFFF 25%, #46FF42 50%,#FFFFFF 75%) border-box"
       >
-        <ModalHeader w="100%" textAlign="center">
+        <ModalHeader
+          w="97%"
+          textAlign="center"
+          fontSize="1.18rem"
+          paddingBottom="1%"
+        >
           {plant.name}
         </ModalHeader>
-        <ModalCloseButton />
+        <ModalCloseButton padding="0" />
 
         <ModalBody>
-          <FormLabel fontWeight="bold">Apelido</FormLabel>
+          <FormLabel fontWeight="bold" marginBottom="0">
+            Apelido
+          </FormLabel>
           <Editable
             textAlign="left"
             defaultValue={plant.name}
@@ -121,13 +128,15 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
             <EditableControls />
           </Editable>
           {errors.surname?.message && (
-            <Text as="span" fontSize="0.7rem" color="red.700">
+            <Text as="span" fontSize="0.5rem" color="red.700">
               {errors.surname?.message}
             </Text>
           )}
           <Divider as="hr" borderColor="green.800" margin="8px 0" />
 
-          <FormLabel fontWeight="bold">Lembrete</FormLabel>
+          <FormLabel fontWeight="bold" marginBottom="0">
+            Lembrete
+          </FormLabel>
           <Editable
             textAlign="left"
             defaultValue="algo que você não pode esquecer"
@@ -147,13 +156,15 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
             <EditableControls />
           </Editable>
           {errors.reminder?.message && (
-            <Text as="span" fontSize="0.7rem" color="red.700">
+            <Text as="span" fontSize="0.6rem" color="red.700">
               {errors.reminder?.message}
             </Text>
           )}
           <Divider as="hr" borderColor="green.800" margin="8px 0" />
 
-          <FormLabel fontWeight="bold">Detalhes</FormLabel>
+          <FormLabel fontWeight="bold" marginBottom="0">
+            Detalhes
+          </FormLabel>
 
           <StyledTextArea
             defaultValue={"Mais informações que você achar relevante aqui:)"}
@@ -162,11 +173,13 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
 
           <Divider as="hr" borderColor="green.800" margin="4px 0" />
 
-          <FormLabel fontWeight="bold">Ultima rega</FormLabel>
+          <FormLabel fontWeight="bold" marginBottom="0">
+            Ultima rega
+          </FormLabel>
           <Flex flexDirection="column">
             <StyledInput type="date" {...register("last_watering")} id="5" />
             {errors.last_watering?.message && (
-              <Text as="span" fontSize="0.7rem" color="red.700">
+              <Text as="span" fontSize="0.6rem" color="red.700">
                 {errors.last_watering?.message}
               </Text>
             )}
@@ -180,12 +193,11 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
             _focus={{ borderColor: "none" }}
             color="white"
             bg="green.400"
-            mr={3}
             borderRadius={"50px 0 50px 0"}
-            marginLeft="67%"
-            mt="10px"
+            marginLeft={["57%", "70%"]}
+            mt="2px"
             type="submit"
-            w="35%"
+            w={["45%", "30%"]}
           >
             adicionar
           </Button>
