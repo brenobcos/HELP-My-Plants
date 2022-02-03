@@ -31,8 +31,6 @@ interface plant {
 
 export function Dashboard() {
   const { userPlants } = useUserPlants();
-  console.log(userPlants);
-
   const [plantState, setPlantState] = useState<plant>({} as plant);
 
   const {

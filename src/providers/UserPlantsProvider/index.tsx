@@ -1,7 +1,6 @@
 import {
   createContext,
   ReactNode,
-  useCallback,
   useContext,
   useEffect,
   useState,
@@ -56,8 +55,10 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
   const toast = useToast();
 
   useEffect(() => {
-    getUserPlants();
-  }, []);
+    if (!!user) {
+      getUserPlants();
+    }
+  }, [user]);
 
   function getUserPlants() {
     api
@@ -82,10 +83,7 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
         },
       })
       .then((_) => {
-        console.log(plant);
-
         getUserPlants();
-        console.log(userPlants);
         toast({
           title: "Informações registradas.",
           description: "Planta adicionada ao jardim",
