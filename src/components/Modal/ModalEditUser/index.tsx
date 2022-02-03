@@ -20,9 +20,9 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import RadioCard from "./RadioCard";
-import { useState } from "react";
 import { useAuth } from "../../../providers/Auth";
-import {EditableControls} from "../../EditableControls";
+import { EditableControls } from "../../EditableControls";
+import { useState } from "react";
 
 interface editUserProps {
   isOpen: boolean;
@@ -37,6 +37,7 @@ interface UserProps {
 function EditUser({ isOpen, onClose }: editUserProps) {
   const { user, patchUser } = useAuth();
   const [interest, setInterest] = useState(user.interest);
+
   const registerSchema = yup.object().shape({
     name: yup
       .string()
@@ -56,17 +57,15 @@ function EditUser({ isOpen, onClose }: editUserProps) {
     resolver: yupResolver(registerSchema),
   });
 
-
-    function handleEdit(data: UserProps) {
-      const newUser = {
-        name: data.name,
-        email: data.email,
-        interest: interest,
-      };
-      patchUser(newUser);
-      onClose();
-    }
-
+  function handleEdit(data: UserProps) {
+    const newUser = {
+      name: data.name,
+      email: data.email,
+      interest: interest,
+    };
+    patchUser(newUser);
+    onClose();
+  }
 
   const options = ["Hobby", "Profissional", "Estudante"];
   const { getRootProps, getRadioProps } = useRadioGroup({
