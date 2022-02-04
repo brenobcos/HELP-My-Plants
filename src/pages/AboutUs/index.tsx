@@ -19,7 +19,8 @@ export function AboutUs() {
   return (
     <Flex
       width={["auto", "auto", "100vw"]}
-      height={["auto", "auto", "100vh"]}
+      height="auto"
+      minH="100vh"
       flexDir="column"
     >
       <Header firstLink="curiosity" firstText="Como cuidar da sua planta" />
