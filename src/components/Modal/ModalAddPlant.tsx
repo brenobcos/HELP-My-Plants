@@ -22,6 +22,7 @@ import { useForm } from "react-hook-form";
 import { useAuth } from "../../providers/Auth/index";
 import { useUserPlants } from "../../providers/UserPlantsProvider";
 import { EditableControls } from "../EditableControls";
+import { useState } from "react";
 
 interface plantMinMax {
   min: number;
@@ -56,7 +57,6 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
   const registerPlantSchema = yup.object().shape({
     surname: yup
       .string()
-      .required("Campo obrigatório")
       .max(30, "Seu apelido pode ter no maxímo trinta caracteres"),
     reminder: yup
       .string()
@@ -74,6 +74,15 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
   } = useForm<NewPlantData>({ resolver: yupResolver(registerPlantSchema) });
 
   function handleAddPlant(data: NewPlantData) {
+    if (data.surname === "") {
+      data.surname = plant.name;
+    }
+    if (data.reminder === "") {
+      data.reminder = "Lembrete";
+    }
+    if (data.details === "") {
+      data.details = "Mais informações que você achar relevante aqui:)";
+    }
     addNewPlant({
       ...plant,
       surname: data.surname,
@@ -112,7 +121,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
           </FormLabel>
           <Editable
             textAlign="left"
-            defaultValue={plant.name}
+            placeholder={plant.name}
             fontSize="sm"
             fontWeight="light"
             display="flex"
@@ -139,7 +148,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
           </FormLabel>
           <Editable
             textAlign="left"
-            defaultValue="lembrete"
+            placeholder="Lembrete"
             fontSize="sm"
             fontWeight="light"
             display="flex"
@@ -167,7 +176,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
           </FormLabel>
 
           <StyledTextArea
-            defaultValue={"Mais informações que você achar relevante aqui:)"}
+            placeholder="Mais informações que você achar relevante aqui:)"
             {...register("details")}
           />
 
