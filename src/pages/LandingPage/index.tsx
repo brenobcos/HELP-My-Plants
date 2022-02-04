@@ -1,7 +1,7 @@
 import { Flex, Button, Text, Heading, Image, Box } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
-import {Header} from "../../components/Header";
-import { FaRegUser } from "react-icons/fa";
+import { Header } from "../../components/Header";
+import { FaUser } from "react-icons/fa";
 import imgFooter from "../../assets/imagem-footer.png";
 
 const img = require("../../assets/Plant Image.png");
@@ -15,11 +15,12 @@ export function LandingPage() {
         secondLink="curiosity"
         firstText="Conheça nosso time"
         secondText="Como cuidar da sua planta"
-        firstIcon={FaRegUser}
+        firstIcon={FaUser}
         firstLabel="Login"
         iconLink="/signin"
       />
       <Flex
+        as="main"
         justifyContent={[
           "space-around",
           "space-around",
@@ -31,6 +32,7 @@ export function LandingPage() {
         height={["85%", "100%", "auto"]}
       >
         <Flex
+          as="section"
           mr={["0", "0", "0", "2.5%"]}
           flexDirection="column"
           w={["90%", "90%", "90%", "40%"]}
@@ -70,6 +72,7 @@ export function LandingPage() {
         />
       </Flex>
       <Flex
+        as="footer"
         borderRadius="30px 0 0 0"
         bg="green.1000"
         w="60%"
@@ -97,4 +100,3 @@ export function LandingPage() {
     </Flex>
   );
 }
-

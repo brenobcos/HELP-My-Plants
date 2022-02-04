@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { api } from "../../services/index";
 import { useToast } from "@chakra-ui/react";
 import { useAuth } from "../Auth";
@@ -48,6 +54,12 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
 
   const toast = useToast();
 
+  useEffect(() => {
+    if (!!user) {
+      getUserPlants();
+    }
+  }, [user]);
+
   function getUserPlants() {
     api
       .get(`/userPlants/?userId=${user.id}`, {
@@ -63,8 +75,8 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
       });
   }
 
-  function addNewPlant(plant: plant) {
-    api
+  async function addNewPlant(plant: plant) {
+    await api
       .post("/userPlants/", plant, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
@@ -80,6 +92,7 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
           isClosable: true,
         });
       })
+
       .catch((error) => {
         console.log(error);
         toast({

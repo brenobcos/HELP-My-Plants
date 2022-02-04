@@ -1,7 +1,7 @@
 import { DashboardsRender } from "../../components/DashboardAndPlants";
 import { CardDashboard } from "../../components/CardDashboard";
 import { useUserPlants } from "../../providers/UserPlantsProvider";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Flex, Text, useDisclosure } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { ModalEditPlant } from "../../components/Modal/ModalEditPlant";
@@ -30,12 +30,7 @@ interface plant {
 }
 
 export function Dashboard() {
-  const { userPlants, getUserPlants } = useUserPlants();
-
-  useEffect(() => {
-    getUserPlants();
-  }, []);
-
+  const { userPlants } = useUserPlants();
   const [plantState, setPlantState] = useState<plant>({} as plant);
 
   const {
@@ -58,6 +53,7 @@ export function Dashboard() {
     >
       {userPlants.length >= 1 ? (
         <Flex
+          as="section"
           alignItems="flex-start"
           css={{
             "&::-webkit-scrollbar": {
@@ -85,11 +81,13 @@ export function Dashboard() {
               height={plant.height}
               image={plant.image}
               info={plant.info}
+              details={plant.details}
               reminder={plant.reminder}
               lighting={plant.lighting}
               temperature={plant.temperature}
               water={plant.water}
               last_watering={plant.last_watering}
+              surname={plant.surname}
               onClick={() => onClickButton(plant)}
             />
           ))}
@@ -101,17 +99,19 @@ export function Dashboard() {
         </Flex>
       ) : (
         <Flex
+          as="section"
           flexDirection="column"
           h="30vh"
           justify="space-evenly"
           mt={["15%", "7%", "3%", "3%"]}
+          marginBottom="35vh"
           w={["90vw", "70vw", "50vw"]}
         >
           <Text textAlign="center">
             Você ainda não tem plantas no seu jardim.
           </Text>
           <Text textAlign="center">
-            Adicione novas plantas clicando
+            Adicione novas plantas clicando{" "}
             <Link to="/plants">
               <b>aqui</b>
             </Link>
@@ -122,4 +122,3 @@ export function Dashboard() {
     </DashboardsRender>
   );
 }
-

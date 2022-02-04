@@ -20,7 +20,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useUserPlants } from "../../providers/UserPlantsProvider";
-import {EditableControls} from "../EditableControls";
+import { EditableControls } from "../EditableControls";
 
 interface plantMinMax {
   min: number;
@@ -61,7 +61,7 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
     surname: yup
       .string()
       .required("Campo obrigatório")
-      .max(30, "Seu apelido pode ter no maxímo trinta caracteres"),
+      .max(20, "Seu apelido pode ter no maxímo vinte caracteres"),
     reminder: yup
       .string()
       .max(60, "Seu lembrete pode ter no maxímo sessenta caracteres"),
@@ -101,16 +101,23 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
         border="3px solid transparent"
         bg="linear-gradient(#FFFFFF, #FFFFFF) padding-box,linear-gradient(50deg, #FFFFFF 25%, #46FF42 50%,#FFFFFF 75%) border-box"
       >
-        <ModalHeader w="100%" textAlign="center">
+        <ModalHeader
+          w="97%"
+          textAlign="center"
+          fontSize="1.18rem"
+          paddingBottom="1%"
+        >
           {plant.name}
         </ModalHeader>
         <ModalCloseButton />
 
         <ModalBody>
-          <FormLabel fontWeight="bold">Apelido</FormLabel>
+          <FormLabel fontWeight="bold" marginBottom="0">
+            Apelido
+          </FormLabel>
           <Editable
             textAlign="left"
-            defaultValue={plant.surname}
+            defaultValue={plant.name}
             fontSize="md"
             fontWeight="light"
             display="flex"
@@ -130,13 +137,15 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
               {errors.surname?.message}
             </Text>
           )}
-          <Divider as="hr" borderColor="green.800" margin="8px 0" />
+          <Divider as="hr" borderColor="green.800" margin="4px 0" />
 
-          <FormLabel fontWeight="bold">Lembrete</FormLabel>
+          <FormLabel fontWeight="bold" marginBottom="0">
+            Lembrete
+          </FormLabel>
           <Editable
             textAlign="left"
             defaultValue={plant.reminder}
-            fontSize="md"
+            fontSize="sm"
             fontWeight="light"
             display="flex"
             flexDirection="row"
@@ -155,9 +164,11 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
               {errors.reminder?.message}
             </Text>
           )}
-          <Divider as="hr" borderColor="green.800" margin="8px 0" />
+          <Divider as="hr" borderColor="green.800" margin="4px 0" />
 
-          <FormLabel fontWeight="bold">Detalhes</FormLabel>
+          <FormLabel fontWeight="bold" marginBottom="0">
+            Detalhes
+          </FormLabel>
 
           <StyledTextArea
             defaultValue={plant.details}
@@ -166,9 +177,9 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
 
           <Divider as="hr" borderColor="green.800" margin="4px 0" />
 
-          <Divider as="hr" borderColor="green.800" margin="8px 0" />
-
-          <FormLabel fontWeight="bold">Ultima rega</FormLabel>
+          <FormLabel fontWeight="bold" marginBottom="0">
+            Ultima rega
+          </FormLabel>
           <Flex flexDirection="column">
             <StyledInput
               type="date"
@@ -193,10 +204,10 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
                 _focus={{ borderColor: "none" }}
                 color="white"
                 bg="red.400"
-                mr={3}
                 borderRadius={"50px 0 50px 0"}
-                mt="10px"
-                w="35%"
+                mt="2px"
+                fontSize={["0.75rem", "1rem"]}
+                w={["35%", "30%"]}
               >
                 remover
               </Button>
@@ -207,11 +218,11 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
               _focus={{ borderColor: "none" }}
               color="white"
               bg="green.400"
-              mr={3}
               borderRadius={"50px 0 50px 0"}
-              mt="10px"
+              mt="2px"
               type="submit"
-              w="35%"
+              fontSize={["0.75rem", "1rem"]}
+              w={["35%", "30%"]}
             >
               adicionar
             </Button>

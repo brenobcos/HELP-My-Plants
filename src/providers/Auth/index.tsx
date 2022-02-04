@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 import { useToast } from "@chakra-ui/react";
 
@@ -79,22 +85,21 @@ function AuthProvider({ children }: AuthProviderProps) {
   });
 
   async function signIn({ email, password }: SignInCredentials) {
-    api
+    await api
       .post("/login", { email, password })
       .then((res) => {
         history.push("/dashboard");
+        const { accessToken, user } = res.data;
+        localStorage.setItem("@HelpMyPlants:user", JSON.stringify(user));
+        localStorage.setItem("@HelpMyPlants:accessToken", accessToken);
+        setData({ accessToken, user });
+
         toast({
-          title: "Login realizado com sucesso.",
+          title: `Bem vindo, ${res.data.user.name}!!!!`,
           status: "success",
           duration: 3000,
           isClosable: true,
         });
-
-        const { accessToken, user } = res.data;
-        localStorage.setItem("@HelpMyPlants:user", JSON.stringify(user));
-        localStorage.setItem("@HelpMyPlants:accessToken", accessToken);
-
-        setData({ accessToken, user });
       })
       .catch((err) => {
         toast({
@@ -112,7 +117,7 @@ function AuthProvider({ children }: AuthProviderProps) {
       .then((res) => {
         history.push("/");
         toast({
-          title: "Conta criada.",
+          title: `Bem vindo ${name}`,
           description: "Cadastro realizado com sucesso",
           status: "success",
           duration: 3000,
@@ -162,6 +167,7 @@ function AuthProvider({ children }: AuthProviderProps) {
           isClosable: true,
         });
       })
+      .then((_) => attUser())
       .catch(() =>
         toast({
           title: "Erro ao atualizar!",
@@ -170,6 +176,19 @@ function AuthProvider({ children }: AuthProviderProps) {
           isClosable: true,
         })
       );
+  }
+
+  function attUser() {
+    setData(() => {
+      const accessToken = localStorage.getItem("@HelpMyPlants:accessToken");
+      const user = localStorage.getItem("@HelpMyPlants:user");
+
+      if (accessToken && user) {
+        return { accessToken, user: JSON.parse(user) };
+      }
+
+      return {} as AuthState;
+    });
   }
 
   return (

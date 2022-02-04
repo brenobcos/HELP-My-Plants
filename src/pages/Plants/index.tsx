@@ -50,6 +50,7 @@ export function Plants() {
       title="Adicione uma nova planta ao seu jardim"
     >
       <Flex
+        as="section"
         alignItems="flex-start"
         css={{
           "&::-webkit-scrollbar": {
@@ -92,4 +93,3 @@ export function Plants() {
     </DashboardsRender>
   );
 }
-

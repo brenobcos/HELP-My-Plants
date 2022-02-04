@@ -66,7 +66,7 @@ export function RegisterForm() {
         Cadastro
       </Heading>
       <Text fontSize={["sm"]} textAlign="center">
-        Faça o cadastro para cuidar das suas plantas
+        Faça o cadastro para cuidar das suas plantas :&#41;
       </Text>
       <VStack mt="4" spacing="2">
         <InputComponent

@@ -50,6 +50,7 @@ export function Header({
     <>
       {!!accessToken && <EditUser isOpen={isOpen} onClose={onClose} />}
       <Flex
+        as="header"
         w="100%"
         alignItems="flex-start"
         justifyContent="space-between"
@@ -63,7 +64,9 @@ export function Header({
         >
           <Image
             cursor="pointer"
-            onClick={() => (!!accessToken ? {} : history.push("/"))}
+            onClick={() =>
+              !!accessToken ? history.push("/dashboard") : history.push("/")
+            }
             w={["150px", "200px", "200px", "180px"]}
             h={["140px"]}
             src={Logo}
@@ -146,7 +149,7 @@ export function Header({
                   </>
                 )}
 
-                {!accessToken && history.location.pathname === "/aboutus" && (
+                {!accessToken && history.location.pathname === "/curiosity" && (
                   <>
                     <MenuItem onClick={() => history.push("/signin")}>
                       Login
@@ -182,7 +185,6 @@ export function Header({
                           <MenuItem onClick={() => history.push("/aboutus")}>
                             Conheça nossa equipe
                           </MenuItem>
-                          <MenuItem onClick={onOpen}>Editar usuário</MenuItem>
                         </>
                       ))}
                     {history.location.pathname === "/curiosity" && (
@@ -190,9 +192,9 @@ export function Header({
                         <MenuItem onClick={() => history.push("plants")}>
                           Encontrar uma nova planta
                         </MenuItem>
-                        <MenuItem onClick={onOpen}>Editar usuário</MenuItem>
                       </>
                     )}
+                    <MenuItem onClick={onOpen}>Editar usuário</MenuItem>
                     <MenuItem onClick={handleSignOut}>Sair</MenuItem>
                   </>
                 )}
@@ -257,7 +259,6 @@ export function Header({
                     )}
                     {!!accessToken && (
                       <>
-                        <MenuItem onClick={onOpen}>Editar usuário</MenuItem>
                         {history.location.pathname === "/dashboard" ||
                           (history.location.pathname === "/plants" && (
                             <>
@@ -275,7 +276,7 @@ export function Header({
                             </MenuItem>
                           </>
                         )}
-
+                        <MenuItem onClick={onOpen}>Editar usuário</MenuItem>
                         <MenuItem onClick={handleSignOut}>Sair</MenuItem>
                       </>
                     )}

@@ -6,6 +6,8 @@ export const StyledInput = styled.input`
   border-color: "gray.1000";
   color: gray.1000;
   border-radius: 5px 0px 5px 0px;
+  font-size: 0.875rem;
+
   :focus {
     outline: none;
     border: 2px solid #8ec2ec;
@@ -23,9 +25,14 @@ export const StyledTextArea = styled.textarea`
   color: gray.1000;
   resize: none;
   border-radius: 10px 0px 10px 0px;
+  font-size: 0.875rem;
   :focus {
     outline: none;
     border: 2px solid #8ec2ec;
+  }
+  ::placeholder {
+    padding-left: 5px;
+    color: #184a2c;
   }
 
   @media (max-width: 479px) {
