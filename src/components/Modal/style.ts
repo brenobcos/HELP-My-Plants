@@ -30,6 +30,10 @@ export const StyledTextArea = styled.textarea`
     outline: none;
     border: 2px solid #8ec2ec;
   }
+  ::placeholder {
+    padding-left: 5px;
+    color: #184a2c;
+  }
 
   @media (max-width: 479px) {
     width: 220px;

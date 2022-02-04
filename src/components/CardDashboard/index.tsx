@@ -85,7 +85,7 @@ export function CardDashboard({
     >
       <Flex flexDirection="column" alignItems="center">
         <Text pl="10px" as="h1" mt="2" fontWeight="500" fontSize="1rem">
-          {name}
+          {surname ? surname : name}
         </Text>
         <Text
           as="span"
