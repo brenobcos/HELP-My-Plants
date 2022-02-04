@@ -96,7 +96,6 @@ function LogInForm() {
             sx={{
               backgroundColor: "green.100",
               color: "green.800",
-              width: "80%",
               height: "3vw",
               maxHeight: "70px",
               minHeight: "45px",
@@ -114,6 +113,7 @@ function LogInForm() {
               boxShadow: "0 0 1px 2px #184A2C, 0 1px 1px rgba(0, 0, 0, .15)",
             }}
             type="submit"
+            w={["89%", "91%", "80%"]}
           >
             Entrar
           </Button>

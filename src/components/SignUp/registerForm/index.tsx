@@ -55,6 +55,7 @@ export function RegisterForm() {
       flexDirection="column"
       position="relative"
       maxW="500px"
+      mb={["0", "0", "8"]}
       width={["100vw", "400px", "500px"]}
     >
       <Heading
@@ -142,7 +143,8 @@ export function RegisterForm() {
         height="3vw"
         maxHeight="70px"
         minHeight="45px"
-        mt="2"
+        mb={["6", "0"]}
+        mt={["6", "6", "2"]}
         w={["89%", "83%", "59%"]}
         maxW={["332px", "100%", "100%"]}
       >

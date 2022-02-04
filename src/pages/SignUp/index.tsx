@@ -18,16 +18,11 @@ export function SignUp() {
         iconLink="/signin"
       />
       <Flex
-        alignItems={[
-          "flex-start",
-          "flex-start",
-          "flex-start",
-          "flex-start",
-          "center",
-        ]}
+        alignItems={["flex-start", "flex-start", "center", "center", "center"]}
         as="main"
         justify="space-evenly"
-        h="calc(100vh - 150px)"
+        h="auto"
+        minH="calc(100vh - 150px)"
       >
         <Image
           src={img}
@@ -35,12 +30,12 @@ export function SignUp() {
             borderRadius: "50%",
             bottom: "-15vw",
             filter: "drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.4))",
-            height: "80vw",
+            height: "95vw",
             left: "-15vw",
             maxHeight: "500px",
             maxWidth: "500px",
             opacity: "0.6",
-            width: "80vw",
+            width: "95vw",
             zIndex: "-1",
             position: "fixed",
             "@media screen and (min-width: 1024px)": {
