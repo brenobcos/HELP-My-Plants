@@ -74,6 +74,7 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<EditPlantData>({ resolver: yupResolver(registerPlantSchema) });
 
   function handleEditPlant(data: EditPlantData) {
@@ -83,6 +84,7 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
     plant.reminder = data.reminder;
     changeUserPlant(plant);
     onClose();
+    reset();
   }
 
   function handleDelete() {
@@ -224,7 +226,7 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
               fontSize={["0.75rem", "1rem"]}
               w={["35%", "30%"]}
             >
-              adicionar
+              editar
             </Button>
           </Flex>
         </ModalBody>

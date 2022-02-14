@@ -53,6 +53,7 @@ function EditUser({ isOpen, onClose }: editUserProps) {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<UserProps>({
     resolver: yupResolver(registerSchema),
   });
@@ -65,6 +66,7 @@ function EditUser({ isOpen, onClose }: editUserProps) {
     };
     patchUser(newUser);
     onClose();
+    reset();
   }
 
   const options = ["Hobby", "Profissional", "Estudante"];
