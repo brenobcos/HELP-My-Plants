@@ -71,6 +71,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<NewPlantData>({ resolver: yupResolver(registerPlantSchema) });
 
   function handleAddPlant(data: NewPlantData) {
@@ -92,6 +93,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
       reminder: data.reminder,
     });
     onClose();
+    reset();
   }
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -114,7 +116,6 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
           {plant.name}
         </ModalHeader>
         <ModalCloseButton padding="0" />
-
         <ModalBody>
           <FormLabel fontWeight="bold" marginBottom="0">
             Apelido
@@ -142,7 +143,6 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
             </Text>
           )}
           <Divider as="hr" borderColor="green.800" margin="4px 0" />
-
           <FormLabel fontWeight="bold" marginBottom="0">
             Lembrete
           </FormLabel>
@@ -170,18 +170,14 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
             </Text>
           )}
           <Divider as="hr" borderColor="green.800" margin="4px 0" />
-
           <FormLabel fontWeight="bold" marginBottom="0">
             Detalhes
           </FormLabel>
-
           <StyledTextArea
             placeholder="Mais informações que você achar relevante aqui:)"
             {...register("details")}
           />
-
           <Divider as="hr" borderColor="green.800" margin="4px 0" />
-
           <FormLabel fontWeight="bold" marginBottom="0">
             Ultima rega
           </FormLabel>
@@ -193,9 +189,7 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
               </Text>
             )}
           </Flex>
-
           <Divider as="hr" borderColor="green.800" margin="4px 0" />
-
           <Button
             _hover={{ bg: "green.800" }}
             _active={{ borderColor: "none" }}
