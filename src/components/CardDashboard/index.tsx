@@ -27,7 +27,7 @@ interface plant {
   image: string;
   surname?: string;
   reminder?: string;
-  last_watering?: string;
+  last_watering?: Date;
   details?: string;
   userId?: number;
   id?: number;
@@ -61,16 +61,20 @@ export function CardDashboard({
     }
     return "cold";
   };
-  const handleDate = (date: string) => {
-    return date.split("-").reverse().splice(0, 2).join("/");
+  const handleLastWatering = (last_watering: Date) => {
+    const newLast = new Date(last_watering);
+    return Intl.DateTimeFormat(["pt-br"])
+      .format(new Date(last_watering))
+      .slice(0, -5);
   };
 
-  const handleWatering = (date: string, waterDays: number) => {
-    const newDateWater = [];
-    const currentDate = date.split("-").reverse().splice(0, 2);
-    const nextDay = Number(currentDate.splice(0, 1)) + waterDays;
-    newDateWater.push(nextDay, currentDate);
-    return newDateWater.join().replace(",", "/");
+  const handleWatering = (date: Date, waterDays: number) => {
+    const formatDate = new Date(date);
+    const format2 = new Date(
+      formatDate.setDate(formatDate.getDate() + waterDays)
+    );
+    const newDate = Intl.DateTimeFormat(["pt-br"]).format(format2).slice(0, -5);
+    return newDate;
   };
 
   return (
@@ -166,7 +170,7 @@ export function CardDashboard({
             border: "none",
           }}
         >
-          Última rega: {last_watering && handleDate(last_watering)}
+          Última rega: {last_watering && handleLastWatering(last_watering)}
         </Text>
         <IconButton
           color="gray.0"
