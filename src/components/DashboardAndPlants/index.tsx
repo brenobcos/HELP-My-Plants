@@ -46,7 +46,7 @@ export function DashboardsRender({
         {userPlants.length >= 1 && topTitle ? (
           <Heading
             as="h3"
-            top={["22vh", "13vh", "13vh", "12vh"]}
+            top={["18vh", "13vh", "13vh", "12vh"]}
             fontSize="3xl"
             fontWeight="regular"
             right={["25vw", "10vw", "35vw", "37vw"]}
