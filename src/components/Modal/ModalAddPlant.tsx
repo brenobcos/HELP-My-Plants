@@ -22,7 +22,6 @@ import { useForm } from "react-hook-form";
 import { useAuth } from "../../providers/Auth/index";
 import { useUserPlants } from "../../providers/UserPlantsProvider";
 import { EditableControls } from "../EditableControls";
-import { useState } from "react";
 
 interface plantMinMax {
   min: number;
@@ -51,7 +50,7 @@ interface NewPlantData {
   surname: string;
   reminder: string;
   details: string;
-  last_watering: string;
+  last_watering: Date;
 }
 export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
   const registerPlantSchema = yup.object().shape({
@@ -62,7 +61,11 @@ export function ModalNewPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
       .string()
       .max(80, "Seu lembrete pode ter no maxímo oitenta caracteres"),
 
-    last_watering: yup.string().required("Campo obrigatório"),
+    last_watering: yup
+      .date()
+      .required("Campo obrigatório")
+      .nullable()
+      .typeError("Campo obrigatório"),
   });
 
   const { user } = useAuth();

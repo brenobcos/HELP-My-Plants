@@ -28,8 +28,8 @@ export function CardAboutus({
   50%  {opacity:0;}
   75%  {opacity: 0.8;}
   100% {opacity: 1;}
-  
   `;
+
   function Shared() {
     const appearAnimation = `${appear} 1 1s linear forwards`;
 

@@ -37,7 +37,7 @@ interface plant {
   image: string;
   reminder?: string;
   surname?: string;
-  last_watering?: string;
+  last_watering?: Date;
   details?: string;
   userId?: number;
   id: number;
@@ -53,7 +53,7 @@ interface EditPlantData {
   surname: string;
   reminder: string;
   details: string;
-  last_watering: string;
+  last_watering: Date;
 }
 
 export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
@@ -66,7 +66,11 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
       .string()
       .max(60, "Seu lembrete pode ter no maxímo sessenta caracteres"),
 
-    last_watering: yup.string().required("Campo obrigatório"),
+    last_watering: yup
+      .date()
+      .required("Campo obrigatório")
+      .nullable()
+      .typeError("Campo Obrigatório"),
   });
 
   const { changeUserPlant, deleteUserPlant } = useUserPlants();
@@ -183,7 +187,7 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
           <Flex flexDirection="column">
             <StyledInput
               type="date"
-              defaultValue={plant.last_watering}
+              // defaultValue={plant.last_watering}
               {...register("last_watering")}
               id="12"
             />
@@ -224,7 +228,7 @@ export function ModalEditPlant({ isOpen, onClose, plant }: ModalNewPlantProps) {
               fontSize={["0.75rem", "1rem"]}
               w={["35%", "30%"]}
             >
-              adicionar
+              editar
             </Button>
           </Flex>
         </ModalBody>
