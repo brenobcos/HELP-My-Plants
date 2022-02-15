@@ -27,7 +27,7 @@ interface plant {
   image: string;
   reminder?: string;
   surname?: string;
-  last_watering?: string;
+  last_watering?: Date;
   details?: string;
   userId?: number;
   id: number;
@@ -76,6 +76,7 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
   }
 
   async function addNewPlant(plant: plant) {
+    console.log(plant);
     await api
       .post("/userPlants/", plant, {
         headers: {

@@ -23,7 +23,7 @@ interface plant {
   image: string;
   reminder?: string;
   surname?: string;
-  last_watering?: string;
+  last_watering?: Date;
   details?: string;
   userId?: number;
   id: number;

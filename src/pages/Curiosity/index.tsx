@@ -56,7 +56,6 @@ export function Curiosity() {
             alignSelf="center"
             borderRadius="50px 8px 50px 0px "
           />
-
           <Text as="p">
             Enquanto uma parte das plantas precisa de bastante incidência da luz
             solar e têm ciclos bem definidos, o ideal ao escolher sua planta
@@ -74,7 +73,6 @@ export function Curiosity() {
             alignSelf="center"
             borderRadius="50px 8px 50px 0px "
           />
-
           <Text as="p">
             Definir o objectivo do seu jardim é normalmente o passo que antecede
             a escolha e aquisição das plantas propriamente dita. <br />
@@ -95,7 +93,6 @@ export function Curiosity() {
             alignSelf="center"
             borderRadius="50px 8px 50px 0px "
           />
-
           <Text as="p">
             Um vaso decorativo pode harmonizar com o estilo da decoração ou,
             então, brincar com contraste. No segundo caso, ele se tornará um
@@ -116,7 +113,6 @@ export function Curiosity() {
             alignSelf="center"
             borderRadius="50px 8px 50px 0px "
           />
-
           <Text as="p">
             Escolha a espécie adequada. Não é qualquer tipo de planta que vai se
             ambientar à sua casa. Regue na hora certa.
@@ -140,7 +136,6 @@ export function Curiosity() {
             alignSelf="center"
             borderRadius="50px 8px 50px 0px "
           />
-
           <Text as="p">
             Aposte em cascas de alimentos como adubo para horta em vasos. As
             cascas de frutas e outros alimentos (ovos, leguminosas, entre
@@ -158,7 +153,6 @@ export function Curiosity() {
             alignSelf="center"
             borderRadius="50px 8px 50px 0px "
           />
-
           <Text as="p">
             Primeiramente, é preciso saber identificar onde corte deve ser
             feito. O local exato para a realização da poda é na bifurcação dos
@@ -179,7 +173,6 @@ export function Curiosity() {
             alignSelf="center"
             borderRadius="50px 8px 50px 0px "
           />
-
           <Box marginBottom="20px">
             <Text as="div" textAlign="justify">
               <Text fontWeight="bold">1. Definir o estilo do projeto.</Text>
