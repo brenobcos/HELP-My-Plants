@@ -14,9 +14,10 @@ import { AccordionComponent } from "../../components/AccordionComponent";
 
 export function Curiosity() {
   return (
-    <Box height="100%">
+    <Box minHeight="100vh">
       <Header firstLink="/aboutus" firstText="Conheça nossa equipe" />
       <Flex
+        height="auto"
         as="main"
         sx={{
           justifyContent: "space-evenly",
