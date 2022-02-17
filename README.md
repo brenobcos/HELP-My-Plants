@@ -1,8 +1,11 @@
 <h1 align="center">
   <img alt="Help My Plants" src="https://i.ibb.co/cYGQVXr/logopadrao-3-1.png" width="100px" />
 </h1>
-![helpmyplantsGit](https://user-images.githubusercontent.com/83380946/154546201-b419b8d3-332c-4604-b1bf-ae8b50523a16.gif)
 <br>
+
+<h1 align="center">
+    <img alt="my-onix" title="my-onix" src="https://user-images.githubusercontent.com/83380946/154546201-b419b8d3-332c-4604-b1bf-ae8b50523a16.gif" />
+</h1>
 
 ## 🧪 Tecnologias
 
