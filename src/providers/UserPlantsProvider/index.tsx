@@ -76,7 +76,6 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
   }
 
   async function addNewPlant(plant: plant) {
-    console.log(plant);
     await api
       .post("/userPlants/", plant, {
         headers: {
