@@ -103,7 +103,7 @@ export function AboutUs() {
             image={caique}
             name="Caique Cavalheiro"
             linkedin="https://www.linkedin.com/in/caiquefcavalheiro/"
-            github="https://github.com/caiquefcavalheiro"
+            github="https://github.com/Caique-Cavalheiro"
             office="Scrum Master"
           />
           <CardAboutus
