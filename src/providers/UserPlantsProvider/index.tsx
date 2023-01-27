@@ -77,7 +77,7 @@ function UserPlantsProvider({ children }: UserPlantsProviderProps) {
 
   async function addNewPlant(plant: plant) {
     await api
-      .post("/userPlants/", plant, {
+      .post("/userPlants", plant, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

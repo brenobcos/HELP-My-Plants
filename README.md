@@ -10,7 +10,7 @@
 ## 🧪 Tecnologias
 
 Este projeto foi desenvolvido utilizando as tecnologias:
- 
+
 - [React](https://pt-br.reactjs.org/)
 - [Typescript](https://www.typescriptlang.org/)
 - [Chakra UI](https://chakra-ui.com/)
@@ -30,6 +30,7 @@ $ cd help-my-plants
 ```
 
 Siga os passos abaixo:
+
 ```bash
 # Instale as dependências
 $ yarn
@@ -40,15 +41,15 @@ $ yarn start
 
 ## ⚙️ API
 
-- [API - Help My Plants - Json-Server](https://github.com/brenobcos/help-my-plants-backend)
+- [API - Help My Plants - Django](https://github.com/caiquefcavalheiro/help_my_plants_backend)
 
 ## 🔖 Layout
 
 Você pode visualizar o layout do projeto através dos links abaixo:
 
-- [Vercel](https://help-my-plants-brenobcos.vercel.app/) 
+- [Vercel](https://help-my-plants-brenobcos.vercel.app/)
 
-- [Layout Figma](https://www.figma.com/file/Yw9QjMABnw3CCty4dvB8mN/HE!P-My-Plants?node-id=0%3A1) 
+- [Layout Figma](https://www.figma.com/file/Yw9QjMABnw3CCty4dvB8mN/HE!P-My-Plants?node-id=0%3A1)
 
 Lembrando que você precisa ter uma conta [Figma](http://figma.com/) para acessá-lo.
 
