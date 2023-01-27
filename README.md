@@ -1,46 +1,56 @@
-# Getting Started with Create React App
+<h1 align="center">
+  <img alt="Help My Plants" src="https://i.ibb.co/cYGQVXr/logopadrao-3-1.png" width="100px" />
+</h1>
+<br>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+    <img alt="my-onix" title="my-onix" src="https://user-images.githubusercontent.com/83380946/154546201-b419b8d3-332c-4604-b1bf-ae8b50523a16.gif" />
+</h1>
 
-## Available Scripts
+## 🧪 Tecnologias
 
-In the project directory, you can run:
+Este projeto foi desenvolvido utilizando as tecnologias:
 
-### `yarn start`
+- [React](https://pt-br.reactjs.org/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Chakra UI](https://chakra-ui.com/)
+- [Styled Components](https://styled-components.com/)
+- [React Hook Form](https://react-hook-form.com/)
+- [Yup](https://github.com/jquense/yup)
+- [React Router](https://v5.reactrouter.com/web/guides/quick-start)
+- [Axios](https://axios-http.com/docs/intro)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 🚀 Iniciando o projeto
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Clone o projeto e acesse a pasta.
 
-### `yarn test`
+```bash
+$ git clone https://github.com/brenobcos/help-my-plants.git
+$ cd help-my-plants
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Siga os passos abaixo:
 
-### `yarn build`
+```bash
+# Instale as dependências
+$ yarn
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Inicie o projeto
+$ yarn start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ⚙️ API
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [API - Help My Plants - Django](https://github.com/caiquefcavalheiro/help_my_plants_backend)
 
-### `yarn eject`
+## 🔖 Layout
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Você pode visualizar o layout do projeto através dos links abaixo:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [Vercel](https://help-my-plants-brenobcos.vercel.app/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- [Layout Figma](https://www.figma.com/file/Yw9QjMABnw3CCty4dvB8mN/HE!P-My-Plants?node-id=0%3A1)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Lembrando que você precisa ter uma conta [Figma](http://figma.com/) para acessá-lo.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Feito por [Breno Carlos](https://www.linkedin.com/in/devbrenocar/), [Bruno Tetzner](https://www.linkedin.com/in/bruno-tetzner/), [Caique Carvalheiro](https://www.linkedin.com/in/caiquefcavalheiro/), [Johnny Gregorio](https://www.linkedin.com/in/johnny-gregorio-237737218/), [Luiza Schmidt](https://www.linkedin.com/in/luiza-schmidt-mescolotto/)

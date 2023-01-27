@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "https://help-my-plants-backend.herokuapp.com/",
+  baseURL: "https://web-production-d7d5.up.railway.app/",
 });

@@ -31,7 +31,7 @@ interface User {
 }
 
 interface AuthState {
-  accessToken: string;
+  access: string;
   user: User;
 }
 
@@ -74,11 +74,11 @@ function AuthProvider({ children }: AuthProviderProps) {
   const toast = useToast();
 
   const [data, setData] = useState<AuthState>(() => {
-    const accessToken = localStorage.getItem("@HelpMyPlants:accessToken");
+    const access = localStorage.getItem("@HelpMyPlants:accessToken");
     const user = localStorage.getItem("@HelpMyPlants:user");
 
-    if (accessToken && user) {
-      return { accessToken, user: JSON.parse(user) };
+    if (access && user) {
+      return { access, user: JSON.parse(user) };
     }
 
     return {} as AuthState;
@@ -89,10 +89,10 @@ function AuthProvider({ children }: AuthProviderProps) {
       .post("/login", { email, password })
       .then((res) => {
         history.push("/dashboard");
-        const { accessToken, user } = res.data;
+        const { access, user } = res.data;
         localStorage.setItem("@HelpMyPlants:user", JSON.stringify(user));
-        localStorage.setItem("@HelpMyPlants:accessToken", accessToken);
-        setData({ accessToken, user });
+        localStorage.setItem("@HelpMyPlants:accessToken", access);
+        setData({ access, user });
 
         toast({
           title: `Bem vindo, ${res.data.user.name}!!!!`,
@@ -147,7 +147,7 @@ function AuthProvider({ children }: AuthProviderProps) {
         `/users/${data.user.id}`,
         { ...patchData },
         {
-          headers: { Authorization: `Bearer ${data.accessToken}` },
+          headers: { Authorization: `Bearer ${data.access}` },
         }
       )
       .then((res) => {
@@ -180,11 +180,11 @@ function AuthProvider({ children }: AuthProviderProps) {
 
   function attUser() {
     setData(() => {
-      const accessToken = localStorage.getItem("@HelpMyPlants:accessToken");
+      const access = localStorage.getItem("@HelpMyPlants:accessToken");
       const user = localStorage.getItem("@HelpMyPlants:user");
 
-      if (accessToken && user) {
-        return { accessToken, user: JSON.parse(user) };
+      if (access && user) {
+        return { access, user: JSON.parse(user) };
       }
 
       return {} as AuthState;
@@ -194,7 +194,7 @@ function AuthProvider({ children }: AuthProviderProps) {
   return (
     <AuthContext.Provider
       value={{
-        accessToken: data.accessToken,
+        accessToken: data.access,
         user: data.user,
         signIn,
         signOut,
