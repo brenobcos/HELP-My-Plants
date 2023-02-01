@@ -94,3 +94,4 @@ yarn-error.log*
 .vercel
 
 .vscode/
+yarn.lock
