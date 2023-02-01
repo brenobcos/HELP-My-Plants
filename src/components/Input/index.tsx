@@ -5,13 +5,13 @@ import {
   Text,
   InputRightElement,
   Icon,
-} from "@chakra-ui/react";
-import { forwardRef, ForwardRefRenderFunction } from "react";
-import { FieldError } from "react-hook-form";
-import { IconType } from "react-icons/lib";
+} from '@chakra-ui/react';
+import { forwardRef, ForwardRefRenderFunction } from 'react';
+import { FieldError } from 'react-hook-form';
+import { IconType } from 'react-icons/lib';
 
 interface InputComponentProps extends InputProps {
-  error: FieldError | null | undefined;
+  error: FieldError | undefined;
   name: string;
   type?: string;
   icon: IconType;
@@ -25,14 +25,14 @@ const InputBase: ForwardRefRenderFunction<
     <InputGroup
       display="flex"
       flexDirection="column"
-      w={["90%", "90%", "80%", "80%"]}
+      w={['90%', '90%', '80%', '80%']}
     >
       <Input
         name={name}
         ref={ref}
         type={type}
         {...rest}
-        _placeholder={{ color: "green.100", fontWeight: "medium" }}
+        _placeholder={{ color: 'green.100', fontWeight: 'medium' }}
         backgroundColor="green.800"
         border="none"
         color="green.100"
