@@ -1,5 +1,5 @@
-import { Redirect, Route as ReactRoute, RouteProps } from 'react-router-dom';
-import { useAuth } from '../providers/Auth';
+import { Redirect, Route as ReactRoute, RouteProps } from "react-router-dom";
+import { useAuth } from "../providers/Auth";
 
 interface Props extends RouteProps {
   isPrivate?: boolean;
@@ -16,7 +16,7 @@ export function Route({ isPrivate = false, isPublic = false, ...rest }: Props) {
       ) : isPublic ? (
         <ReactRoute {...rest} />
       ) : (
-        <Redirect to={isPrivate ? '/' : '/dashboard'} />
+        <Redirect to={isPrivate ? "/" : "/dashboard"} />
       )}
     </>
   );
