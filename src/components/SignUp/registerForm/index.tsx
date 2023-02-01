@@ -78,7 +78,7 @@ export function RegisterForm() {
         />
         <InputComponent
           {...register("email")}
-          error={errors?.email}
+          error={errors.email}
           icon={FaEnvelope}
           placeholder="Email"
         />
