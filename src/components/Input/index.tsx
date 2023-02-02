@@ -11,7 +11,7 @@ import { FieldError } from "react-hook-form";
 import { IconType } from "react-icons/lib";
 
 interface InputComponentProps extends InputProps {
-  error: FieldError | null | undefined;
+  error: FieldError | undefined;
   name: string;
   type?: string;
   icon: IconType;
