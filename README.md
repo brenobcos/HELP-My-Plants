@@ -47,7 +47,7 @@ $ yarn start
 
 Você pode visualizar o layout do projeto através dos links abaixo:
 
-- [Vercel](https://help-my-plants-brenobcos.vercel.app/)
+- [Vercel](https://project-help-my-plants.vercel.app/)
 
 - [Layout Figma](https://www.figma.com/file/Yw9QjMABnw3CCty4dvB8mN/HE!P-My-Plants?node-id=0%3A1)
 
